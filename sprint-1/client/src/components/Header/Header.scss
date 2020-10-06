@@ -30,7 +30,16 @@ html,body
         @include mobile {
         width: 120px; //40%;
         height: 40px; //16%;
-        margin-top: 1rem;  
+        margin-top: 1.3rem;  
+        }
+        @include tablet {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 2rem;
+            margin-top: 1.5rem;
+        }
+        @include desktop{
+            margin-left: 8.125rem;
         }
     }
 
@@ -39,6 +48,12 @@ html,body
         margin-left: 16px;
         margin-right: 16px;
      }
+        @include tablet {
+            margin-right: 32px;
+        }
+        @include desktop{
+            margin-right: 9.125rem;
+        }
     }
 
     &__nav-list {
@@ -47,6 +62,11 @@ html,body
         list-style-type: none;
         margin-top: 1.2rem;
         justify-content: center;
+        }
+        @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -1.7rem;
         }
     }
 
@@ -57,6 +77,9 @@ html,body
         text-decoration: none;
         font-weight: 600;
         }
+        // @include tablet {
+        // margin-top: -3rem;
+        // }
     }
 
     &__nav-border {
@@ -69,6 +92,10 @@ html,body
         margin-top: -0.38rem;
         margin-right: 3.9rem;
         margin-left: -4.8rem;
+        }
+        @include tablet {
+            width: 100px;
+            margin-right: 1.5rem;
         }
     }
 
