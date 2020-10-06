@@ -1,0 +1,38 @@
+  // Import in partials to reuse code later
+  @import "./partials/functions";
+  @import "./partials/variables";
+  @import "./partials/mixins";
+  @import "./partials/fonts";
+
+  // Setup of margins and padding 0 and call font family once
+body {
+    font-family: "Titillium Web";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+  };
+  h1, h2, h3, h4, h5, p, ul, li, a {
+    padding: 0;
+  };
+
+
+// // Changing placeholder from gray to black to match mockup designs
+// ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+//     color: black;
+//     opacity: 1; /* Firefox */
+//   }
+
+  // @include mobile {
+  //     margin: 0;
+  //     padding: 0;
+  // }   
+  // @i
+  // @include tablet {
+  //     margin: 0;
+  //     padding: 0;
+  // }   
+  // @include desktop {
+  //     margin: 0;
+  //     padding: 0;
+  // } 
