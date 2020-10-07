@@ -2,6 +2,7 @@
   // to avoid problems with relative paths.
   @font-face {
     font-family: "Titillium Web";
+<<<<<<< HEAD
     src: url("/assets/fonts/titilliumwebregular.ttf");
   };
   @font-face {
@@ -35,16 +36,19 @@
   @font-face {
     font-family: "Titillium Web";
     src: url("/assets/fonts/titilliumweblightitalic.ttf");
+=======
+    src: url("/assets/fonts/alt/titilliumwebregular.ttf");
+    font-weight: 400;
+    font-style: normal;
+>>>>>>> development
   };
   @font-face {
     font-family: "Titillium Web";
     src: url("/assets/fonts/titilliumwebsemibold.ttf");
+    font-weight: 600;
+    font-style: normal;;
   };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebsemibolditalic.ttf");
-  };
-
+  
   h1, .h1 {
     font-family: Titillium Web;
     font-style: normal;
