@@ -5,6 +5,7 @@ import WarehouseList from "./Components/WarehouseList/WarehouseList";
 import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
 import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
+import Background from "./Components/Background/Background";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
       {/* <AddNewWarehouse /> */}
-      <InventoryItemDetails />
+      {/* <InventoryItemDetails /> */}
+      <Background />
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={() => <route />} />
