@@ -31,6 +31,7 @@ body {
   margin: 10% auto 30% auto;
   @include tablet {
     margin: -3% auto 30% auto;
+    padding-bottom: 1.9%;
   }
 
   &__title-container {
@@ -44,7 +45,7 @@ body {
   }
 
   &__title {
-    font-family: Titillium Web;
+    // font-family: Titillium Web;
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
@@ -60,31 +61,52 @@ body {
   }
   &__form-container {
     display: flex;
+    @include tablet {
+      height: 100%;
+    }
   }
   &__form {
     display: flex;
     flex-direction: column;
     @include tablet {
       flex-direction: unset;
-      width: 50%;
+      width: 100%;
+      flex-wrap: wrap;
     }
   }
-  &__form-container-top {
+
+  &__form-divider {
+    display: none;
     @include tablet {
-      width: 50vw;
+      display: unset;
+      border-right: 1px solid #bdc5d5;
+      height: 80%;
+      margin-top: 3%;
+    }
+  }
+
+  &__form-container-top {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      width: 49%;
     }
   }
 
   &__warehouse-details-contact {
     border-top: 1px solid #bdc5d5;
     margin-top: 4vh;
+    @include tablet {
+      margin: 0;
+      border-top: unset;
+    }
   }
 
   &__warehouse-details {
     display: flex;
   }
   &__warehouse-details-title {
-    font-family: Titillium Web;
+    // font-family: Titillium Web;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -92,9 +114,13 @@ body {
     color: #13182c;
     margin-left: 6%;
     margin: 6% 0 3% 6%;
+    @include tablet {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
   &__warehouse-input-label {
-    font-family: Titillium Web;
+    // font-family: Titillium Web;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -103,9 +129,16 @@ body {
     margin-top: 5%;
     margin-left: 6%;
     margin-bottom: 1%;
+    @include tablet {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 22px;
+      margin-top: 6%;
+      margin-bottom: 1.5%;
+    }
   }
   &__warehouse-input {
-    width: 80%;
+    width: 90%;
     height: 36px;
     left: 40px;
     top: 321px;
@@ -114,13 +147,19 @@ body {
     box-sizing: border-box;
     border-radius: 20px;
     align-self: center;
+
     &::placeholder {
+      font-family: Titillium Web;
       padding-left: 5%;
       font-style: normal;
       font-weight: normal;
       font-size: 13px;
       line-height: 20px;
       color: #13182c;
+      @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+      }
     }
   }
   &__warehouse-btn {
@@ -132,6 +171,11 @@ body {
     height: 68px;
     align-items: center;
     margin-top: 8%;
+    @include tablet {
+      height: 70px;
+      margin-top: 3%;
+      justify-content: flex-end;
+    }
   }
   &__warehouse-btn-cancel {
     display: flex;
@@ -149,11 +193,30 @@ body {
     line-height: 20px;
     align-self: center;
     color: #5c667e;
+    @include tablet {
+      width: 72px;
+      height: 38px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 22px;
+      margin-right: 3%;
+    }
   }
 
   &__warehouse-btn-save {
     @extend .edit__warehouse-btn-cancel;
     background: #2e66e6;
+    color: #ffffff;
+    @include tablet {
+      width: 61px;
+      height: 38px;
+      margin-right: 4%;
+    }
+  }
+  &__warehouse-btn-cancel-h3 {
+    color: #5c667e;
+  }
+  &__warehouse-btn-save-h3 {
     color: #ffffff;
   }
 }

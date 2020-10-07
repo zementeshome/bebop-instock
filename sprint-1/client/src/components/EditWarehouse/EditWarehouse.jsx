@@ -21,7 +21,7 @@ export default function EditWarehouse() {
               className="edit__warehouse-input-label"
               htmlFor="warehouse-name"
             >
-              Warehouse-Name
+              Warehouse Name
             </label>
             <input
               placeholder="King West"
@@ -66,7 +66,8 @@ export default function EditWarehouse() {
               type="text"
             />
           </div>
-          <div className="edit__form">
+          <div className="edit__form-divider"></div>
+          <div className="edit__form-container-top">
             <div className="edit__warehouse-details edit__warehouse-details-contact">
               <h3 className="edit__warehouse-details-title">Contact Details</h3>
             </div>
@@ -120,8 +121,12 @@ export default function EditWarehouse() {
             />
           </div>
           <div className="edit__warehouse-btn">
-            <button className="edit__warehouse-btn-cancel">Cancel</button>
-            <button className="edit__warehouse-btn-save">Save</button>
+            <button className="edit__warehouse-btn-cancel">
+              <h3 className="edit__warehouse-btn-cancel-h3"> Cancel</h3>
+            </button>
+            <button className="edit__warehouse-btn-save">
+              <h3 className="edit__warehouse-btn-save-h3">Save</h3>
+            </button>
           </div>
         </form>
         {/* </div> */}

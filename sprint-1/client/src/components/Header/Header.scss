@@ -23,14 +23,17 @@ html,body
     height: 200px;
     left: 0px;
     top: 0px;
-    background-color: #232940;
+    background-color: $graphite;
 }
+    @include tablet{
+        height: 186px;
+    }
 
     &__logo {
         @include mobile {
-        width: 120px; //40%;
-        height: 40px; //16%;
-        margin-top: 1.3rem;  
+        width: 120px; 
+        height: 40px; 
+        margin-top: 1.3rem;
         }
         @include tablet {
             display: flex;
@@ -77,9 +80,6 @@ html,body
         text-decoration: none;
         font-weight: 600;
         }
-        // @include tablet {
-        // margin-top: -3rem;
-        // }
     }
 
     &__nav-border {
