@@ -1,134 +1,102 @@
-  // Fontface call for each different weight. We call fontface public folder
-  // to avoid problems with relative paths.
-  @font-face {
-    font-family: "Titillium Web";
-<<<<<<< HEAD
-    src: url("/assets/fonts/titilliumwebregular.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebblack.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebbold.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebbolditalic.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebextralight.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebextralightitalic.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebitalic.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumweblight.ttf");
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumweblightitalic.ttf");
-=======
-    src: url("/assets/fonts/alt/titilliumwebregular.ttf");
-    font-weight: 400;
-    font-style: normal;
->>>>>>> development
-  };
-  @font-face {
-    font-family: "Titillium Web";
-    src: url("/assets/fonts/titilliumwebsemibold.ttf");
-    font-weight: 600;
-    font-style: normal;;
-  };
-  
-  h1, .h1 {
-    font-family: Titillium Web;
-    font-style: normal;
-    font-weight: 600;
-    font-size: convertRem(32px);
-    line-height: 40px;
-    /* identical to box height, or 125% */
+// Fontface call for each different weight. We call fontface public folder
+// to avoid problems with relative paths.
+@font-face {
+  font-family: "Titillium Web";
+  src: url("/assets/fonts/titilliumwebregular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: url("/assets/fonts/titilliumwebsemibold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
 
-    color: #C4C4C4;
-  }
+h1,
+.h1 {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: convertRem(32px);
+  line-height: 40px;
+  /* identical to box height, or 125% */
 
-  h2, .h2 {
-    font-family: Titillium Web;
-    font-style: normal;
-    font-weight: 600;
-    font-size: convertRem(24px);
-    line-height: 32px;
-    /* identical to box height, or 133% */
+  color: #c4c4c4;
+}
 
-    color: #C4C4C4;
-  }
+h2,
+.h2 {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: convertRem(24px);
+  line-height: 32px;
+  /* identical to box height, or 133% */
 
-  h3, .h3{
-    font-family: Titillium Web;
-    font-style: normal;
-    font-weight: 600;
-    font-size: convertRem(14px);
-    line-height: 22px;
-    /* identical to box height, or 157% */
-    
-    color: #C4C4C4
-  }
+  color: #c4c4c4;
+}
 
-  h4, .h3{
-    font-family: Titillium Web;
-    font-style: normal;
-    font-weight: 600;
-    font-size: convertRem(12px);
-    line-height: 18px;
-    /* identical to box height, or 150% */
-    
-    text-transform: uppercase;
-    
-    color: #C4C4C4;
-  }
+h3,
+.h3 {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: convertRem(14px);
+  line-height: 22px;
+  /* identical to box height, or 157% */
 
- .p1 {
+  color: #c4c4c4;
+}
+
+h4,
+.h3 {
+  font-family: Titillium Web;
+  font-style: normal;
+  font-weight: 600;
+  font-size: convertRem(12px);
+  line-height: 18px;
+  /* identical to box height, or 150% */
+
+  text-transform: uppercase;
+
+  color: #c4c4c4;
+}
+
+.p1 {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(16px);
   line-height: 28px;
   /* identical to box height, or 175% */
-  
-  color: #C4C4C4;
-  }
 
-.p2{
+  color: #c4c4c4;
+}
+
+.p2 {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(14px);
   line-height: 22px;
   /* identical to box height, or 157% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.p3{
+.p3 {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(12px);
   line-height: 18px;
   /* identical to box height, or 150% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.h1-m{
+.h1-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: 600;
@@ -136,10 +104,10 @@
   line-height: 36px;
   /* identical to box height, or 129% */
 
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
-.h2-m{
+.h2-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: 600;
@@ -147,63 +115,62 @@
   line-height: 28px;
   /* identical to box height, or 140% */
 
-  
-  color: #C4C4C4;
+  color: #c4c4c4;
 }
 
-.h3-m{
+.h3-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: 600;
   font-size: convertRem(13px);
   line-height: 20px;
   /* identical to box height, or 154% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.h4-m{
+.h4-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: 600;
   font-size: convertRem(11px);
   line-height: 16px;
   /* identical to box height, or 145% */
-  
+
   text-transform: uppercase;
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.p1-m{
+.p1-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(15px);
   line-height: 26px;
   /* identical to box height, or 173% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.p2-m{
+.p2-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(13px);
   line-height: 20px;
   /* identical to box height, or 154% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
 
-.p3-m{
+.p3-m {
   font-family: Titillium Web;
   font-style: normal;
   font-weight: normal;
   font-size: convertRem(11px);
   line-height: 16px;
   /* identical to box height, or 145% */
-  
-  color: #C4C4C4;
+
+  color: #c4c4c4;
 }
