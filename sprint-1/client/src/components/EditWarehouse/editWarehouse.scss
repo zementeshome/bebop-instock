@@ -33,6 +33,11 @@ body {
     margin: -3% auto 30% auto;
     padding-bottom: 1.9%;
   }
+  @include desktop {
+    margin: -1.4% auto 30% auto;
+    width: 1020px;
+    height: 612px;
+  }
 
   &__title-container {
     display: flex;
@@ -54,6 +59,11 @@ body {
     @include tablet {
       margin-left: 9%;
       font-style: normal;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 40px;
+    }
+    @include desktop {
       font-weight: 600;
       font-size: 32px;
       line-height: 40px;
@@ -82,6 +92,9 @@ body {
       border-right: 1px solid #bdc5d5;
       height: 80%;
       margin-top: 3%;
+    }
+    @include desktop {
+      height: 78%;
     }
   }
 
@@ -118,6 +131,11 @@ body {
       font-size: 24px;
       line-height: 32px;
     }
+    @include desktop {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
   &__warehouse-input-label {
     // font-family: Titillium Web;
@@ -136,6 +154,12 @@ body {
       margin-top: 6%;
       margin-bottom: 1.5%;
     }
+    @include desktop {
+      margin-top: 4.5%;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
   &__warehouse-input {
     width: 90%;
@@ -148,6 +172,10 @@ body {
     border-radius: 20px;
     align-self: center;
 
+    &:focus::placeholder {
+      color: transparent;
+    }
+
     &::placeholder {
       font-family: Titillium Web;
       padding-left: 5%;
@@ -159,6 +187,10 @@ body {
       @include tablet {
         font-size: 14px;
         line-height: 22px;
+      }
+      @include desktop {
+        // width: 429px;
+        // height: 38px;
       }
     }
   }
@@ -175,6 +207,10 @@ body {
       height: 70px;
       margin-top: 3%;
       justify-content: flex-end;
+    }
+    @include desktop {
+      // width: 1020px;
+      // height: 70px;
     }
   }
   &__warehouse-btn-cancel {
