@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
+import Header from "./Components/Header/Header";
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
+import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
+import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import WarehouseList from "./components/WarehouseList/WarehouseList";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import AddNewWarehouse from "./components/AddNewWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Header />
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
-      <AddNewWarehouse />
+      {/* <AddNewWarehouse /> */}
+      <InventoryItemDetails />
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={() => <route />} />
