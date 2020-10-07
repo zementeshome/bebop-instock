@@ -1,0 +1,16 @@
+.footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  &__reserve {
+    text-align: center;
+    font-family: Titillium Web;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    color: #5c667e;
+  }
+}

@@ -1,0 +1,170 @@
+@import '../../styles/partials/variables';
+
+@import '../../styles/partials/mixins';
+
+@import '../../styles/partials/functions';
+
+@import '../../styles/partials/fonts';
+
+.warehouse {
+    &__container {
+        @include mobile {
+          position: absolute;
+          height: 200%;
+          width: 91%;
+          border: 2px solid $white;
+          left: 4.27%;
+          right: 4.27%;
+          margin-top: 8rem;
+          box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+          border-radius: 3px;
+        //   bottom: 5.31%; 
+          background-color: $white;         
+        }
+    }
+
+    &__search-container {
+        @include mobile {
+            height: 125px;
+        }
+    }
+
+    &__header {
+        @include mobile {
+        font-weight: 600;
+        font-size: 25px;
+        color: $instock-black;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 1.5rem;
+        margin-bottom: 0.8rem;
+        margin-top: 2rem;
+    }
+}
+
+    &__search {
+        @include mobile {
+        display: flex;
+        justify-content: flex-start;
+        border: 1px solid $cloud;
+        box-sizing: border-box;
+        border-radius: 20px;
+        width: 240px;
+        height: 30px;
+        margin-left: 1.5rem;
+        margin-right: 2rem;
+    }
+}
+
+    &__search::placeholder {
+        @include mobile {
+            font-weight: 400;
+            font-size: 13px;
+            color: $slate;
+            padding-left: 0.8rem;
+        }
+    }
+
+    &__search-icon {
+        @include mobile {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            // left: 12.5%;
+            right: 14%;
+            top: 5.2rem;
+            // top: 12.5%;
+            // bottom: 14.63%;
+
+        }
+    }
+
+    &__button {
+        @include mobile {
+            display: flex;
+            justify-content: flex-start;
+            padding: 4px 0px 0px 65px;
+            width: 240px;
+            height: 30px;
+            background-color: $instock-indigo;
+            border-radius: 20px;
+            margin-left: 1.5rem;
+            margin-top: 0.8rem;
+            color: $white;
+            font-weight: 600;
+            border: 1px solid $instock-indigo;
+            font-family: 'Titillium Web';
+            font-size: 12px;
+
+        }
+    }
+
+    &__underline {
+        @include mobile {
+            border-bottom: 1px solid $cloud;
+            width: 100%;
+            display: inline-block;
+        }
+    }
+
+    &__content-container {
+        display: flex;
+    }
+
+    &__left-container {
+        // display: flex;
+        width: 40%;
+        // flex-direction: column;
+    }
+
+    &__right-container {
+        // display: flex;
+        width: 50%;
+        // flex-direction: column;
+        // margin-left: 8rem;
+        // margin-top: -15.7rem;
+        // text-align: left;
+    }
+
+    &__sub-heading {
+        @include mobile {
+            font-weight: 600;
+            font-size: 11px;
+            color: $slate;
+        }
+    }
+
+    &__name {
+        @include mobile {
+            font-size: 13px;
+            font-weight: 600;
+            color: $instock-indigo;
+
+        }
+    }
+
+    &__arrow {
+        @include mobile {
+            width: 15%;
+            height: 15%;
+            margin-top: -2rem;
+            margin-left: 6rem;
+        }
+    }
+
+    &__address {
+        @include mobile {
+            font-size: 13px;
+        }
+    }
+}
+
+// hr {
+//     @include mobile {
+//         height: 0.1px;
+//         color: $cloud;
+//         background-color: $cloud;
+//         width: 99.5%;
+//         display: inline-block;
+//     }
+// }
