@@ -5,7 +5,7 @@
         @content;
     }
 };
-@mixin tablet { //Tablet 768px - 1279
+@mixin tablet { //Tablet 767px - 1279
     @media (min-width: $breakpoint-tablet) {
         @content;
     }
