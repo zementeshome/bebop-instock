@@ -13,5 +13,141 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-weight: 600;
+  font-family: Titillium Web;
+}
+
+.inventory {
+  left: 4.27%;
+  right: 4.27%;
+  top: 19%;
+  bottom: 9.74%;
+  height: fit-content;
+  margin-bottom: 10%;
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  &__title-container {
+    border-bottom: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    font-family: Titillium Web;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    margin: 8% auto;
+    align-items: center;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__heading {
+    margin-left: 5%;
+  }
+  &__heading-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #13182c;
+  }
+  &__form-top-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__form-item-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    // justify-content: center;
+    align-items: center;
+  }
+  &__form-item-label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    align-self: flex-start;
+    color: #13182c;
+    margin-left: 6%;
+  }
+  &__form-item-input {
+    width: 90%;
+    height: 36px;
+    background: #ffffff;
+    border: 1px solid #bdc5d5;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  &__form-description-container {
+    @extend .inventory__form-item-container;
+  }
+  &__form-description-label {
+    @extend .inventory__form-item-label;
+  }
+  &__form-description-input {
+    @extend .inventory__form-item-input;
+  }
+  &__form-category-container {
+    @extend .inventory__form-item-container;
+  }
+  &__form-category-label {
+    @extend .inventory__form-item-label;
+  }
+  &__form-category-input {
+    @extend .inventory__form-item-input;
+  }
+  &__form-category-input-option {
+  }
+  &__separation {
+  }
+  &__form-bottom-container {
+  }
+
+  &__form-lower-container {
+    @extend .inventory__heading;
+  }
+  &__heading-title {
+    @extend .inventory__heading-title;
+  }
+  &__form-status-container {
+    @extend .inventory__form-item-container;
+  }
+  &__form-status-label {
+    @extend .inventory__form-item-label;
+  }
+  &__form-status-input-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+  }
+  &__form-status-radio {
+  }
+  &__form-warehouse-container {
+    @extend .inventory__form-item-container;
+  }
+  &__form-warehouse-label {
+    @extend .inventory__form-item-label;
+  }
+  &__form-warehouse-input {
+    @extend .inventory__form-item-input;
+  }
+  &__form-warehouse-option {
+  }
+  &__form-btn-container {
+  }
+  &__form-btn {
+  }
+  &__form-btn-cancel {
+  }
+  &__form-btn-save {
+  }
 }
