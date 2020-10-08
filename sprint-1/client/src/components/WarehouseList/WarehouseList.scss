@@ -10,7 +10,7 @@
     &__container {
         @include mobile {
           position: absolute;
-          height: 200%;
+          height: 256%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -18,14 +18,29 @@
           margin-top: 8rem;
           box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
           border-radius: 3px;
-        //   bottom: 5.31%; 
+          margin-bottom: 6rem;
           background-color: $white;         
+        }
+        @include tablet {
+            margin-top: 5.5rem;
+            height: 144%;
+        }
+        @include desktop {
+            width: 80%;
+            left: 10%;
+            right: 10%;
+            height: 112%;
         }
     }
 
     &__search-container {
         @include mobile {
+            // display: flex;
             height: 125px;
+        }
+        @include tablet {
+            display: flex;
+            // justify-content: flex-end;
         }
     }
 
@@ -40,6 +55,18 @@
         margin-bottom: 0.8rem;
         margin-top: 2rem;
     }
+    @include tablet {
+        // margin-right: 10rem;
+    }
+}
+
+&__button-container {
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        // align-items: flex-end;
+    }
 }
 
     &__search {
@@ -53,6 +80,13 @@
         height: 30px;
         margin-left: 1.5rem;
         margin-right: 2rem;
+    }
+    @include tablet {
+        margin-top: 2rem;
+        width: 175px;
+        height: 35px;
+        margin-left: -2rem;
+        margin-right: 0rem;
     }
 }
 
@@ -75,7 +109,13 @@
             top: 5.2rem;
             // top: 12.5%;
             // bottom: 14.63%;
-
+        }
+        @include tablet {
+            right: 34%;
+            top: 2.5rem;
+        }
+        @include desktop {
+            right: 23%;
         }
     }
 
@@ -97,10 +137,93 @@
             font-size: 12px;
 
         }
+        @include tablet {
+            margin-top: 2rem;
+            width: 175px;
+            height: 35px;
+            padding-left: 31px;
+            padding-top: 6px;
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__tablet-div {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+        display: flex;
+        // margin-left: 1.2rem;
+        margin-top: -2.5rem;
+        margin-bottom: 2.5rem;
+        background-color: rgba(247, 248, 249, 0.7);
+        width: 100%;
+        // justify-content: flex-start;
+        }
+    }
+
+    &__tablet-warehouse,
+    &__tablet-address,
+    &__tablet-contact,
+    &__tablet-contactinfo,
+    &__tablet-actions {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 12px;
+            color: $slate;
+            margin-left: 1.2rem;
+            // padding-right: 2.1rem;
+        }
+        @include desktop {
+            margin-left: 1.6rem;
+        }
+    }
+
+    &__tablet-contact {
+        @include desktop {
+            margin-left: 4rem;
+            margin-right: -2.2rem;
+        }
+    }
+
+    &__tablet-sorticon {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            height: 20px;
+            width: 15px;
+            margin-top: 0.75rem;
+            margin-right: 2.1rem;
+
+        }
+        @include desktop {
+            margin-right: 6.2rem;
+        }
     }
 
     &__underline {
         @include mobile {
+            border-top: 1px solid $cloud;
+            width: 100%;
+            display: inline-block;
+        }
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__underline-tablet {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
             border-bottom: 1px solid $cloud;
             width: 100%;
             display: inline-block;
@@ -108,22 +231,30 @@
     }
 
     &__content-container {
+        @include mobile {
         display: flex;
+        }
+        @include tablet {
+            margin-top: 2rem;
+        }
+        // @include tablet {
+        //    flex-wrap: wrap;
+        // }
     }
 
     &__left-container {
-        // display: flex;
-        width: 40%;
-        // flex-direction: column;
+        @include mobile {
+        width: 45%;
+        }
+        @include tablet {
+            width: 200px;
+        }
     }
 
     &__right-container {
-        // display: flex;
+        @include mobile {
         width: 50%;
-        // flex-direction: column;
-        // margin-left: 8rem;
-        // margin-top: -15.7rem;
-        // text-align: left;
+        }
     }
 
     &__sub-heading {
@@ -131,32 +262,164 @@
             font-weight: 600;
             font-size: 11px;
             color: $slate;
+            text-align: left;
+            margin-left: 1.2rem;
+        }
+        @include tablet {
+            display: none;
         }
     }
 
     &__name {
         @include mobile {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: $instock-indigo;
-
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+        }
+        @include desktop {
+            margin-left: 1.6rem;
         }
     }
 
     &__arrow {
         @include mobile {
-            width: 15%;
-            height: 15%;
-            margin-top: -2rem;
-            margin-left: 6rem;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 13.6rem;
+            left: 5.3rem;
+            // margin-top: -6rem;
+            // margin-left: 6rem;
+        }
+        @include tablet {
+            display: none;
         }
     }
 
+    &__address,
+    &__city,
+    &__country,
+    &__contact,
+    &__contact-phone,
+    &__contact-email {
+        @include mobile {
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+            margin-bottom: 8px;
+            width: 150px;
+        }
+        @include tablet {
+            display: flex;
+        }
+
+    }
+
+    // &__address {
+    //     @include tablet {
+    //         margin-left: 9.5rem;
+    //         // margin-right: 4rem;
+    //         margin-top: -1rem;
+    //     }
+    // }
+
     &__address {
         @include mobile {
-            font-size: 13px;
+            width: 120px;
+        }
+        @include tablet {
+            margin-left: 9.5rem;
+            margin-top: -2rem; 
+        }
+        @include desktop {
+            margin-left: 14.5rem;
+            width: 200px;
         }
     }
+
+    &__contact {
+        @include tablet {
+            margin-left: 5rem;
+            margin-top: -0.5rem;
+        }
+        @include desktop {
+            margin-left: 16.4rem;
+        }
+    }
+
+    &__contact-phone,
+    &__contact-email {
+        @include tablet {
+            margin-left: 14rem;
+            // margin-top: 2rem;
+        }
+        @include desktop {
+            margin-left: 28rem;
+        }
+    }
+
+    &__contact-phone {
+        @include tablet {
+            margin-top: -2rem;
+        }
+    }
+
+    &__contact-email {
+        @include tablet {
+            margin-top: -0.5rem;
+        }
+    }
+
+    &__icon-container {
+        @include mobile {
+        display: flex;
+        margin-left: 1rem;
+        margin-top: 0.7rem;
+        justify-content: space-between;
+        margin-right: 1rem;
+        }
+        @include tablet {
+            justify-content: flex-start;
+            margin-right: 2rem;
+            margin-left: 37rem;
+            // flex-direction: column;
+            // margin-top: -3rem;
+        }
+        @include desktop {
+            margin-left: 56rem;
+        }
+    }
+
+    &__delete-icon {
+        @include mobile {
+            width: 20px;
+            height: 25px;
+        }
+        @include tablet {
+            margin-top: -5rem;
+            padding-left: 1rem;
+        }
+    }
+
+    // &__address-container {
+    //     @include mobile {
+    //         display: flex;
+    //         width: 50%;
+    //     }
+    // }
+
+    // &__address,
+    // &__city,
+    // &__country {
+    //     @include mobile {
+            
+    //     }
+    // }
 }
 
 // hr {
