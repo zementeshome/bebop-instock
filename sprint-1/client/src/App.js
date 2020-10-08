@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <WarehouseList />
+      {/* <WarehouseList /> */}
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
       {/* <AddNewWarehouse /> */}
