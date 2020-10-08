@@ -46,6 +46,72 @@ router.get("/", (_req, res) => {
  });
 // # 10 Back-End: API to GET a Single Inventory Item ends
 
+
+
+
+// # 8 - Back-End: API to POST/CREATE a New Inventory Item 
+
+// Create an API on the back-end using Express and Express Router to allow for the 
+// creation of  a new inventory item attached to a given warehouse. All details 
+// should come from the front-end.
+
+// New data should be appended to corresponding JSON files (initially provided in the 
+// assets package).
+
+// All request body data needs to have validation. All values are required (non-empty). 
+// For incorrect/incomplete data, correct error response needs to be sent (with status 
+// code and message).
+
+// STILL TESTING POST - POSTING WELL BUT VALIDATIONS NEEDS TO BE IMPROVED
+// KALEB AND HECTOR WORKING ON VALIDATIONS HERE
+// # 8 - Back-End: API to POST/CREATE a New Inventory Item 
+router.post("/", cors(), (req, res, next) => {
+  //First we run validations
+  if ( req.body.name !== undefined || req.body.name !== null &&
+      req.body.description !== '' || req.body.description !== undefined || req.body.description !== null &&
+      req.body.category !== '' || req.body.category !== undefined || req.body.category !== null &&
+      req.body.quantity !== '' || req.body.quantity !== undefined || req.body.quantity !== null &&
+      req.body.warehouse !== '' || req.body.warehouse !== undefined || req.body.warehouse !== null)
+      {
+      const {
+        id, warehouseID, warehouseName, itemName, description, category, status, quantity
+      } = req.body;
+      res.json(req.body)
+    
+      // INVENTORIES READS THE DATA WITHIN INVENTORIES.JSON FILE
+       const inventories = fs.readFileSync('./data/inventories.json');
+  
+       // INVENTORIES JSON CONVERTS TO JSON
+       const inventoriesJSON = JSON.parse(inventories);
+     
+      // PARSE JSON ADDS REQ.BODY
+      inventoriesJSON.push(req.body)
+      // inventoriesJSON["inventories"].push(req.body)
+
+      // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
+      const stringJSON = JSON.stringify(inventoriesJSON);
+
+      // FS.WRITE WRITES THE NEW JSON FILE
+      fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
+         if (err) return console.log(err);
+      });
+
+      inventoriesREQ.push(req.body) //push in inventoriesREQ to see results LIVE
+      res.sendStatus(200)
+      next();
+ 
+  } else {
+    // This means that one field was not filled correctly
+    res.status(404).send({
+      error: "This field is required",
+    });
+  }
+ }
+);
+// # 8 - Back-End: API to POST/CREATE a New Inventory Item
+
+
+
 // # 6 - Back-End: API to DELETE a Inventory - Delete Start here
 //app.delete('/inventories/:id', checkInvetoryExists, (req, res) => {
 //I am going to create checkInventoryExists function later
