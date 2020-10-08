@@ -19,9 +19,6 @@ app.use(bodyParser.json());
  // # Invetories verbs: GET, PUT, POST, DELETE
  app.use("/inventories", inventoriesRoute);
 
-app.use(express.json());
-app.use(cors());
-
 app.listen(8080, () => {
   console.log("Server Started on http://localhost:8080");
 });
