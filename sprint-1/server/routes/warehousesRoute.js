@@ -1,14 +1,5 @@
-// # 17 - Back-End: API to DELETE a Warehouse
-
-// Create an API on the back-end using Express and Express router to allow
-// for the deletion of a warehouse.
-
-// Data should be deleted from the corresponding JSON files (initially provided
-// in the assets package).
-
-// Note: Deleting a warehouse should also delete all of the inventory items in 
-// the given warehouse.
-
+// Inventories route
+// Verbs: GET, POST, PUT, DELETE
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -18,13 +9,59 @@ const { Router } = require('express');
 const router = express.Router();
 let warehousesREQ = require('../data/warehouses.json');
 let inventoriesREQ = require('../data/inventories.json');
-
+const _ = require("lodash");
 
 router.use(express.json());
 router.use(cors());
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
+// # 22 - Back-End: API to GET List of All Warehouses starts
+router.get("/", (_req, res) => {
+  res.status(200).send(warehousesREQ);
+});
+// # 22 - Back-End: API to GET List of All Warehouses ends
+
+// Ticket 21 && 9
+// # 9 - Back-End: API to GET Inventories for a Given Warehouse
+// # 21 - Back-End: API to GET a Single Warehouse + the inventories inside that warehouseid
+// Similar tickets they were achieved at the same time.
+router.get(`/:id`, (req, res) => {
+  const { id } = req.params;
+  const warehouse = warehousesREQ.find((object) => object.id == id);
+  if (warehouse !== undefined) {
+    let getWarehouse = {
+      id: warehouse.id,
+      name: warehouse.name,
+      address: warehouse.address,
+      city: warehouse.city,
+      country: warehouse.country,
+      contact: {
+        name: warehouse.contact.name,
+        position: warehouse.contact.position,
+        phone: warehouse.contact.phone,
+        email: warehouse.contact.email
+      }
+    }
+    const inventory = inventoriesREQ.filter((object) => object.warehouseID == id);
+    if (inventory !== undefined || inventory.id !==  null) {
+        //Adding inventories using dot notation
+        getWarehouse.inventories = inventory;
+    }
+    res.status(200).send({
+      ...getWarehouse
+    });
+  } else {
+    res.status(404).send({
+    error: "No warehouse with that id exists",
+   });
+}
+});
+// # 21 - Back-End: API to GET a Single Warehouse ends
+
+//ticket 20
+// app.post("/warehouses", (req, res) => {});
 
 
 //Also you can try directly in server the same DELETE
@@ -96,8 +133,4 @@ function deleteInvetoriesFromWarehouse(id) {
 }
 // # 17 - Delete Inventory from Warehouse ends
 
-  module.exports = router;
-
-  //   Note:  On server.js..
-//   1) Add this line at the top: const warehousesRoute = require('./routes/warehousesRoute'); 
-//   2) Add this line after the get and post: app.use('/warehouses', warehousesRoute);
+module.exports = router;

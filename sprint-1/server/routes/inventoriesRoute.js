@@ -1,11 +1,5 @@
-// # 6 - Back-End: API to DELETE an Inventory Item
-
-// Create an API on the back-end using Express and Express
-// Router to allow the deletion of a single inventory item.
-
-// Data should be deleted from the corresponding JSON files 
-// (initially provided in the assets package).
-
+// Warehouses route
+// Verbs: GET, POST, PUT, DELETE
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -21,6 +15,36 @@ router.use(cors());
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
+// # 11 - Back-End: API to GET List of all Inventory Items starts
+router.get("/", (_req, res) => {
+   res.status(200).send(inventoriesREQ);
+ });
+ // # 11 - Back-End: API to GET List of all Inventory Items ends
+
+ // # 10 - Back-End: API to GET a Single Inventory Item starts
+ router.get(`/:id`, (req, res) => {
+   const inventory = inventoriesREQ.find(
+     (object) => object.id === req.params.id
+   );
+   if (inventory !== undefined) {
+     res.status(200).send({
+       id: inventory.id,
+       warehouseID: inventory.warehouseID,
+       warehouseName: inventory.warehouseName,
+       itemName: inventory.itemName,
+       description: inventory.description,
+       category: inventory.category,
+       status: inventory.status,
+       quantity: inventory.quantity,
+     });
+   } else {
+     res.status(404).send({
+       error: "No inventory with that id exists",
+     });
+   }
+ });
+// # 10 Back-End: API to GET a Single Inventory Item ends
 
 // # 6 - Back-End: API to DELETE a Inventory - Delete Start here
 //app.delete('/inventories/:id', checkInvetoryExists, (req, res) => {
@@ -62,7 +86,3 @@ router.delete('/:id', cors(), (req, res, next) => {
   // # 6 - Delete Item Ends here
 
   module.exports = router;
-
-//   Note:  On server.js..
-//   1) Add this line at the top: const inventoriesRoute = require('./routes/inventoriesRoute'); 
-//   2) Add this line after the get and post: app.use('/inventories', inventoriesRoute);
