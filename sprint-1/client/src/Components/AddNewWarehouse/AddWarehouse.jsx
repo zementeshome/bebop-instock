@@ -50,6 +50,8 @@ export default class AddWarehouse extends React.Component {
   //   }
   // };
 
+  // FIXME: HECTOR FIX ME> CALL ELIEZER WHEN YOU SEE MY F UP :)
+
   render() {
     let isWarehouse = document.getElementsByClassName(".add__warehouse-input");
     let isEmpty;
