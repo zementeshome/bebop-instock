@@ -1,6 +1,0 @@
-//Function that Convert font-size from px to rem
-//Default font size on html element is 100% = 16px;
-@function convertRem($sizepx) {
-    $sizerem: $sizepx / 16px;
-    @return #{$sizerem}rem;
-  }
