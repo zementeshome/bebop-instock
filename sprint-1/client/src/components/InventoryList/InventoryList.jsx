@@ -24,7 +24,7 @@ function InventoryList(props) {
         <div className="inventory__search-container">
         <h2 className="inventory__header">Inventory</h2>
         <div className="inventory__button-container">
-        <input className="inventory__search" type='text' placeholder="Search..." onChange={(e) => onSearchChange(e.target.value)}/>
+        <input className="inventory__search" type='text' placeholder="Search..." style={{ fontFamily: 'Titillium Web', fontSize: '13px'}} onChange={(e) => onSearchChange(e.target.value)}/>
             <img className="inventory__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
             <button className="inventory__button">+ Add New Warehouse</button>
             </div>

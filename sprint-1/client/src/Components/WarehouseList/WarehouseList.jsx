@@ -10,9 +10,9 @@ function WarehouseList(props) {
         else {
             console.log(props.warehouses);
             searchText = searchText.toLowerCase();
-            const filteredWareHouses = props.warehouses.filter(warehouse => warehouse.contact.name.toLowerCase().includes(searchText) || warehouse.name.toLowerCase().includes(searchText) || warehouse.address.toLowerCase().includes(searchText) || warehouse.city.toLowerCase().includes(searchText) || warehouse.country.toLowerCase().includes(searchText) || warehouse.contact.phone.toLowerCase().includes(searchText) || warehouse.contact.email.toLowerCase().includes(searchText));
+            const filteredWarehouses = props.warehouses.filter(warehouse => warehouse.contact.name.toLowerCase().includes(searchText) || warehouse.name.toLowerCase().includes(searchText) || warehouse.address.toLowerCase().includes(searchText) || warehouse.city.toLowerCase().includes(searchText) || warehouse.country.toLowerCase().includes(searchText) || warehouse.contact.phone.toLowerCase().includes(searchText) || warehouse.contact.email.toLowerCase().includes(searchText));
             // console.log('filtered', filteredWareHouses);
-            setWarehouseData(filteredWareHouses);
+            setWarehouseData(filteredWarehouses);
         }
         // console.log(searchText);
     }

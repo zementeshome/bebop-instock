@@ -3,8 +3,8 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import WarehouseList from './components/WarehouseList/WarehouseList';
-// import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
-import InventoryList from "./Components/InventoryList/InventoryList";
+import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
+// import InventoryList from "./Components/InventoryList/InventoryList";
 // import Header from "./Components/Header/Header";
 // import WarehouseList from "./Components/WarehouseList/WarehouseList";
 // import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
@@ -346,8 +346,8 @@ class App extends React.Component {
       {/* <EditInventoryItem /> */}
       {/* <Background /> */}
         {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
-        {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
-        <InventoryList manhattan={this.state.manhattan} />
+        <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/>
+        {/* <InventoryList manhattan={this.state.manhattan} /> */}
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={() => <route />} />

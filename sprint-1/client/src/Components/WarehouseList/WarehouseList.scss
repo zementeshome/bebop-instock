@@ -279,21 +279,24 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
+            margin-bottom: 0;
         }
         @include desktop {
             margin-left: 1.6rem;
         }
     }
 
+    &__name-container {
+        display: flex;
+        margin-bottom: 0;
+    }
+
     &__arrow {
         @include mobile {
             width: 18px;
             height: 18px;
-            position: absolute;
-            top: 13.6rem;
-            left: 5.3rem;
-            // margin-top: -6rem;
-            // margin-left: 6rem;
+            margin-top: -0.45rem;
+            margin-left: 0.4rem;
         }
         @include tablet {
             display: none;

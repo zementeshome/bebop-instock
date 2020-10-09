@@ -12,7 +12,7 @@ function WarehouseDetails(props) {
                 {/* <h1 className="warehouse__details-header">{props.inventory.warehouseName}</h1> */}
                 <div className="warehouse__details-edit-container">
                 <div className="warehouse__details-edit-circle">
-                <img className="warehouse__details-editicon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} fill="#2E66E6" alt=""/>
+                <img className="warehouse__details-editicon" src={process.env.PUBLIC_URL + '/assets/Icons/editWhite24px.svg'} fill="#2E66E6" alt=""/>
                 <p className="warehouse__details-edit-text">Edit</p>
                 </div>
                 </div>
@@ -21,13 +21,13 @@ function WarehouseDetails(props) {
                 <span className="warehouse__details-line"></span>
                 <div className="warehouse__details-content-container">
                 <div className="warehouse__details-address-left-container">
-                    <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS</h3>
+                    <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS:</h3>
                     <p className="warehouse__details-address">469 King Street West, Toronto, CAN</p>
-                    <h3 className="warehouse__details-subheading-2">CONTACT NAME</h3>
+                    <h3 className="warehouse__details-subheading-2">CONTACT NAME:</h3>
                     <p className="warehouse__details-contact">Grame Lyon<br />Warehouse Manager</p>
                     </div>
                     <div className="warehouse__details-address-right-container">
-                    <h3 className="warehouse__details-subheading-3">CONTACT INFORMATION</h3>
+                    <h3 className="warehouse__details-subheading-3">CONTACT INFORMATION:</h3>
                     <p className="warehouse__details-contactinfo">+1(647) 504-0911<br />glyon@instock.com</p>
                     </div>
                 </div>

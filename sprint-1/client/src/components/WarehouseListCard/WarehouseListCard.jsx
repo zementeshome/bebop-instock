@@ -8,14 +8,11 @@ class WarehouseListCard extends React.Component {
         <div className="warehouse__content-container">
           <div className="warehouse__left-container">
             <h3 className="warehouse__sub-heading">WAREHOUSE</h3>
+            <div className="warehouse__name-container">
             <p className="warehouse__name">{this.props.name}</p>
-            {/* <img
-              className="warehouse__arrow"
-              src={
-                process.env.PUBLIC_URL + "/assets/Icons/chevronright24px.svg"
-              }
-              alt="right arrow"
-            /> */}
+            <img className="warehouse__arrow" src={process.env.PUBLIC_URL + "/assets/Icons/chevronright24px.svg"}
+              alt="right arrow"/>
+              </div>
             <h3 className="warehouse__sub-heading">ADDRESS</h3>
             <p className="warehouse__address">{this.props.address}</p>
             <p className="warehouse__city">{this.props.addressCity}</p>
