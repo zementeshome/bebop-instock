@@ -15,10 +15,13 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 const url = 'http://localhost:8080';
 
-class DeleteWarehouse extends React.Component {
+function DeleteWarehouse (props) {
+
+    //deleteObject(id);
+}
 
 // function that delete  warehouse with particular id
- deleteObject (id) {
+function deleteObject (id) {
     //event.preventDefault(event);
     let config = {
         method: 'delete',
@@ -32,23 +35,6 @@ class DeleteWarehouse extends React.Component {
     .catch( error => {
         console.log(error);
     });
-}
-
-    render() {
-        return(
-        <div className="deleteWarehouse">
-            <img className="deleteWarehouse__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} alt="Close"/>
-            <h1 className="deleteWarehouse__title">Delete {}King West warehouse?</h1>
-            <p className="deleteWarehouse__text">Please confirm that you'd like to delete the King West{} from the list of warehouses.
-            You won't be able to undo this action.</p>
-            <div className="deleteWarehouse-buttons">
-                <button className="deleteWarehouse-buttons__cancel" type="submit">Cancel</button>
-                <button className="deleteWarehouse-buttons__delete" type="submit">Delete</button>
-            </div>
-        </div>
-        )
-    }
-    //deleteObject(id);
 }
 
 export default DeleteWarehouse; 
