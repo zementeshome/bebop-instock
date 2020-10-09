@@ -1,10 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
+import Header from "./Components/Header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import WarehouseList from './components/WarehouseList/WarehouseList';
-// import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
-import InventoryList from "./components/InventoryList/InventoryList";
+// import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
+import InventoryList from "./Components/InventoryList/InventoryList";
+// import Header from "./Components/Header/Header";
+// import WarehouseList from "./Components/WarehouseList/WarehouseList";
+// import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
+// import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
+// import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
+// import Background from "./Components/Background/Background";
+// import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 
 class App extends React.Component {
   state = {
@@ -331,6 +338,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        {/* <WarehouseList /> */}
+      {/* <EditWarehouse /> */}
+      {/* <WarehouseList /> */}
+      {/* <AddNewWarehouse /> */}
+      {/* <InventoryItemDetails /> */}
+      {/* <EditInventoryItem /> */}
+      {/* <Background /> */}
         {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
         {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
         <InventoryList manhattan={this.state.manhattan} />
@@ -349,40 +363,34 @@ class App extends React.Component {
       </div>
     );
   }
-import Header from "./Components/Header/Header";
-import WarehouseList from "./Components/WarehouseList/WarehouseList";
-import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
-import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
-import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
-import Background from "./Components/Background/Background";
-import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      {/* <WarehouseList /> */}
-      {/* <EditWarehouse /> */}
-      {/* <WarehouseList /> */}
-      {/* <AddNewWarehouse /> */}
-      {/* <InventoryItemDetails /> */}
-      <EditInventoryItem />
-      {/* <Background /> */}
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
 }
+  export default App;
 
-export default App;
+// function App() {
+//   return (
+//     <div className="App">
+//       <Header />
+//       {/* <WarehouseList /> */}
+//       {/* <EditWarehouse /> */}
+//       {/* <WarehouseList /> */}
+//       {/* <AddNewWarehouse /> */}
+//       {/* <InventoryItemDetails /> */}
+//       <EditInventoryItem />
+//       {/* <Background /> */}
+//       <BrowserRouter>
+//         <Switch>
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//           <Route path="/" exact component={() => <route />} />
+//         </Switch>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+// export default App;

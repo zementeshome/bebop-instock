@@ -1,3 +1,4 @@
+// import React from './node_modules/react';
 import React from 'react';
 import InventoryListCard from '../InventoryListCard/InventoryListCard';
 import './InventoryList.scss';

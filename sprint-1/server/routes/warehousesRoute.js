@@ -25,14 +25,20 @@ router.use(cors());
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
-
+router.put('/:id', cors(), (req, res) => {
+  console.log(req.body)
+  console.log(req.params);
+  res.send('success');
+});
 
 //Also you can try directly in server the same DELETE
 // # 17 - Back-End: API to DELETE a Warehouse - Delete Start here
 //app.delete('/warehouse/:id', checkWarehouseExists, (req, res) => {
 //I am going to create checkWarehouseExists function later
+
 router.delete('/:id', cors(), (req, res, next) => {
   const { id } = req.params;
+
 
   // WAREHOUSES READS THE DATA WITHIN WAREHOUSES.JSON FILE
   const warehouses = fs.readFileSync('./data/warehouses.json');

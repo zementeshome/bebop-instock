@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 
 class WarehouseDetailsCard extends Component {
+    // get statusStyle() {
+    //     let ColorValue = "#000000"
+    //     if (this.props.status === 'In Stock') {
+    //         ColorValue = "#158463"
+    //     }
+    //     return {
+    //         color: ".warehouse__details-status"
+    //     }
+    // }
     render() {
         return (
            <section className="warehouse__details">
@@ -15,7 +24,9 @@ class WarehouseDetailsCard extends Component {
                  </div>
                  <div className="warehouse__details-right-container">
                  <h3 className="warehouse__details-subheading">STATUS</h3>
-                 <p className="warehouse__details-status">{this.props.status}</p>
+                 <div className="warehouse-details-status-background">
+                <p className="warehouse__details-status">{this.props.status}</p>
+                </div>
                  <h3 className="warehouse__details-subheading">QTY</h3>
                 <p className="warehouse__details-quantity">{this.props.quantity}</p>
              </div>

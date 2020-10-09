@@ -290,10 +290,30 @@
 
     &-status {
         @include tablet {
-            padding-left: -2rem;
+            padding-left: -1rem;
+            text-transform: uppercase;
+            color:#C94515;
+            width: 50px;
+            height: 26px;
+            border-radius: 20px;
+            background-color: #fde0d5;
+            text-align: center;
         }
         @include desktop {
             padding-left: 19rem;
+        }
+    }
+
+    &-status-background {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            height: 50px;
+            height: 100px;
+            border-radius: 5px;
+            background-color: #C94515;
         }
     }
 
