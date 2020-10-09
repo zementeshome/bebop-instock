@@ -30,6 +30,7 @@ router.put('/:id', cors(), (req, res) => {
   console.log(req.params);
   res.send('success');
 });
+// copy function verify phone, verify email, and const and rest.status(200).json(req.body)
 
 //Also you can try directly in server the same DELETE
 // # 17 - Back-End: API to DELETE a Warehouse - Delete Start here
