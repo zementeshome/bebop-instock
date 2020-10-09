@@ -8,17 +8,21 @@ import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryIte
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
+import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {/* <WarehouseList /> */}
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
       {/* <AddNewWarehouse /> */}
       {/* <InventoryItemDetails /> */}
-      <EditInventoryItem />
+      <DeleteInventory />
+      {/* <DeleteWarehouse /> */}
+      {/* <EditInventoryItem /> */}
       {/* <Background /> */}
       <BrowserRouter>
         <Switch>

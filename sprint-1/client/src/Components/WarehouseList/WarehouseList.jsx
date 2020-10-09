@@ -2,10 +2,11 @@ import React from 'react';
 import WarehouseListCard from '../WarehouseListCard/WarehouseListCard';
 import WarehouseSearch from '../WarehouseSearch/WarehouseSearch';
 import './WarehouseList.scss';
+import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 
 class WarehouseList extends React.Component {
     state = {
-        
+        deleteObject: false,
         warehouses: {
 
            warehouseInfo: [ 
@@ -103,12 +104,22 @@ class WarehouseList extends React.Component {
         }
 
     }
+    componentDidMount() {
+      this.setState({deleteObject: false})
+    }
+
+    componentDidUpdate(PrevState) {
+      console.log(PrevState);
+      // if (PrevParams.deleteObject != CurrentParams.deleteObject) {}
+    }
+
     render() {
     return(
         <section className="warehouse">
             <div className="warehouse__container">
             <WarehouseSearch />
                 {this.state.warehouses.warehouseInfo.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
+            <DeleteWarehouse deleteObject={this.state.deleteObject}/>    
             </div>
         </section>
     )
