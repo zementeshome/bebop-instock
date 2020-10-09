@@ -119,7 +119,7 @@ if (this.state.outStock) {
                 className="add__inventory-form-category-input-option"
                 value="Health"
               >
-                Healtha
+                Health
               </option>
             </select>
             </div>
