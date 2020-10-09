@@ -46,22 +46,6 @@ router.get("/", (_req, res) => {
  });
 // # 10 Back-End: API to GET a Single Inventory Item ends
 
-
-
-
-// # 8 - Back-End: API to POST/CREATE a New Inventory Item 
-
-// Create an API on the back-end using Express and Express Router to allow for the 
-// creation of  a new inventory item attached to a given warehouse. All details 
-// should come from the front-end.
-
-// New data should be appended to corresponding JSON files (initially provided in the 
-// assets package).
-
-// All request body data needs to have validation. All values are required (non-empty). 
-// For incorrect/incomplete data, correct error response needs to be sent (with status 
-// code and message).
-
 // # 8 - Back-End: API to POST/CREATE a New Inventory Item 
 router.post("/", cors(), (req, res) => {
   const {
@@ -71,8 +55,8 @@ router.post("/", cors(), (req, res) => {
   if (!id || !warehouseID || !warehouseName || !itemName || !description || !category || !status) {
       // This means that one field was not filled correctly
       return res.status(404).send({  error: "All the fields are required. Don't leave any field in blank.", });
-  }
-  if (isNaN(quantity)) {
+  } // Before asking is a Number we need to parsefloat and treat quantity as a number
+  if (isNaN(parseFloat(quantity))) {
     return res.status(404).send({  error: "Write a valid quantity in numbers.", });
   }
   res.status(200).json(req.body)
