@@ -16,17 +16,6 @@ state = {
   emailEmpty: false
 }
 
-// isEmpty = (e) => {
-//   e.preventDefault()
-//   let wareHouseName = document.getElementsByClassName("add__warehouse-input")
-// if (e.target.warehouse.value == '') {
-//   this.setState({ wareHouseNameEmpty: true})
-// } else {
-//   console.log("not true");
-// }
-// }
-
-
 
    addWarehouse = (e) => {
       e.preventDefault();
