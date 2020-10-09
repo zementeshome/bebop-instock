@@ -197,6 +197,33 @@ body {
       }
     }
   }
+
+  &__warehouse-warning {
+    font-family: Titillium Web;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    height: 18px;
+    color: #c94515;
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-top: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__warehouse-warning-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__warehouse-warning-img {
+    width: 13.33px;
+    height: 13.33px;
+    margin-right: 4px;
+  }
+
   &__warehouse-btn {
     display: flex;
     justify-content: space-evenly;

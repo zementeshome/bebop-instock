@@ -7,7 +7,10 @@ import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
 import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
+import AdDNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 
 function App() {
   return (
@@ -16,9 +19,10 @@ function App() {
       {/* <WarehouseList /> */}
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
-      {/* <AddNewWarehouse /> */}
+      <AddNewWarehouse />
       {/* <InventoryItemDetails /> */}
-      <EditInventoryItem />
+      {/* <EditInventoryItem /> */}
+      {/* <AddNewInventoryItem /> */}
       {/* <Background /> */}
       <BrowserRouter>
         <Switch>
