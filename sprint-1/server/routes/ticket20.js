@@ -48,8 +48,7 @@
          router.use(bodyParser.urlencoded({ extended: false }));
          router.use(bodyParser.json());
 
-
-         router.post("/", cors(), (req, res, next) => {
+         router.post("/warehouses", cors(), (req, res, next) => {
             //First we run validations
             if (req.body.warehouse !== '' || req.body.warehouse !== undefined || req.body.warehouse !== null &&
                 req.body.street !== '' || req.body.street !== undefined || req.body.street !== null &&
@@ -58,33 +57,34 @@
                 req.body.contact !== '' || req.body.contact !==  undefined || req.body.contact !== null &&
                 req.body.position !==req.body.position !==  undefined || req.body.position !== null &&
                 req.body.phone !== '' || req.body.phone !==  undefined || req.body.phone !== null &&
-                validatePhone(req.body.phone) !==  false && 
-                validateEmail(req.body.email) !== false &&
-                req.body.email !== '' || req.body.email !== undefined || req.body.email !== null)
+                // validatePhone(req.body.phone) !==  false && 
+                // validateEmail(req.body.email) !== false &&
+                req.body.email !== '' || req.body.email !== undefined || req.body.email !== null) 
+                {
                 const {
                   id, warehouseID, warehouseName, itemName, description, category, status, quantity
                 } = req.body;
                 res.json(req.body)
               
-                // INVENTORIES READS THE DATA WITHIN INVENTORIES.JSON FILE
-                 const inventories = fs.readFileSync('./data/inventories.json');
+                // WAREHOUSES READS THE DATA WITHIN WAREHOUSES.JSON FILE
+                 const warehouses = fs.readFileSync('./data/warehouses.json');
             
-                 // INVENTORIES JSON CONVERTS TO JSON
-                 const inventoriesJSON = JSON.parse(inventories);
+                 // WAREHOUSES JSON CONVERTS TO JSON
+                 const warehousesJSON = JSON.parse(warehouses);
                
                 // PARSE JSON ADDS REQ.BODY
-                inventoriesJSON.push(req.body)
-                // inventoriesJSON["inventories"].push(req.body)
+                warehousesJSON.push(req.body)
+                // warehousesJSON["warehouses"].push(req.body)
           
-                // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
-                const stringJSON = JSON.stringify(inventoriesJSON);
+                // STRINGJSON CONVERTS WAREHOUSESJSON TO STRING 
+                const stringJSON = JSON.stringify(warehousesJSON);
           
                 // FS.WRITE WRITES THE NEW JSON FILE
-                fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
+                fs.writeFileSync('./data/warehouses.json',stringJSON, (err) => {
                    if (err) return console.log(err);
                 });
           
-                inventoriesREQ.push(req.body) //push in inventoriesREQ to see results LIVE
+                warehousesREQ.push(req.body) //push in warehousesREQ to see results LIVE
                 res.sendStatus(200)
                 next();
            
@@ -94,5 +94,5 @@
                 error: "This field is required",
               });
             }
-           }
+            }
           );

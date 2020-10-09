@@ -1,8 +1,12 @@
 import React from "react";
 
 class WarehouseListCard extends React.Component {
+  clickHandler = (e) => {
+    // this.setState({deleteObject: true})
+    console.log(this.state.deleteObject);
+  }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <section className="warehouse">
         <div className="warehouse__content-container">
@@ -34,7 +38,8 @@ class WarehouseListCard extends React.Component {
           </div>
         </div>
         <img
-          className="warehouse__delete-icon"
+          className="warehouse__delete-icon" 
+          onClick = {this.clickHandler}
           src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
           alt="delete icon"
         />
