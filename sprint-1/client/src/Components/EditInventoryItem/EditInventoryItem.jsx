@@ -1,11 +1,32 @@
 import React from "react";
 import "./editInventoryItem.scss";
+import axios from 'axios'
 
 export default class EditInventoryItem extends React.Component {
 
   state= {
     outStock: false
   }
+
+
+  editInventory = (e) => {
+    e.preventDefault()
+   
+   let editInventoryItems = {
+     // id: ID FOR INCOMING ITEM,
+     // warehouseID: WAREHOUSE ID,
+     warehouseName: e.target.warehouse.value,
+     itemName: e.target.item.value,
+     description: e.target.description.value,
+     category: e.target.category.value,
+     status: e.target.radio.value,
+     quantity: e.target.quantity.value,
+     }
+     console.log(editInventoryItems);
+     axios.put("#", editInventoryItems).then((res) => {
+
+    });
+   };
   
   inStock = () => {
   this.setState({ outStock : true})
@@ -15,6 +36,7 @@ export default class EditInventoryItem extends React.Component {
   OutOfStock = () => {
     this.setState({ outStock: false})
   }
+  
   
   render() {
   let stock;
@@ -28,14 +50,16 @@ export default class EditInventoryItem extends React.Component {
                 >
                   Quantity
                 </label>
-                <input placeholder="0" className="add__inventory-form-item-input" type="text" />
+                <input name="quantity" placeholder="0" className="add__inventory-form-item-input" type="text" />
               </div>
           </div> 
         </div>
   } else {
-    stock = <div></div>
-  }
+    stock = <div className="add__inventory-form-item-input-display-non">
 
+      <input defaultValue={0} className="add__inventory-form-item-input-display-non" name="quantity"></input>
+    </div> 
+  }
 
 
 
@@ -50,7 +74,7 @@ export default class EditInventoryItem extends React.Component {
           Edit Inventory Item
         </h2>
       </div>
-      <form className="inventory__form" action="">
+      <form onSubmit={this.editInventory} className="inventory__form" action="">
         <div className="inventory__form-outer-container" >
         <div className="inventory__form-top-container">
         <div className="inventory__heading">
@@ -64,7 +88,7 @@ export default class EditInventoryItem extends React.Component {
             >
               Item Name
             </label>
-            <input placeholder="Television" className="inventory__form-item-input" type="text" />
+            <input name="item"  placeholder="Television" className="inventory__form-item-input" type="text" />
             </div>
           </div>
           <div className="inventory__form-description-container">
@@ -76,6 +100,7 @@ export default class EditInventoryItem extends React.Component {
               Description
             </label>
             <textarea
+            name="description"
               placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
               className="inventory__form-description-input"
               type="text"
@@ -88,8 +113,8 @@ export default class EditInventoryItem extends React.Component {
               Category
             </label>
             <select
+            name="category"
               className="inventory__form-category-input"
-              name="category"
               id="category"
             >
               <option
@@ -123,7 +148,7 @@ export default class EditInventoryItem extends React.Component {
               >
                 Health
               </option>
-               {/* <span className="inventory__form-down-arrow"></span> */}
+              
             </select>
             </div>
           </div>
@@ -143,6 +168,8 @@ export default class EditInventoryItem extends React.Component {
               <div className="inventory__form-status-input-container">
                 <div className="inventory__form-status-radio-container" >
                 <input
+                onClick={this.inStock}
+                  name="radio"
                   id="in-stock"
                   value="In Stock"
                   className="inventory__form-status-radio"
@@ -153,6 +180,8 @@ export default class EditInventoryItem extends React.Component {
 
                 <div className="inventory__form-status-radio-container-right" >
                 <input
+                onClick={this.OutOfStock}
+                name="radio"
                   id="out-stock"
                   value="Out of Stock"
                   className="inventory__form-status-radio"
@@ -162,7 +191,6 @@ export default class EditInventoryItem extends React.Component {
                 </div>
               </div>
             </div>
-
 {/* //FIXME: */}
             <div>{stock}</div>
  {/* //FIXME: */}

@@ -1,10 +1,17 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
+import Header from "./Components/Header/Header";
+import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import InventoryList from "./Components/InventoryList/InventoryList";
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
+import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
+import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
+import Background from "./Components/Background/Background";
+import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
+import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
+import AddWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import WarehouseList from './components/WarehouseList/WarehouseList';
-// import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
-import InventoryList from "./components/InventoryList/InventoryList";
 
 class App extends React.Component {
   state = {
@@ -327,13 +334,18 @@ class App extends React.Component {
       },
     ],
   };
+
   render() {
     return (
       <div className="App">
+        {/* console.log(this.state.warehouses) */}
         <Header />
+        {/* <EditInventoryItem /> */}
+        {/* <AddNewInventoryItem /> */}
+        <AddWarehouse />
         {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
         {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
-        <InventoryList manhattan={this.state.manhattan} />
+        {/* <InventoryList manhattan={this.state.manhattan} /> */}
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={() => <route />} />
@@ -349,44 +361,6 @@ class App extends React.Component {
       </div>
     );
   }
-import Header from "./Components/Header/Header";
-import WarehouseList from "./Components/WarehouseList/WarehouseList";
-import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
-import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
-import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
-import Background from "./Components/Background/Background";
-import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
-import AdDNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
-
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      {/* <WarehouseList /> */}
-      {/* <EditWarehouse /> */}
-      {/* <WarehouseList /> */}
-      <AddNewWarehouse />
-      {/* <InventoryItemDetails /> */}
-      {/* <EditInventoryItem /> */}
-      {/* <AddNewInventoryItem /> */}
-      {/* <Background /> */}
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
 }
 
 export default App;

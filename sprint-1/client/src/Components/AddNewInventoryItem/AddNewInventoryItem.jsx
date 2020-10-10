@@ -1,11 +1,32 @@
 import React from "react";
 import "./addNewInventoryItem.scss";
+import axios from "axios"
 
 export default class AddNewInventoryItem extends React.Component  {
 
 state= {
   outStock: false
 }
+
+
+addInventory = (e) => {
+  e.preventDefault()
+ let addInventoryItems = {
+   // id: ID FOR INCOMING ITEM,
+   // warehouseID: WAREHOUSE ID,
+   warehouseName: e.target.warehouse.value,
+   itemName: e.target.item.value,
+   description: e.target.description.value,
+   category: e.target.category.value,
+   status: e.target.stock.value,
+   quantity: e.target.quantity.value,
+   }
+   console.log(addInventoryItems);
+   axios.put("#", addInventoryItems).then((res) => {
+
+  });
+ };
+
 
 inStock = () => {
 this.setState({ outStock : true})
@@ -28,12 +49,15 @@ if (this.state.outStock) {
               >
                 Quantity
               </label>
-              <input placeholder="0" className="add__inventory-form-item-input" type="text" />
+              <input onSubmit={this.addInventory}  name="quantity"  placeholder="0" className="add__inventory-form-item-input" type="text" />
             </div>
         </div> 
       </div>
 } else {
-  stock = <div></div>
+  stock = <div className="add__inventory-form-item-input-display-non">
+
+      <input defaultValue={0} className="add__inventory-form-item-input-display-non" name="quantity"></input>
+    </div> 
 }
 
 
@@ -48,7 +72,7 @@ if (this.state.outStock) {
           Add New Inventory Item
         </h2>
       </div>
-      <form className="add__inventory-form" action="">
+      <form onSubmit={this.addInventory} className="add__inventory-form" action="">
         <div className="add__inventory-form-outer-container" >
         <div className="add__inventory-form-top-container">
         <div className="add__inventory-heading">
@@ -62,7 +86,7 @@ if (this.state.outStock) {
             >
               Item Name
             </label>
-            <input placeholder="Television" className="add__inventory-form-item-input" type="text" />
+            <input name="item" placeholder="Television" className="add__inventory-form-item-input" type="text" />
             </div>
           </div>
           <div className="add__inventory-form-description-container">
@@ -74,6 +98,7 @@ if (this.state.outStock) {
               Description
             </label>
             <textarea
+            name="description"
               placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
               className="add__inventory-form-description-input"
               type="text"
@@ -119,7 +144,7 @@ if (this.state.outStock) {
                 className="add__inventory-form-category-input-option"
                 value="Health"
               >
-                Healtha
+                Health
               </option>
             </select>
             </div>
