@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 class InventoryListCard extends Component {
     render() {
@@ -8,7 +9,7 @@ class InventoryListCard extends Component {
              <div className="inventory__content-container">
                  <div className="inventory__left-container">
                  <h3 className="inventory__sub-heading">INVENTORY ITEM</h3>
-                <p className="inventory__item">{this.props.itemName}</p>
+                <Link to="/inventories/:id"><p className="inventory__item">{this.props.itemName}</p></Link>
                 <img className="inventory__arrow" src={process.env.PUBLIC_URL + '/assets/Icons/chevronright24px.svg'} alt="right arrow"/>
                 <h3 className="inventory__sub-heading">CATEGORY</h3>
                 <p className="inventory__category">{this.props.category}</p>
@@ -25,7 +26,7 @@ class InventoryListCard extends Component {
              <span className="inventory__underline-tablet"></span>
              <div className="inventory__icon-container">
              <img className="inventory__delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} alt="delete icon"/>
-                <img className="inventory__delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/>
+                <Link to="/editinventoryitem"><img className="inventory__delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/></Link>
                 </div>
              </section>
         )

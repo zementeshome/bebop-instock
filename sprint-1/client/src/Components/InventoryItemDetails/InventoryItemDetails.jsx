@@ -1,5 +1,6 @@
 import React from "react";
 import "./inventoryItemDetails.scss";
+import { Link } from 'react-router-dom';
 
 export default function InventoryItemDetails() {
   return (
@@ -7,20 +8,20 @@ export default function InventoryItemDetails() {
       <div className="inventory__header">
         <h2 className="inventory__title">
           {" "}
-          <img
+          <Link to="/inventories"><img
             className="inventory__arrow"
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt=""
-          />{" "}
+          /></Link>{" "}
           Television
         </h2>
         {/* TODO: Add LINK */}
         <button className="inventory__btn">
-          <img
+          <Link to="/editinventoryitem"><img
             className="inventory__edit-icon"
             src={process.env.PUBLIC_URL + "./assets/icons/editWhite24px.svg"}
             alt=""
-          />
+          /></Link>
           <span className="inventory__btn-edit-title">Edit</span>
         </button>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./editInventoryItem.scss";
+import { Link } from 'react-router-dom';
 
 export default class EditInventoryItem extends React.Component {
 
@@ -43,10 +44,10 @@ export default class EditInventoryItem extends React.Component {
     <div className="inventory">
       <div className="inventory__title-container">
         <h2 className="inventory__title">
-          <img
+          <Link to="/inventories"><img
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt="Arrow"
-          />
+          /></Link>
           Edit Inventory Item
         </h2>
       </div>
@@ -233,12 +234,12 @@ export default class EditInventoryItem extends React.Component {
           </div>
         </div>
         <div className="inventory__form-btn-container">
-          <button className=" inventory__form-btn inventory__form-btn-cancel">
+          <Link to="/inventories"><button className=" inventory__form-btn inventory__form-btn-cancel">
             Cancel
-          </button>
-          <button className=" inventory__form-btn inventory__form-btn-save">
+          </button></Link>
+          <Link to="/inventories"><button className=" inventory__form-btn inventory__form-btn-save">
             Save
-          </button>
+          </button></Link>
         </div>
       </form>
     </div>
