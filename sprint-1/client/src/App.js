@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import WarehouseList from './components/WarehouseList/WarehouseList';
 // import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
@@ -12,9 +13,25 @@ import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryIte
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 import AdDNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
+
+// import WarehouseList from './components/WarehouseList/WarehouseList';
+// import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import InventoryList from "./components/InventoryList/InventoryList";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddWarehouse";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import Background from "./components/Background/Background";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
+import AdDNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventoryItem";
+
+import AddNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventoryItem";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
+
 
 class App extends React.Component {
   state = {
@@ -341,6 +358,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+
         {/* <Header /> */}
       {/* <WarehouseList /> */}
       {/* <EditWarehouse /> */}
@@ -356,6 +374,12 @@ class App extends React.Component {
         {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
         {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
         <InventoryList manhattan={this.state.manhattan} />
+
+        <AddNewWarehouse />
+        {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
+        {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
+        {/* <InventoryList manhattan={this.state.manhattan} /> */}
+
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={() => <route />} />
@@ -370,6 +394,11 @@ class App extends React.Component {
         </BrowserRouter>
       </div>
     );
+
   }}
+
+  }
+
+
 
 export default App;
