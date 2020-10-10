@@ -17,10 +17,79 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 // # 11 - Back-End: API to GET List of all Inventory Items starts
-router.get("/", (_req, res) => {
-   res.status(200).send(inventoriesREQ);
- });
- // # 11 - Back-End: API to GET List of all Inventory Items ends
+// # 4 - Back-End: Diving Deeper - Implement Sorting starts
+router.get('/', cors(), async (req,res) => {
+  //const _ispublished = req.query.published;
+  const match = {}
+  const sort  = {}
+
+  // if(req.query.published){
+  //     match.published = req.query.published === 'true'
+  // }
+
+  if(req.query.sortBy && req.query.OrderBy){
+     inventoriesREQ = sortResults(inventoriesREQ, req.query.sortBy, req.query.OrderBy);  
+   } 
+  res.status(200).send(inventoriesREQ);
+})
+function sortResults(array, fieldProp, AscDesc) {
+  return array.sort(function(a, b) {
+      if (AscDesc === 'asc' || AscDesc === 'ASC' || AscDesc === 'Asc') {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      } else if (AscDesc === 'desc' || AscDesc === 'DESC' || AscDesc === 'Desc'){
+        return (b[fieldProp] > a[fieldProp]) ? 1 : ((b[fieldProp] < a[fieldProp]) ? -1 : 0);
+      } else {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      }
+  });
+}
+// a = a.toLowerCase();
+// b = b.toLowerCase();
+// # 4 - Back-End: Diving Deeper - Impement Sorting ends
+// # 11 - Back-End: API to GET List of all Inventory Items ends
+
+
+
+// router.get('/posts',authenticate, async (req,res) => {
+//   //const _ispublished = req.query.published;
+//   const match = {}
+//   const sort  = {}
+
+//   if(req.query.published){
+//       match.published = req.query.published === 'true'
+//   }
+
+//   if(req.query.sortBy && req.query.OrderBy){
+//       sort[req.query.sortBy]   = req.query.OrderBy === 'desc' ? -1 : 1
+//   }
+  
+//   try {
+//       await req.user.populate({
+//           path:'posts',
+//           match,
+//           options:{
+//               limit: parseInt(req.query.limit),
+//               skip: parseInt(req.query.skip),
+//               sort
+//           }
+//       }).execPopulate()
+//       res.send(req.user.posts)
+//   } catch (error) {
+//       res.status(500).send()
+//   }
+// })
+
+// const json = JSON.parse(getJsonFile());
+
+// const jsonAsArray = Object.keys(json).map(function (key) {
+//   return json[key];
+// })
+// .sort(function (itemA, itemB) {
+//   return itemA.score < itemB.score;
+// });
+
+// let dataSort = res.data.sort((a, b) => { return b.consec - a.consec; })
+
 
  // # 10 - Back-End: API to GET a Single Inventory Item starts
  router.get(`/:id`, (req, res) => {
@@ -44,7 +113,7 @@ router.get("/", (_req, res) => {
      });
    }
  });
-// # 10 Back-End: API to GET a Single Inventory Item ends
+// # 10 - Back-End: API to GET a Single Inventory Item ends
 
 // # 8 - Back-End: API to POST/CREATE a New Inventory Item 
 router.post("/", cors(), (req, res) => {

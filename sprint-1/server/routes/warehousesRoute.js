@@ -18,9 +18,67 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 // # 22 - Back-End: API to GET List of All Warehouses starts
-router.get("/", (_req, res) => {
+// # 4 - Back-End: Diving Deeper - Implement Sorting starts
+router.get("/", cors(), async (req, res) => {
+  if(req.query.sortBy && req.query.OrderBy){
+    warehousesREQ = sortResultsNestedArrays(warehousesREQ, req.query.sortBy, req.query.OrderBy);  
+  } 
   res.status(200).send(warehousesREQ);
 });
+function sortResults(array, fieldProp, AscDesc) {
+  return array.sort(function(a, b) {
+      // a = a.toLowerCase();
+      // b = b.toLowerCase();
+      if (AscDesc === 'asc' || AscDesc === 'ASC' || AscDesc === 'Asc') {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      } else if (AscDesc === 'desc' || AscDesc === 'DESC' || AscDesc === 'Desc'){
+        return (b[fieldProp] > a[fieldProp]) ? 1 : ((b[fieldProp] < a[fieldProp]) ? -1 : 0);
+      } else {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      }
+  });
+}
+function sortResultsNestedArrays(array, fieldProp, AscDesc) {
+  fieldProp = fieldProp.split('.');
+  var len = fieldProp.length;
+
+  array.sort(function (a, b) {
+      var i = 0;
+      while( i < len ) { 
+           a = a[fieldProp[i]]; 
+           b = b[fieldProp[i]]; 
+           i++; 
+      }
+      if (AscDesc === 'asc' || AscDesc === 'ASC' || AscDesc === 'Asc') {
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else if (AscDesc === 'desc' || AscDesc === 'DESC' || AscDesc === 'Desc'){
+        if (a < b) {
+          return 1;
+        } else if (a > b) {
+          return -1;
+        } else {
+          return 0;
+        }
+      } else {
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }  
+
+  })
+  return array;
+};
+// # 4 - Back-End: Diving Deeper - Implement Sorting ends
 // # 22 - Back-End: API to GET List of All Warehouses ends
 
 // Ticket 21 && 9
