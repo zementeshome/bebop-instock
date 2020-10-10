@@ -10,7 +10,7 @@
     &__container {
         @include mobile {
           position: absolute;
-          height: 256%;
+          height: 268%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -23,13 +23,13 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 144%;
+            height: 128%;
         }
         @include desktop {
             width: 80%;
             left: 10%;
             right: 10%;
-            height: 112%;
+            height: 97%;
         }
     }
 
@@ -185,11 +185,16 @@
         }
     }
 
+
     &__tablet-contact {
         @include desktop {
-            margin-left: 4rem;
-            margin-right: -2.2rem;
+            margin-left: 6rem;
+            // margin-right: -2.2rem;
         }
+    }
+
+    &__tablet-contactinfo {
+        margin-left: -2rem;
     }
 
     &__tablet-sorticon {
@@ -205,8 +210,12 @@
 
         }
         @include desktop {
-            margin-right: 6.2rem;
+            margin-right: 8.5rem;
         }
+    }
+
+    &__tablet-actions {
+        margin-left: -1rem;
     }
 
     &__underline {
@@ -214,9 +223,6 @@
             border-top: 1px solid $cloud;
             width: 100%;
             display: inline-block;
-        }
-        @include tablet {
-            display: none;
         }
     }
 
@@ -237,6 +243,7 @@
         }
         @include tablet {
             margin-top: 2rem;
+            margin-bottom: -1rem;
         }
         // @include tablet {
         //    flex-wrap: wrap;
@@ -299,7 +306,6 @@
             margin-left: 0.4rem;
         }
         @include tablet {
-            display: none;
         }
     }
 
@@ -341,8 +347,25 @@
             margin-top: -2rem; 
         }
         @include desktop {
-            margin-left: 14.5rem;
+            margin-left: 16.7rem;
             width: 200px;
+        }
+    }
+
+    // &__address-container {
+    //     @include tablet {
+    //         width: 300px;
+    //     }
+    // }
+
+    &__city,
+    &__country {
+        @include tablet {
+            margin-left: 9.5rem;
+            // width: 300px;
+        }
+        @include desktop {
+            margin-left: 16.7rem;
         }
     }
 
@@ -352,18 +375,19 @@
             margin-top: -0.5rem;
         }
         @include desktop {
-            margin-left: 16.4rem;
+            margin-left: 23rem;
         }
     }
 
     &__contact-phone,
     &__contact-email {
         @include tablet {
+            margin-top: -2rem;
             margin-left: 14rem;
             // margin-top: 2rem;
         }
         @include desktop {
-            margin-left: 28rem;
+            margin-left: 35.5rem;
         }
     }
 
@@ -371,11 +395,17 @@
         @include tablet {
             margin-top: -2rem;
         }
+        @include desktop {
+            margin-left: 35.5rem;
+        }
     }
 
     &__contact-email {
         @include tablet {
             margin-top: -0.5rem;
+        }
+        @include desktop {
+            margin-left: 35.5rem;
         }
     }
 
@@ -395,7 +425,7 @@
             // margin-top: -3rem;
         }
         @include desktop {
-            margin-left: 56rem;
+            margin-left: 63rem;
         }
     }
 
@@ -405,7 +435,7 @@
             height: 25px;
         }
         @include tablet {
-            margin-top: -5rem;
+            margin-top: -2.5rem;
             padding-left: 1rem;
         }
     }

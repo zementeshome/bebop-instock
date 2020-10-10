@@ -14,9 +14,11 @@ class WarehouseListCard extends React.Component {
               alt="right arrow"/>
               </div>
             <h3 className="warehouse__sub-heading">ADDRESS</h3>
-            <p className="warehouse__address">{this.props.address}</p>
-            <p className="warehouse__city">{this.props.addressCity}</p>
+            <div className="warehouse__address-container">
+            <p className="warehouse__address">{this.props.address},</p>
+            <p className="warehouse__city">{this.props.addressCity},</p>
             <p className="warehouse__country">{this.props.addressCountry}</p>
+            </div>
           </div>
           <div className="warehouse__right-container">
             <h3 className="warehouse__sub-heading">CONTACT NAME</h3>
