@@ -18,7 +18,7 @@ router.put('/:id', cors(), (req, res) => {
 
     let id = req.params.id;
 
-    let jsonData = fs.readFileSync('warehouses.json')
+    let jsonData = fs.readFileSync('inventories.json')
     let data = JSON.parse(jsonData)
 
 
@@ -29,7 +29,7 @@ router.put('/:id', cors(), (req, res) => {
     data[id]['status'] = req.body.status;
     data[id]['quantity'] = req.body.quantity;
 
-    fs.writeFileSync('warehouses.json', (JSON.stringify(data)));
+    fs.writeFileSync('inventories.json', (JSON.stringify(data)));
     res.json(data);
   
     res.status(200).json(req.body)
@@ -37,32 +37,3 @@ router.put('/:id', cors(), (req, res) => {
     // console.log(req.params);
     // res.send('success');
   });
-
-
-function findById
-
-  function deleteInvetoriesFromWarehouse(id) {
-    // INVENTORIES READS THE DATA WITHIN WAREHOUSES.JSON FILE
-    let inventories = fs.readFileSync('./data/inventories.json');
-  
-    // INVENTORIESCLEA JSON CONVERTS TO JSON
-    let inventoriesJSON = JSON.parse(inventories);
-  
-    // PARSE JSON ADDS REQ.BODY
-    const inventoryLengh = inventoriesJSON.filter(inventories => inventories.warehouseID == id);
-    if (inventoryLengh.lenght > 0 || inventoryLengh !== undefined ) { 
-  
-      //p = callback     c =initalValue
-       inventoriesJSON = inventoriesJSON.reduce((p,c) => (c.warehouseID !== id && p.push(c),p),[]);
-  
-       // STRINGJSON  CONVERTS WAREHOUSESJSON TO STRING 
-       const stringJSON = JSON.stringify(inventoriesJSON);
-  
-       // FS.WRITE WRITES THE NEW JSON FILE
-       fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
-           if (err) return console.log(err);
-       });
-  
-       inventoriesREQ = inventoriesREQ.reduce((p,c) => (c.warehouseID !== id && p.push(c),p),[]);
-      } 
-  }
