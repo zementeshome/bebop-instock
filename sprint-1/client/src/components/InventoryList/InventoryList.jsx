@@ -1,6 +1,7 @@
 import React from 'react';
 import InventoryListCard from '../InventoryListCard/InventoryListCard';
 import './InventoryList.scss';
+import { Link } from 'react-router-dom';
 
 function InventoryList(props) {
     return (
@@ -11,7 +12,7 @@ function InventoryList(props) {
         <div className="inventory__button-container">
         <input className="inventory__search" type='text' placeholder="Search..."/>
             <img className="inventory__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
-            <button className="inventory__button">+ Add New Warehouse</button>
+            <Link to="/addinventoryitem"><button className="inventory__button">+ Add New Warehouse</button></Link>
             </div>
             </div>
             <div className="inventory__tablet-div">
