@@ -14,7 +14,7 @@ function InventoryList(props) {
             // console.log('filtered', filteredWareHouses);
             setInventoryData(filteredInventory);
 
-            // || inventory.quantity.toString().toLowerCase.includes(searchText) not working for quantity
+            // || inventory.quantity.includes(searchText) not working for quantity
         }
         // console.log(searchText);
     }

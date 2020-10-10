@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Header from "./Components/Header/Header";
+// import Header from "./Components/Header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import WarehouseList from './components/WarehouseList/WarehouseList';
 // import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
@@ -12,6 +12,7 @@ import InventoryList from "./Components/InventoryList/InventoryList";
 // import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
 // import Background from "./Components/Background/Background";
 // import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
+import HeaderInventory from './Components/HeaderInventory/HeaderInventory';
 
 class App extends React.Component {
   state = {
@@ -337,7 +338,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        {/* <Header /> */}
+        <HeaderInventory />
         {/* <WarehouseList /> */}
       {/* <EditWarehouse /> */}
       {/* <WarehouseList /> */}
