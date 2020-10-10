@@ -16,11 +16,9 @@ body {
   font-family: Titillium Web;
 }
 
-.inventory {
+.add {
   left: 4.27%;
   right: 4.27%;
-  top: 19%;
-  bottom: 9.74%;
   height: fit-content;
   margin-bottom: 10%;
   background: #ffffff;
@@ -34,7 +32,7 @@ body {
     left: 10%;
   }
 
-  &__title-container {
+  &__inventory-title-container {
     border-bottom: 1px solid #bdc5d5;
     display: flex;
     align-items: center;
@@ -43,7 +41,7 @@ body {
       justify-content: flex-start;
     }
   }
-  &__title {
+  &__inventory-title {
     font-family: Titillium Web;
     font-style: normal;
     font-weight: 600;
@@ -51,6 +49,7 @@ body {
     line-height: 36px;
     margin: 24px auto;
     align-items: center;
+    color: #13182c;
     @include tablet {
       font-weight: 600;
       font-size: 32px;
@@ -64,7 +63,7 @@ body {
       margin: 2.5% 0 2.5% 5%;
     }
   }
-  &__form {
+  &__inventory-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -72,13 +71,13 @@ body {
       height: 510px;
     }
   }
-  &__heading {
+  &__inventory-heading {
     margin-left: 5%;
     @include tablet {
       margin-left: 10%;
     }
   }
-  &__heading-title {
+  &__inventory-heading-title {
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -97,7 +96,7 @@ body {
       line-height: 32px;
     }
   }
-  &__form-outer-container {
+  &__inventory-form-outer-container {
     width: 100%;
     @include tablet {
       display: flex;
@@ -106,7 +105,7 @@ body {
     }
   }
 
-  &__form-top-container {
+  &__inventory-form-top-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -114,7 +113,7 @@ body {
       width: 50%;
     }
   }
-  &__form-item-container {
+  &__inventory-form-item-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 5%;
@@ -127,7 +126,7 @@ body {
     }
   }
 
-  &__form-label-heading {
+  &__inventory-form-label-heading {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -139,7 +138,7 @@ body {
     }
   }
 
-  &__form-item-label {
+  &__inventory-form-item-label {
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -159,7 +158,7 @@ body {
       margin-left: 0;
     }
   }
-  &__form-item-input {
+  &__inventory-form-item-input {
     width: 90%;
     height: 36px;
     background: #ffffff;
@@ -182,14 +181,14 @@ body {
     }
   }
 
-  &__form-description-container {
-    @extend .inventory__form-item-container;
+  &__inventory-form-description-container {
+    @extend .add__inventory-form-item-container;
   }
-  &__form-description-label {
-    @extend .inventory__form-item-label;
+  &__inventory-form-description-label {
+    @extend .add__inventory-form-item-label;
   }
-  &__form-description-input {
-    @extend .inventory__form-item-input;
+  &__inventory-form-description-input {
+    @extend .add__inventory-form-item-input;
     height: 120px;
     resize: none;
     background: #ffffff;
@@ -216,18 +215,18 @@ body {
       }
     }
   }
-  &__form-category-container {
-    @extend .inventory__form-item-container;
+  &__inventory-form-category-container {
+    @extend .add__inventory-form-item-container;
   }
-  &__form-category-label {
-    @extend .inventory__form-item-label;
+  &__inventory-form-category-label {
+    @extend .add__inventory-form-item-label;
   }
-  &__form-category-input {
-    @extend .inventory__form-item-input;
+  &__inventory-form-category-input {
+    @extend .add__inventory-form-item-input;
   }
-  &__form-category-input-option {
+  &__inventory-form-category-input-option {
   }
-  &__separation {
+  &__inventory-separation {
     display: none;
     @include tablet {
       border-right: 1px solid #bdc5d5;
@@ -239,33 +238,33 @@ body {
       height: 392px;
     }
   }
-  &__form-bottom-container {
+  &__inventory-form-bottom-container {
     @include tablet {
       width: 50%;
     }
   }
 
-  &__heading-bottom {
-    @extend .inventory__heading;
+  &__inventory-heading-bottom {
+    @extend .add__inventory-heading;
     @include tablet {
     }
   }
-  &__heading-title {
-    @extend .inventory__heading-title;
+  &__inventory-heading-title {
+    @extend .add__inventory-heading-title;
   }
-  &__form-status-container {
-    @extend .inventory__form-item-container;
+  &__inventory-form-status-container {
+    @extend .add__inventory-form-item-container;
   }
-  &__form-status-label-status {
+  &__inventory-form-status-label-status {
     @include tablet {
       margin-left: 10%;
     }
   }
 
-  &__form-status-label {
-    @extend .inventory__form-item-label;
+  &__inventory-form-status-label {
+    @extend .add__inventory-form-item-label;
   }
-  &__form-status-input-container {
+  &__inventory-form-status-input-container {
     display: flex;
     width: 90%;
     @include tablet {
@@ -274,14 +273,14 @@ body {
       margin-left: 9%;
     }
   }
-  &__form-status-radio {
+  &__inventory-form-status-radio {
     background: #ffffff;
     width: 16px;
     height: 16px;
     border: 1px solid #bdc5d5;
     box-sizing: border-box;
   }
-  &__form-status-radio-label {
+  &__inventory-form-status-radio-label {
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
@@ -292,31 +291,31 @@ body {
       line-height: 22px;
     }
   }
-  &__form-status-radio-container {
+  &__inventory-form-status-radio-container {
     display: flex;
     justify-content: space-between;
     width: 80px;
   }
 
-  &__form-status-radio-container-right {
+  &__inventory-form-status-radio-container-right {
     display: flex;
     justify-content: space-between;
     width: 100px;
     margin-left: 25%;
   }
 
-  &__form-warehouse-container {
-    @extend .inventory__form-item-container;
+  &__inventory-form-warehouse-container {
+    @extend .add__inventory-form-item-container;
   }
-  &__form-warehouse-label {
-    @extend .inventory__form-item-label;
+  &__inventory-form-warehouse-label {
+    @extend .add__inventory-form-item-label;
   }
-  &__form-warehouse-input {
-    @extend .inventory__form-item-input;
+  &__inventory-form-warehouse-input {
+    @extend .add__inventory-form-item-input;
   }
-  &__form-warehouse-option {
+  &__inventory-form-warehouse-option {
   }
-  &__form-btn-container {
+  &__inventory-form-btn-container {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -331,7 +330,7 @@ body {
       height: 70px;
     }
   }
-  &__form-btn {
+  &__inventory-form-btn {
     width: 139px;
     height: 36px;
     left: 40px;
@@ -342,7 +341,7 @@ body {
     @include tablet {
     }
   }
-  &__form-btn-cancel {
+  &__inventory-form-btn-cancel {
     background: #ffffff;
     font-weight: 600;
     font-size: 13px;
@@ -359,7 +358,7 @@ body {
       margin-right: 1.5%;
     }
   }
-  &__form-btn-save {
+  &__inventory-form-btn-save {
     background: #2e66e6;
     font-weight: 600;
     font-size: 13px;
