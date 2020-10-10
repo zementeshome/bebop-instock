@@ -52,9 +52,11 @@ state = {
             email: e.target.email.value,
           },
         };
-      }
-      document.getElementById("form").reset();
+
+   }
       
+      document.getElementById("form").reset();
+
     };
 
 

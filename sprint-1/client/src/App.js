@@ -1,6 +1,19 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import WarehouseList from './components/WarehouseList/WarehouseList';
+// import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import InventoryList from "./components/InventoryList/InventoryList";
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
+import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
+import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
+import Background from "./Components/Background/Background";
+import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
+import AdDNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
+
 // import WarehouseList from './components/WarehouseList/WarehouseList';
 // import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 import InventoryList from "./components/InventoryList/InventoryList";
@@ -14,36 +27,12 @@ import AdDNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventor
 
 import AddNewInventoryItem from "./components/AddNewInventoryItem/AddNewInventoryItem";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
+import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       {/* <Header /> */}
-//       {/* <WarehouseList /> */}
-//       {/* <EditWarehouse /> */}
-//       {/* <WarehouseList /> */}
-//       {/* <AddNewWarehouse /> */}
-//       {/* <InventoryItemDetails /> */}
-//       <DeleteInventory />
-//       {/* <DeleteWarehouse /> */}
-//       {/* <EditInventoryItem /> */}
-//       {/* <Background /> */}
-//       <BrowserRouter>
-//         <Switch>
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//         </Switch>
-//       </BrowserRouter>
-//     </div>
-//   );
+
 class App extends React.Component {
   state = {
     warehouses: {
@@ -369,10 +358,28 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+
+        {/* <Header /> */}
+      {/* <WarehouseList /> */}
+      {/* <EditWarehouse /> */}
+      {/* <WarehouseList /> */}
+      {/* <AddNewWarehouse /> */}
+      {/* <InventoryItemDetails /> */}
+      {/* <DeleteInventory /> */}
+      {/* <DeleteWarehouse /> */}
+      {/* <EditInventoryItem /> */}
+      {/* <EditInventoryItem /> */}
+      {/* <AddNewInventoryItem /> */}
+      {/* <Background /> */}
+        {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
+        {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
+        <InventoryList manhattan={this.state.manhattan} />
+
         <AddNewWarehouse />
         {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
         {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
         {/* <InventoryList manhattan={this.state.manhattan} /> */}
+
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={() => <route />} />
@@ -387,34 +394,11 @@ class App extends React.Component {
         </BrowserRouter>
       </div>
     );
+
+  }}
+
   }
 
-  // function App() {
-  //   return (
-  //     <div className="App">
-  //       <Header />
-  //       {/* <WarehouseList /> */}
-  //       {/* <EditWarehouse /> */}
-  //       {/* <WarehouseList /> */}
-  //       <AddNewWarehouse />
-  //       {/* <InventoryItemDetails /> */}
-  //       {/* <EditInventoryItem /> */}
-  //       {/* <AddNewInventoryItem /> */}
-  //       {/* <Background /> */}
-  //       <BrowserRouter>
-  //         <Switch>
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //           <Route path="/" exact component={() => <route />} />
-  //         </Switch>
-  //       </BrowserRouter>
-  //     </div>
-  //   );
-}
+
 
 export default App;
