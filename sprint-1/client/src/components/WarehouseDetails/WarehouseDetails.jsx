@@ -23,8 +23,10 @@ function WarehouseDetails(props) {
                 <div className="warehouse__details-address-left-container">
                     <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS:</h3>
                     <p className="warehouse__details-address">469 King Street West, Toronto, CAN</p>
+                    <div className="warehouse__details-contact-div">
                     <h3 className="warehouse__details-subheading-2">CONTACT NAME:</h3>
                     <p className="warehouse__details-contact">Grame Lyon<br />Warehouse Manager</p>
+                    </div>
                     </div>
                     <div className="warehouse__details-address-right-container">
                     <h3 className="warehouse__details-subheading-3">CONTACT INFORMATION:</h3>
@@ -39,6 +41,7 @@ function WarehouseDetails(props) {
                 <p className="warehouse__details-tablet-status">STATUS</p>
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-quantity">QUANTITY</p>
+                {/* <p className="warehouse-details-tablet-desktop">QTY</p> */}
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>

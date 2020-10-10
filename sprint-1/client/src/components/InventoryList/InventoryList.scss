@@ -342,25 +342,23 @@
     &__status,
     &__status-instock,
     &__status-outstock {
+        @include mobile {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
         @include tablet {
             margin-left: 6rem;
             margin-top: -0.5rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            // background-color: orange;
-            // height: 23px;
-            //width: 55px mobile
-            // width: 82px;
-            // padding-left: 3px;
-            // padding-top: 2px;
         }
+
         @include desktop {
             margin-left: 16rem;
         }
     }
 
     &__status-instock {
-        @include tablet {
+        @include mobile {
             color: $green;
             background-color: rgba(21, 132, 99, 0.07);
             width: 59px;
