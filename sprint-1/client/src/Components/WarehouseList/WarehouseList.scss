@@ -111,11 +111,12 @@
             // bottom: 14.63%;
         }
         @include tablet {
-            right: 34%;
+            position: relative;
+            right: 5%;
             top: 2.5rem;
         }
         @include desktop {
-            right: 23%;
+            right: 2.5%;
         }
     }
 
@@ -123,29 +124,40 @@
         @include mobile {
             display: flex;
             justify-content: flex-start;
-            padding: 4px 0px 0px 65px;
-            text-align: center;
             width: 82%;
             height: 30px;
             background-color: $instock-indigo;
             border-radius: 20px;
             margin-left: 1.5rem;
             margin-top: 0.8rem;
-            color: $white;
-            font-weight: 600;
             border: 1px solid $instock-indigo;
-            font-family: 'Titillium Web';
-            font-size: 12px;
 
         }
         @include tablet {
             margin-top: 2rem;
             width: 175px;
             height: 35px;
-            padding-left: 31px;
             padding-top: 6px;
             margin-right: 1.5rem;
+            margin-left: -0.2rem;
         }
+    }
+
+    &__button span {
+        @include mobile {
+      color: $white;
+      font-weight: 600;
+      font-family: 'Titillium Web';
+      font-size: 12px;
+      margin: 0 auto;
+      padding-top: 3px;
+        }
+        @include tablet {
+          padding-top: 1px;
+          padding-left: 2px;
+          text-align: center;
+        }
+  
     }
 
     &__tablet-div {
