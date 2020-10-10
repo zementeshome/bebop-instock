@@ -296,14 +296,13 @@
             height: 18px;
             margin-top: -0.45rem;
             margin-left: 0.4rem;
-            // position: absolute;
-            // top: 13.6rem;
-            // left: 5.3rem;
         
         }
-        @include tablet {
-            // display: none;
-        }
+    }
+
+    &__arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
     }
 
     &__category,

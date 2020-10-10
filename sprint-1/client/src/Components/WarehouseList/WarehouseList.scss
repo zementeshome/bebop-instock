@@ -305,9 +305,13 @@
             margin-top: -0.45rem;
             margin-left: 0.4rem;
         }
-        @include tablet {
-        }
     }
+
+    &__arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
+      }
+
 
     &__address,
     &__city,
