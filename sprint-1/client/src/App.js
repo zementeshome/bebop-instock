@@ -10,10 +10,10 @@ import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryIte
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
-import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
+// import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
 import Header from "./Components/Header/Header"
-
+import PageNotFound from "./Components/PageNotFound/PageNotFound"
 class App extends React.Component {
 // state={warehouses: []}
 // state = {warehouses: [], init:0}
@@ -36,15 +36,18 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={WarehouseList}/>
+            <Route exact path="/inventories" component={InventoryList} />
+
             <Route exact path="/:id" component={WarehouseDetails}/>
+            
             {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
             {/* <Route path="/addwarehouse" component={AddNewWarehouse} /> */}
-            {/* <Route path="/inventories" component={InventoryList} /> */}
             {/* <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} /> */}
             <Route exact path="/inventories/:id" component={InventoryItemDetails} />
             {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
             {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
             {/* <Route path='/pagenotfound' component={PageNotFound} */}
+            <Route component={PageNotFound} />
           </Switch>
         </BrowserRouter>
        </div>
