@@ -10,7 +10,11 @@
     &__container {
         @include mobile {
           position: absolute;
+<<<<<<< HEAD
           height: 268%;
+=======
+          height: 256%;
+>>>>>>> hector-palacios
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -23,13 +27,21 @@
         }
         @include tablet {
             margin-top: 5.5rem;
+<<<<<<< HEAD
             height: 128%;
+=======
+            height: 144%;
+>>>>>>> hector-palacios
         }
         @include desktop {
             width: 80%;
             left: 10%;
             right: 10%;
+<<<<<<< HEAD
             height: 97%;
+=======
+            height: 112%;
+>>>>>>> hector-palacios
         }
     }
 
@@ -111,12 +123,20 @@
             // bottom: 14.63%;
         }
         @include tablet {
+<<<<<<< HEAD
             position: relative;
             right: 5%;
             top: 2.5rem;
         }
         @include desktop {
             right: 2.5%;
+=======
+            right: 34%;
+            top: 2.5rem;
+        }
+        @include desktop {
+            right: 23%;
+>>>>>>> hector-palacios
         }
     }
 
@@ -224,6 +244,75 @@
         @include desktop {
             margin-right: 8.5rem;
         }
+        @include tablet {
+            margin-top: 2rem;
+            width: 175px;
+            height: 35px;
+            padding-left: 31px;
+            padding-top: 6px;
+            margin-right: 1.5rem;
+        }
+    }
+
+    &__tablet-div {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+        display: flex;
+        // margin-left: 1.2rem;
+        margin-top: -2.5rem;
+        margin-bottom: 2.5rem;
+        background-color: rgba(247, 248, 249, 0.7);
+        width: 100%;
+        // justify-content: flex-start;
+        }
+    }
+
+    &__tablet-warehouse,
+    &__tablet-address,
+    &__tablet-contact,
+    &__tablet-contactinfo,
+    &__tablet-actions {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 12px;
+            color: $slate;
+            margin-left: 1.2rem;
+            // padding-right: 2.1rem;
+        }
+        @include desktop {
+            margin-left: 1.6rem;
+        }
+    }
+
+    &__tablet-contact {
+        @include desktop {
+            margin-left: 4rem;
+            margin-right: -2.2rem;
+        }
+    }
+
+    &__tablet-sorticon {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            height: 20px;
+            width: 15px;
+            margin-top: 0.75rem;
+            margin-right: 2.1rem;
+
+        }
+        @include desktop {
+            margin-right: 6.2rem;
+        }
     }
 
     &__tablet-actions {
@@ -236,6 +325,12 @@
             width: 100%;
             display: inline-block;
         }
+<<<<<<< HEAD
+=======
+        @include tablet {
+            display: none;
+        }
+>>>>>>> hector-palacios
     }
 
     &__underline-tablet {
@@ -255,7 +350,10 @@
         }
         @include tablet {
             margin-top: 2rem;
+<<<<<<< HEAD
             margin-bottom: -1rem;
+=======
+>>>>>>> hector-palacios
         }
         // @include tablet {
         //    flex-wrap: wrap;
@@ -298,7 +396,13 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
+<<<<<<< HEAD
             margin-bottom: 0;
+=======
+        }
+        @include desktop {
+            margin-left: 1.6rem;
+>>>>>>> hector-palacios
         }
         @include desktop {
             margin-left: 1.6rem;
@@ -314,11 +418,44 @@
         @include mobile {
             width: 18px;
             height: 18px;
+<<<<<<< HEAD
             margin-top: -0.45rem;
             margin-left: 0.4rem;
+=======
+            position: absolute;
+            top: 13.6rem;
+            left: 5.3rem;
+            // margin-top: -6rem;
+            // margin-left: 6rem;
+        }
+        @include tablet {
+            display: none;
         }
     }
 
+    &__address,
+    &__city,
+    &__country,
+    &__contact,
+    &__contact-phone,
+    &__contact-email {
+        @include mobile {
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+            margin-bottom: 8px;
+            width: 150px;
+>>>>>>> hector-palacios
+        }
+        @include tablet {
+            display: flex;
+        }
+
+    }
+
+<<<<<<< HEAD
     &__arrow:hover {
         transition: all 0.5s ease;
         padding-left: 4px;
@@ -346,6 +483,8 @@
 
     }
 
+=======
+>>>>>>> hector-palacios
     // &__address {
     //     @include tablet {
     //         margin-left: 9.5rem;
@@ -363,6 +502,7 @@
             margin-top: -2rem; 
         }
         @include desktop {
+<<<<<<< HEAD
             margin-left: 16.7rem;
             width: 200px;
         }
@@ -382,6 +522,10 @@
         }
         @include desktop {
             margin-left: 16.7rem;
+=======
+            margin-left: 14.5rem;
+            width: 200px;
+>>>>>>> hector-palacios
         }
     }
 
@@ -391,19 +535,30 @@
             margin-top: -0.5rem;
         }
         @include desktop {
+<<<<<<< HEAD
             margin-left: 23rem;
+=======
+            margin-left: 16.4rem;
+>>>>>>> hector-palacios
         }
     }
 
     &__contact-phone,
     &__contact-email {
         @include tablet {
+<<<<<<< HEAD
             margin-top: -2rem;
+=======
+>>>>>>> hector-palacios
             margin-left: 14rem;
             // margin-top: 2rem;
         }
         @include desktop {
+<<<<<<< HEAD
             margin-left: 35.5rem;
+=======
+            margin-left: 28rem;
+>>>>>>> hector-palacios
         }
     }
 
@@ -411,18 +566,24 @@
         @include tablet {
             margin-top: -2rem;
         }
+<<<<<<< HEAD
         @include desktop {
             margin-left: 35.5rem;
         }
+=======
+>>>>>>> hector-palacios
     }
 
     &__contact-email {
         @include tablet {
             margin-top: -0.5rem;
         }
+<<<<<<< HEAD
         @include desktop {
             margin-left: 35.5rem;
         }
+=======
+>>>>>>> hector-palacios
     }
 
     &__icon-container {
@@ -441,7 +602,11 @@
             // margin-top: -3rem;
         }
         @include desktop {
+<<<<<<< HEAD
             margin-left: 63rem;
+=======
+            margin-left: 56rem;
+>>>>>>> hector-palacios
         }
     }
 
@@ -451,7 +616,11 @@
             height: 25px;
         }
         @include tablet {
+<<<<<<< HEAD
             margin-top: -2.5rem;
+=======
+            margin-top: -5rem;
+>>>>>>> hector-palacios
             padding-left: 1rem;
         }
     }

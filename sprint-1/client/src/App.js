@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link, matchPath, Redirect, useHistory} from "react-router-dom";
 import "./App.css";
-import WarehouseList from "./Components/WarehouseList/WarehouseList";
-import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import WarehouseList from './Components/WarehouseList/WarehouseList';
+import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
 import InventoryList from "./Components/InventoryList/InventoryList";
 import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
@@ -10,53 +10,48 @@ import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryIte
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
-import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
+// import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
-import InventoryListCard from "./Components/InventoryListCard/InventoryListCard";
-import Header from "./Components/Header/Header";
-
+import Header from "./Components/Header/Header"
+import PageNotFound from "./Components/PageNotFound/PageNotFound"
 class App extends React.Component {
-  // state={warehouses: []}
-  // state = {warehouses: [], init:0}
+// state={warehouses: []}
+// state = {warehouses: [], init:0}
 
-  // async componentDidMount() {
-  //   await axios.get('warehouses')
-  //   .then((res) => {
-  //     const warehouses = res.data
-  //     this.setState({warehouses: warehouses, init:1})
-  //   })
-  // console.log(this.state.warehouses);
-  // };
+// async componentDidMount() {
+//   await axios.get('warehouses')
+//   .then((res) => {
+//     const warehouses = res.data
+//     this.setState({warehouses: warehouses, init:1})
+//   })
+// console.log(this.state.warehouses);
+// };
 
-  render() {
+  render () {
     return (
       <div className="App">
-        {/* <DeleteWarehouse /> */}
-        {/* <DeleteInventory /> */}
-        {/* <Background /> */}
+      {/* <DeleteWarehouse /> */}
+      {/* <DeleteInventory /> */}
+      {/* <Background /> */}
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={WarehouseList} />
-            {/* <Route path="/inventories/:id" component={InventoryListCard} /> */}
-            <Route path="/inventories/:id" component={InventoryItemDetails} />
-            <Route path="/:id" component={WarehouseDetails} />
-            {/* <Route path="/inventories/:id" component={InventoryListCard} /> */}
+            <Route exact path="/" component={WarehouseList}/>
+            <Route exact path="/inventories" component={InventoryList} />
+
+            <Route exact path="/:id" component={WarehouseDetails}/>
+            
             {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
             {/* <Route path="/addwarehouse" component={AddNewWarehouse} /> */}
-            {/* <Route path="/inventories" component={InventoryList} /> */}
-            {/* <Route
-              path="/warehouses/:id"
-              render={(props) => <InventoryItemDetails {...props} />}
-            /> */}
-            {/* <Route path="/inventories/:id" component={InventoryItemDetails} /> */}
+            {/* <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} /> */}
+            <Route exact path="/inventories/:id" component={InventoryItemDetails} />
             {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
             {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
             {/* <Route path='/pagenotfound' component={PageNotFound} */}
+            <Route component={PageNotFound} />
           </Switch>
         </BrowserRouter>
-      </div>
+       </div>
     );
-  }
-}
+  }}
 
 export default App;

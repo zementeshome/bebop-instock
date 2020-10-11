@@ -9,26 +9,6 @@ state= {
   outStock: false
 }
 
-
-addInventory = (e) => {
-  e.preventDefault()
- let addInventoryItems = {
-   // id: ID FOR INCOMING ITEM,
-   // warehouseID: WAREHOUSE ID,
-   warehouseName: e.target.warehouse.value,
-   itemName: e.target.item.value,
-   description: e.target.description.value,
-   category: e.target.category.value,
-   status: e.target.stock.value,
-   quantity: e.target.quantity.value,
-   }
-   console.log(addInventoryItems);
-   axios.put("#", addInventoryItems).then((res) => {
-
-  });
- };
-
-
 inStock = () => {
 this.setState({ outStock : true})
 }

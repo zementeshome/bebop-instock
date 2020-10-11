@@ -147,11 +147,14 @@ body {
     color: #13182c;
     margin-left: 6%;
     margin-bottom: 1%;
+<<<<<<< HEAD
     // &:hover {
     //   border-radius: 20px;
     //   border: 1px solid $instock-indigo;
     //   outline: none;
     // }
+=======
+>>>>>>> hector-palacios
     @include tablet {
       font-weight: 600;
       font-size: 14px;
@@ -172,6 +175,7 @@ body {
     border-radius: 20px;
     padding-left: 3%;
     appearance: none;
+<<<<<<< HEAD
     // background-image: url(../../assets/icons/arrowdropdown24px.svg);
     background-repeat: no-repeat;
     background-position: 96% 50%;
@@ -185,6 +189,12 @@ body {
       outline: none;
       // background-color: transparent;
     }
+=======
+    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+
+>>>>>>> hector-palacios
     @include tablet {
       width: 85%;
       height: 38px;
@@ -387,7 +397,10 @@ body {
     }
   }
 }
+<<<<<<< HEAD
 
 .add__inventory-form-item-input-display-non {
   display: none;
 }
+=======
+>>>>>>> hector-palacios
