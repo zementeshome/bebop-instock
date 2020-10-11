@@ -100,7 +100,7 @@ class WarehouseDetails extends React.Component {
                     <Link to="/"><img className="warehouse__details-arrowicon" 
                           src={process.env.PUBLIC_URL + '/assets/Icons/arrow-back24px.svg'}
                           alt=""/>
-                     </Link> // this one is working 
+                     </Link>
                 <h1 className="warehouse__details-header">{this.state.warehouses.name}</h1>
                 <div className="warehouse__details-edit-container">
                 <div className="warehouse__details-edit-circle">
