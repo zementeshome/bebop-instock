@@ -42,30 +42,30 @@ class WarehouseDetails extends React.Component {
         console.log(err)
     })}
 
-    componentDidUpdate(prevProps, _prevState) {
-        const id = this.props.match.params.id;
-        const url = 'http://localhost:8080';
-        const config = {
-        method: 'get',
-        url: `${url}/warehouses/${id}`,
-        headers: { },
-        data : ''
-      };
-        if (this.props.match.params.id !== prevProps.match.params.id) {
-          axios
-            .get(`${url}/warehouses/${id}`)
-            .then((res) => {
-              this.setState({
-                warehouses: res.data.find(
-                  (warehouse) => warehouse["id"] === this.props.match.params.id
-                ),
-              });
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
-      }
+    // componentDidUpdate(prevProps, _prevState) {
+    //     const id = this.props.match.params.id;
+    //     const url = 'http://localhost:8080';
+    //     const config = {
+    //     method: 'get',
+    //     url: `${url}/warehouses/${id}`,
+    //     headers: { },
+    //     data : ''
+    //   };
+    //     if (this.props.match.params.id !== prevProps.match.params.id) {
+    //       axios
+    //         .get(`${url}/warehouses/${id}`)
+    //         .then((res) => {
+    //           this.setState({
+    //             warehouses: res.data.find(
+    //               (warehouse) => warehouse["id"] === this.props.match.params.id
+    //             ),
+    //           });
+    //         })
+    //         .catch((err) => {
+    //           console.log(err);
+    //         });
+    //     }
+    //   }
 
     render() {
         // console.log(this.state);
