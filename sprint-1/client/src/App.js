@@ -12,22 +12,23 @@ import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem"
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
-import Header from "./Components/Header/Header"
+import InventoryListCard from "./Components/InventoryListCard/InventoryListCard";
+import Header from "./Components/Header/Header";
 
 class App extends React.Component {
-// state={warehouses: []}
-// state = {warehouses: [], init:0}
+  // state={warehouses: []}
+  // state = {warehouses: [], init:0}
 
-// async componentDidMount() {
-//   await axios.get('warehouses')
-//   .then((res) => {
-//     const warehouses = res.data
-//     this.setState({warehouses: warehouses, init:1})
-//   })
-// console.log(this.state.warehouses);
-// };
+  // async componentDidMount() {
+  //   await axios.get('warehouses')
+  //   .then((res) => {
+  //     const warehouses = res.data
+  //     this.setState({warehouses: warehouses, init:1})
+  //   })
+  // console.log(this.state.warehouses);
+  // };
 
-  render () {
+  render() {
     return (
       <div className="App">
         {/* <DeleteWarehouse /> */}
@@ -35,13 +36,19 @@ class App extends React.Component {
         {/* <Background /> */}
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={WarehouseList}/>
-            <Route path="/:id" component={WarehouseDetails}/>
+            <Route exact path="/" component={WarehouseList} />
+            {/* <Route path="/inventories/:id" component={InventoryListCard} /> */}
+            <Route path="/inventories/:id" component={InventoryItemDetails} />
+            <Route path="/:id" component={WarehouseDetails} />
+            {/* <Route path="/inventories/:id" component={InventoryListCard} /> */}
             {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
             {/* <Route path="/addwarehouse" component={AddNewWarehouse} /> */}
             {/* <Route path="/inventories" component={InventoryList} /> */}
-            <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} />
-            <Route path="/inventories/:id" component={InventoryItemDetails} />
+            {/* <Route
+              path="/warehouses/:id"
+              render={(props) => <InventoryItemDetails {...props} />}
+            /> */}
+            {/* <Route path="/inventories/:id" component={InventoryItemDetails} /> */}
             {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
             {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
             {/* <Route path='/pagenotfound' component={PageNotFound} */}

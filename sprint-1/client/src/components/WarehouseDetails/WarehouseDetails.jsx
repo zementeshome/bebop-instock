@@ -4,13 +4,16 @@ import "./WarehouseDetails.scss"
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
+
+
 
 class WarehouseDetails extends React.Component {
     state = {warehouses: {}, contact: {}, inventories: [], init:0}
     
     async componentDidMount() {
-    // console.log(this.props.match.params.id)
-    const id = this.props.match.params.id;
+        const id = this.props.match.params.id;
+        console.log(this.props.match.params.id)
     // console.log(id);
     const url = 'http://localhost:8080';
     const config = {
@@ -19,7 +22,7 @@ class WarehouseDetails extends React.Component {
         headers: { },
         data : ''
       };
-    //   console.log(config);
+      console.log(id);
     await axios(config)   
     .then(res => {
         axios(config)
@@ -42,16 +45,18 @@ class WarehouseDetails extends React.Component {
         console.log(err)
     })}
 
-    componentDidUpdate(prevProps, _prevState) {
+    componentDidUpdate(prevProps, prevState) {
         const id = this.props.match.params.id;
+        // console.log(prevProps.match.params);
+        // console.log(this.props.match.prevState);
         const url = 'http://localhost:8080';
         const config = {
         method: 'get',
-        url: `${url}/warehouses/${id}`,
+        url: `${url}/${prevProps.match.params.id}/${id}`,
         headers: { },
         data : ''
       };
-        if (this.props.match.params.id !== prevProps.match.params.id) {
+        // if (this.props.match.params.id !== prevProps.match.params.id) {
           axios
             .get(`${url}/warehouses/${id}`)
             .then((res) => {
@@ -64,11 +69,11 @@ class WarehouseDetails extends React.Component {
             .catch((err) => {
               console.log(err);
             });
-        }
+        // }
       }
 
     render() {
-        // console.log(this.state);
+        // console.log(this.state.inventories);
     return (
         <section className="warehouse__details">
             <Header />
@@ -111,7 +116,7 @@ class WarehouseDetails extends React.Component {
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>
-                {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.warehouseId} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
+                {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.id} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
             </div>
         </section>
     )

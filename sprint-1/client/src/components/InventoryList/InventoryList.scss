@@ -1,3 +1,11 @@
+@import "../../styles/partials/variables";
+
+@import "../../styles/partials/mixins";
+
+@import "../../styles/partials/functions";
+
+@import "../../styles/partials/fonts";
+
 .inventory {
   &__container {
     @include mobile {
