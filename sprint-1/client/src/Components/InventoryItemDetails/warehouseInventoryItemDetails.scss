@@ -16,7 +16,7 @@ body {
   font-family: Titillium Web;
 }
 
-.inventory {
+.warehouseInventory {
   position: absolute;
   left: 4.27%;
   right: 4.27%;
@@ -27,6 +27,7 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
+  padding: 0;
   @include tablet {
     width: 91.6%;
     // width: 704px;
@@ -36,7 +37,7 @@ body {
     top: 12.5%;
     bottom: 62.5%;
     @include desktop {
-    //   width: 1020px;
+      //   width: 1020px;
       width: 79%;
       height: 274px;
       left: 10%;
@@ -49,14 +50,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0;
+    padding: 0;
   }
   &__title {
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
     line-height: 36px;
+    display: flex;
     color: #13182c;
-    margin-left: 15%;
+
     @include tablet {
       font-weight: 600;
       font-size: 32px;
@@ -64,6 +68,12 @@ body {
       margin-left: 5%;
     }
   }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+  }
+
   &__btn {
     background: #2e66e6;
     border-radius: 20px;
@@ -156,6 +166,7 @@ body {
     color: #5c667e;
     margin-bottom: 0;
     text-transform: uppercase;
+
     @include tablet {
       font-weight: 600;
       font-size: 12px;
