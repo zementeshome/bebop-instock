@@ -17,7 +17,6 @@ router.use(cors());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-<<<<<<< HEAD
 // # 22 - Back-End: API to GET List of All Warehouses starts
 // # 4 - Back-End: Diving Deeper - Implement Sorting starts
 router.get("/", cors(), async (req, res) => {
@@ -163,9 +162,7 @@ router.post("/", cors(), (req, res) => {
 });
 // # 20 - Back-End: API to POST/CREATE a New Warehouse
 
-=======
 //Also you can try directly in server the same DELETE
->>>>>>> zemen-teshome
 // # 17 - Back-End: API to DELETE a Warehouse - Delete Start here
 //I am going to create checkWarehouseExists function later
 
@@ -235,12 +232,8 @@ function deleteInvetoriesFromWarehouse(id) {
 }
 // # 17 - Delete Inventory from Warehouse ends
 
-<<<<<<< HEAD
-module.exports = router;
-=======
   module.exports = router;
 
   //   Note:  On server.js..
 //   1) Add this line at the top: const warehousesRoute = require('./routes/warehousesRoute'); 
 //   2) Add this line after the get and post: app.use('/warehouses', warehousesRoute);
->>>>>>> zemen-teshome

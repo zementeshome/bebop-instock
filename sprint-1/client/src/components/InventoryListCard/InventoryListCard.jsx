@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import axios from 'axios';
 
 class InventoryListCard extends Component {
@@ -69,6 +70,7 @@ class InventoryListCard extends Component {
         }
         return (
             <section className="inventory">
+                          <Header />
                   <span className="inventory__line"></span>
              <div className="inventory__content-container">
                  <div className="inventory__left-container">

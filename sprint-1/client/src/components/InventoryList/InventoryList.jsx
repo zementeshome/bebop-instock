@@ -90,7 +90,7 @@ class InventoryList extends React.Component {
         <div className="inventory__search-container">
         <h2 className="inventory__header">Inventory</h2>
         <div className="inventory__button-container">
-        <input className="inventory__search" type='text' placeholder="Search..." style={{ fontFamily: 'Titillium Web', fontSize: '13px'}} onChange={(e) => onSearchChange(e.target.value)}/>
+        <input className="inventory__search" type='text' placeholder="Search..." style={{ fontFamily: 'Titillium Web', fontSize: '13px'}} /* onChange={(e) => onSearchChange(e.target.value)} */ /> 
             <img className="inventory__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
             <Link to="/addinventoryitem"><button className="inventory__button"><span>+ Add New Item</span></button></Link>
             </div>

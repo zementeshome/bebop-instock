@@ -12,7 +12,8 @@ class WarehouseDetailsCard extends Component {
             stock = <p className="warehouse__details-status-outstock">{this.props.status}</p>
         }
         // const id = this.props.match.params.id;
-        // console.log(this.props.id)
+        
+        console.log(this.props);
         return (
            <section className="warehouse__details">
                  <span className="warehouse__details-line"></span>
@@ -39,7 +40,7 @@ class WarehouseDetailsCard extends Component {
                  <span className="warehouse__details-line-tablet"></span>
              <div className="warehouse__details-icon-container">
              <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} alt="delete icon"/>
-             <Link to="/editinventoryitem">    <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/></Link> 
+             <Link to="/editinventoryitem"><img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/></Link> 
                 </div>
            </section>
         )
