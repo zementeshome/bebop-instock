@@ -105,7 +105,7 @@ if (this.state.wareHouseNameEmpty) {
       <div className="add">
         <Header />
         <div className="add__title-container">
-          <Link to="/warehouses"><img src="" alt="" /></Link>
+          <Link to="/"><img src="" alt="" /></Link>
           <h2 className="add__title">Add New Warehouse</h2>
         </div>
         <div className="add__form-container">
@@ -216,10 +216,10 @@ if (this.state.wareHouseNameEmpty) {
               <div className="add__warehouse-warning" >{email}</div>
             </div>
             <div className="add__warehouse-btn">
-              <Link to="/warehouses"><button className="add__warehouse-btn-cancel">
+              <Link to="/"><button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
               </button></Link>
-              <Link to="/warehouses"><button onClick={this.isEmpty}  className="add__warehouse-btn-save">
+              <Link to="/"><button onClick={this.isEmpty}  className="add__warehouse-btn-save">
                 <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
               </button></Link>
             </div>
