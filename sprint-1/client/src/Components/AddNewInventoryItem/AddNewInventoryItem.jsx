@@ -1,6 +1,7 @@
 import React from "react";
 import "./addNewInventoryItem.scss";
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 export default class AddNewInventoryItem extends React.Component  {
 
@@ -65,10 +66,10 @@ if (this.state.outStock) {
     <div className="add">
       <div className="add__inventory-title-container">
         <h2 className="add__inventory-title">
-          <img
+          <Link to="/inventories"><img
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt="Arrow"
-          />
+          /></Link>
           Add New Inventory Item
         </h2>
       </div>
@@ -259,12 +260,12 @@ if (this.state.outStock) {
           </div>
         </div>
         <div className="add__inventory-form-btn-container">
-          <button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
+          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
             Cancel
-          </button>
-          <button className=" add__inventory-form-btn add__inventory-form-btn-save">
+          </button></Link>
+          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-save">
             Save
-          </button>
+          </button></Link>
         </div>
       </form>
     </div>

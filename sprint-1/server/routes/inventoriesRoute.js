@@ -1,11 +1,5 @@
-// # 6 - Back-End: API to DELETE an Inventory Item
-
-// Create an API on the back-end using Express and Express
-// Router to allow the deletion of a single inventory item.
-
-// Data should be deleted from the corresponding JSON files 
-// (initially provided in the assets package).
-
+// Warehouses route
+// Verbs: GET, POST, PUT, DELETE
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -21,6 +15,146 @@ router.use(cors());
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
+
+// # 11 - Back-End: API to GET List of all Inventory Items starts
+// # 4 - Back-End: Diving Deeper - Implement Sorting starts
+router.get('/', cors(), async (req,res) => {
+  //const _ispublished = req.query.published;
+  const match = {}
+  const sort  = {}
+
+  // if(req.query.published){
+  //     match.published = req.query.published === 'true'
+  // }
+
+  if(req.query.sortBy && req.query.OrderBy){
+     inventoriesREQ = sortResults(inventoriesREQ, req.query.sortBy, req.query.OrderBy);  
+   } 
+  res.status(200).send(inventoriesREQ);
+})
+function sortResults(array, fieldProp, AscDesc) {
+  return array.sort(function(a, b) {
+      if (AscDesc === 'asc' || AscDesc === 'ASC' || AscDesc === 'Asc') {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      } else if (AscDesc === 'desc' || AscDesc === 'DESC' || AscDesc === 'Desc'){
+        return (b[fieldProp] > a[fieldProp]) ? 1 : ((b[fieldProp] < a[fieldProp]) ? -1 : 0);
+      } else {
+        return (a[fieldProp] > b[fieldProp]) ? 1 : ((a[fieldProp] < b[fieldProp]) ? -1 : 0);
+      }
+  });
+}
+// a = a.toLowerCase();
+// b = b.toLowerCase();
+// # 4 - Back-End: Diving Deeper - Impement Sorting ends
+// # 11 - Back-End: API to GET List of all Inventory Items ends
+
+
+
+// router.get('/posts',authenticate, async (req,res) => {
+//   //const _ispublished = req.query.published;
+//   const match = {}
+//   const sort  = {}
+
+//   if(req.query.published){
+//       match.published = req.query.published === 'true'
+//   }
+
+//   if(req.query.sortBy && req.query.OrderBy){
+//       sort[req.query.sortBy]   = req.query.OrderBy === 'desc' ? -1 : 1
+//   }
+  
+//   try {
+//       await req.user.populate({
+//           path:'posts',
+//           match,
+//           options:{
+//               limit: parseInt(req.query.limit),
+//               skip: parseInt(req.query.skip),
+//               sort
+//           }
+//       }).execPopulate()
+//       res.send(req.user.posts)
+//   } catch (error) {
+//       res.status(500).send()
+//   }
+// })
+
+// const json = JSON.parse(getJsonFile());
+
+// const jsonAsArray = Object.keys(json).map(function (key) {
+//   return json[key];
+// })
+// .sort(function (itemA, itemB) {
+//   return itemA.score < itemB.score;
+// });
+
+// let dataSort = res.data.sort((a, b) => { return b.consec - a.consec; })
+
+
+ // # 10 - Back-End: API to GET a Single Inventory Item starts
+ router.get(`/:id`, (req, res) => {
+   const inventory = inventoriesREQ.find(
+     (object) => object.id === req.params.id
+   );
+   if (inventory !== undefined) {
+     res.status(200).send({
+       id: inventory.id,
+       warehouseID: inventory.warehouseID,
+       warehouseName: inventory.warehouseName,
+       itemName: inventory.itemName,
+       description: inventory.description,
+       category: inventory.category,
+       status: inventory.status,
+       quantity: inventory.quantity,
+     });
+   } else {
+     res.status(404).send({
+       error: "No inventory with that id exists",
+     });
+   }
+ });
+// # 10 - Back-End: API to GET a Single Inventory Item ends
+
+// # 8 - Back-End: API to POST/CREATE a New Inventory Item 
+router.post("/", cors(), (req, res) => {
+  const {
+    id, warehouseID, warehouseName, itemName, description, category, status, quantity
+  } = req.body;
+  //First we run validations
+  if (!id || !warehouseID || !warehouseName || !itemName || !description || !category || !status) {
+      // This means that one field was not filled correctly
+      return res.status(404).send({  error: "All the fields are required. Don't leave any field in blank.", });
+  } // Before asking is a Number we need to parsefloat and treat quantity as a number
+  if (isNaN(parseFloat(quantity))) {
+    return res.status(404).send({  error: "Write a valid quantity in numbers.", });
+  }
+  res.status(200).json(req.body)
+    
+  // INVENTORIES READS THE DATA WITHIN INVENTORIES.JSON FILE
+   const inventories = fs.readFileSync('./data/inventories.json');
+
+   // INVENTORIES JSON CONVERTS TO JSON
+   const inventoriesJSON = JSON.parse(inventories);
+ 
+  // PARSE JSON ADDS REQ.BODY
+  inventoriesJSON.push(req.body)
+  // inventoriesJSON["inventories"].push(req.body)
+
+  // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
+  const stringJSON = JSON.stringify(inventoriesJSON);
+
+  // FS.WRITE WRITES THE NEW JSON FILE
+  fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
+     if (err) return console.log(err);
+  });
+
+  inventoriesREQ.push(req.body) //push in inventoriesREQ to see results LIVE
+  return res.status(200)
+ }
+);
+// # 8 - Back-End: API to POST/CREATE a New Inventory Item
+
+
 
 // # 6 - Back-End: API to DELETE a Inventory - Delete Start here
 //app.delete('/inventories/:id', checkInvetoryExists, (req, res) => {
@@ -62,7 +196,3 @@ router.delete('/:id', cors(), (req, res, next) => {
   // # 6 - Delete Item Ends here
 
   module.exports = router;
-
-//   Note:  On server.js..
-//   1) Add this line at the top: const inventoriesRoute = require('./routes/inventoriesRoute'); 
-//   2) Add this line after the get and post: app.use('/inventories', inventoriesRoute);

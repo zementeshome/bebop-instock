@@ -1,6 +1,8 @@
 import React from "react";
 import "./editWarehouse.scss";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 
 export default class EditWarehouse extends React.Component {
   editWarehouse = (e) => {
@@ -25,8 +27,9 @@ export default class EditWarehouse extends React.Component {
   render() {
     return (
       <div className="edit">
+        <Header />
         <div className="edit__title-container">
-          <img src="" alt="" />
+          <Link to="/warehouses/:id"><img src="" alt="" /></Link>
           <h2 className="edit__title">Edit Warehouse</h2>
         </div>
         <div className="edit__form-container">
@@ -131,12 +134,12 @@ export default class EditWarehouse extends React.Component {
               />
             </div>
             <div className="edit__warehouse-btn">
-              <button className="edit__warehouse-btn-cancel">
+              <Link to='/warehouses/:id'><button className="edit__warehouse-btn-cancel">
                 <h3 className="edit__warehouse-btn-cancel-h3"> Cancel</h3>
-              </button>
-              <button className="edit__warehouse-btn-save">
+              </button></Link>
+              <Link to="/warehouses:id"><button className="edit__warehouse-btn-save">
                 <h3 className="edit__warehouse-btn-save-h3">Save</h3>
-              </button>
+              </button></Link>
             </div>
           </form>
           {/* </div> */}

@@ -2,6 +2,8 @@ import React from "react";
 import "./addWarehouse.scss";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 
 export default class AddWarehouse extends React.Component {
 
@@ -52,9 +54,11 @@ state = {
             email: e.target.email.value,
           },
         };
+
    }
       
       document.getElementById("form").reset();
+
     };
 
 
@@ -99,8 +103,9 @@ if (this.state.wareHouseNameEmpty) {
 
     return (
       <div className="add">
+        <Header />
         <div className="add__title-container">
-          <img src="" alt="" />
+       <Link to="/warehouses"><img src="" alt="" /></Link>
           <h2 className="add__title"> <img
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt="Arrow"
@@ -213,12 +218,12 @@ if (this.state.wareHouseNameEmpty) {
               <div className="add__warehouse-warning" >{email}</div>
             </div>
             <div className="add__warehouse-btn">
-              <button className="add__warehouse-btn-cancel">
+              <Link to="/warehouses"><button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
-              </button>
-              <button onClick={this.isEmpty}  className="add__warehouse-btn-save">
+              </button></Link>
+              <Link to="/warehouses"><button onClick={this.isEmpty}  className="add__warehouse-btn-save">
                 <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
-              </button>
+              </button></Link>
             </div>
           </form>
           {/* </div> */}

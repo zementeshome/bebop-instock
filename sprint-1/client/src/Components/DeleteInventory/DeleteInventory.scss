@@ -3,7 +3,7 @@
 @import "../../styles/partials/functions";
 @import "../../styles/partials/fonts";
 
-.deleteWarehouse {
+.deleteItem {
     background-color: $white;
     @include tablet {
         margin-top: 9rem;
@@ -49,6 +49,7 @@
         }
         @include desktop {
             width: 40vw;
+            // margin-left: 38vw;
         }
     }
 
@@ -66,6 +67,7 @@
         }
         @include desktop {
             width: 13vw;
+            margin-left: 38vw;
         }
         &__cancel {
             padding: 8px 47px;
