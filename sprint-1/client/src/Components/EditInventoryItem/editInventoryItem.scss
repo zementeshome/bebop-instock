@@ -168,7 +168,7 @@ body {
     border-radius: 20px;
     padding-left: 3%;
     appearance: none;
-    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    // background-image: url(../../assets/icons/arrowdropdown24px.svg);
     background-repeat: no-repeat;
     background-position: 96% 50%;
 
@@ -224,6 +224,9 @@ body {
   }
   &__form-category-input {
     @extend .inventory__form-item-input;
+    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
   }
   &__form-category-input-option {
   }
@@ -313,7 +316,35 @@ body {
   }
   &__form-warehouse-input {
     @extend .inventory__form-item-input;
+    @extend .inventory__form-category-input;
   }
+  // &__inventory-form-item-input-display-non {
+  //   display: none;
+  // }
+
+  // &__inventory-form-item-input {
+  //   width: 90%;
+  //   height: 36px;
+  //   background: #ffffff;
+  //   border: 1px solid #bdc5d5;
+  //   box-sizing: border-box;
+  //   border-radius: 20px;
+  //   padding-left: 3%;
+  //   appearance: none;
+  //   // background-image: url(../../assets/icons/arrowdropdown24px.svg);
+  //   background-repeat: no-repeat;
+  //   background-position: 96% 50%;
+
+  //   @include tablet {
+  //     width: 85%;
+  //     height: 38px;
+  //     left: 64px;
+  //   }
+  //   @include desktop {
+  //     width: 100%;
+  //   }
+  // }
+
   &__form-warehouse-option {
   }
   &__form-btn-container {
@@ -373,4 +404,7 @@ body {
       line-height: 22px;
     }
   }
+}
+.add__inventory-form-item-input-display-non {
+  display: none;
 }
