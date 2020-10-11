@@ -1,6 +1,6 @@
 import React from 'react';
-import InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
-import './InventoryList.scss';
+import  inventoryListListCardMap from '../ inventoryListListCardMap/ inventoryListListCardMap';
+import './ inventoryList.scss';
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
 import Header from '../Header/Header'
@@ -11,7 +11,7 @@ function getParams(pathname) {
   });
   return (matchProfile && matchProfile.params) || {};
 };
-class InventoryList extends React.Component {
+class  inventoryListList extends React.Component {
     state = {inventories: [], init:0}
     
    componentDidMount() {
@@ -64,7 +64,7 @@ class InventoryList extends React.Component {
         //         .then((res) => {
         //           this.setState({
         //             inventories: res.data.find(
-        //               (inventory) => inventory["id"] === currentParams.id
+        //               ( inventoryList) =>  inventoryList["id"] === currentParams.id
         //             ),
         //           });
         //         })
@@ -112,38 +112,38 @@ class InventoryList extends React.Component {
       return (
         <>
         <Header />
-        <section className="inventory">
-        <div className="inventory__container">
-        <div className="inventory__search-container">
-        <h2 className="inventory__header">Inventory</h2>
-        <div className="inventory__button-container">
-        <input className="inventory__search" type='text' placeholder="Search..."/>
-            <img className="inventory__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
-            <Link to="/addinventoryitem"><button className="inventory__button">+ Add New Item</button></Link>
+        <section className=" inventoryList">
+        <div className=" inventoryList__container">
+        <div className=" inventoryList__search-container">
+        <h2 className=" inventoryList__header"> inventoryList</h2>
+        <div className=" inventoryList__button-container">
+        <input className=" inventoryList__search" type='text' placeholder="Search..."/>
+            <img className=" inventoryList__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
+            <Link to="/add inventoryListitem"><button className=" inventoryList__button">+ Add New Item</button></Link>
             </div>
             </div>
-            <div className="inventory__tablet-div">
-                <p className="inventory__tablet-inventory">INVENTORY ITEM</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-category">CATEGORY</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-status">STATUS</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-quantity">QTY</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-warehouse">WAREHOUSE</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-actions">ACTIONS</p>
+            <div className=" inventoryList__tablet-div">
+                <p className=" inventoryList__tablet- inventoryList"> inventoryList ITEM</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-category">CATEGORY</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-status">STATUS</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-quantity">QTY</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-warehouse">WAREHOUSE</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-actions">ACTIONS</p>
             </div>
-            {this.state.inventories.map((inventory) => 
-            <InventoryListCardMap key={inventory.id} 
-                 id={inventory.id} itemName={inventory.itemName} 
-                 warehouseName={inventory.warehouseName} status={inventory.status} 
-                 category={inventory.category} quantity={inventory.quantity}/>)}
+            {this.state.inventories.map(( inventoryList) => 
+            < inventoryListListCardMap key={ inventoryList.id} 
+                 id={ inventoryList.id} itemName={ inventoryList.itemName} 
+                 warehouseName={ inventoryList.warehouseName} status={ inventoryList.status} 
+                 category={ inventoryList.category} quantity={ inventoryList.quantity}/>)}
             </div>
         </section>
         </>
     )}
 }
 
-export default InventoryList;
+export default  inventoryListList;
