@@ -1,0 +1,108 @@
+@import '../../styles/partials/variables';
+
+@import '../../styles/partials/mixins';
+
+@import '../../styles/partials/functions';
+
+@import '../../styles/partials/fonts';
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    font-weight: 600;
+}
+
+.header {
+    @include mobile {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: 0px;
+    top: 0px;
+    background-color: $graphite;
+}
+    @include tablet{
+        height: 186px;
+    }
+
+    &__logo {
+        @include mobile {
+        width: 120px; 
+        height: 40px; 
+        margin-top: 1.3rem;
+        }
+        @include tablet {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 2rem;
+            margin-top: 1.5rem;
+        }
+        @include desktop{
+            margin-left: 8.125rem;
+        }
+    }
+
+    &__nav {
+        @include mobile {
+        margin-right: 16px;
+     }
+        @include tablet {
+            margin-right: 32px;
+        }
+        @include desktop{
+            margin-right: 9.125rem;
+        }
+    }
+
+    &__nav-list {
+        @include mobile {
+        display: inline-flex;
+        list-style-type: none;
+        margin-top: 1.2rem;
+        justify-content: center;
+        }
+        @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -1.7rem;
+        }
+    }
+
+    &__nav-item {
+        @include mobile {
+        color: $cloud;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        }
+    }
+
+    &__nav-border {
+        @include mobile {
+        width: 142px;
+        height: 25px;
+        background-color: #13182C;
+        border-radius: 20px;
+        padding-top: 5px;
+        margin-top: -0.38rem;
+        margin-right: 0;
+        margin-left: 2.5rem;
+        }
+        @include tablet {
+            width: 100px;
+            margin-right: 0.2rem;
+            margin-left: 1.5rem;
+        }
+    }
+
+    &__nav-item--active {
+        @include mobile {
+        font-weight: 600; 
+        color: $white;
+    }
+    }
+}

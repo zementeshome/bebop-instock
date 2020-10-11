@@ -24,7 +24,7 @@
             }
             @include tablet {
                 margin-top: 5.5rem;
-                height: 159%;
+                height: 136%;
                 margin-bottom: 14rem;
             }
             @include desktop {
@@ -71,7 +71,7 @@
         border: 1px solid $cloud;
         box-sizing: border-box;
         border-radius: 20px;
-        width: 240px;
+        width: 82%;
         height: 30px;
         margin-left: 1.5rem;
         margin-right: 2rem;
@@ -81,7 +81,7 @@
         width: 175px;
         height: 35px;
         margin-left: -2rem;
-        margin-right: 0rem;
+        margin-right: -0.5rem;
     }
   }
 
@@ -93,6 +93,7 @@
         padding-left: 0.8rem;
      }
   }
+
   &__search-icon {
     @include mobile {
         width: 18px;
@@ -102,40 +103,52 @@
         top: 5.2rem;
     }
     @include tablet {
-        right: 34%;
+        position: relative;
+        right: 5%;
         top: 2.5rem;
     }
     @include desktop {
-        right: 21%;
+        right: 2.5%;
     }
-  }  
+  } 
 
   &__button {
     @include mobile {
         display: flex;
         justify-content: flex-start;
-        padding: 4px 0px 0px 65px;
-        width: 240px;
+        width: 82%;
         height: 30px;
         background-color: $instock-indigo;
         border-radius: 20px;
         margin-left: 1.5rem;
         margin-top: 0.8rem;
-        color: $white;
-        font-weight: 600;
         border: 1px solid $instock-indigo;
-        font-family: 'Titillium Web';
-        font-size: 12px;
     }
     @include tablet {
         margin-top: 2rem;
-        width: 175px;
+        width: 130px;
         height: 35px;
-        padding-left: 31px;
         padding-top: 6px;
         margin-right: 1.5rem;
+        margin-left: 0.3rem;
     }
   } 
+  &__button span {
+      @include mobile {
+    color: $white;
+    font-weight: 600;
+    font-family: 'Titillium Web';
+    font-size: 12px;
+    margin: 0 auto;
+    padding-top: 3px;
+      }
+      @include tablet {
+        padding-top: 1px;
+        padding-left: 3px;
+        text-align: center;
+      }
+
+  }
 
   &__tablet-div {
     @include mobile {
@@ -239,12 +252,16 @@
         }
         @include tablet {
             width: 200px;
+            margin-top: -1rem;
         }
     }
 
     &__right-container {
         @include mobile {
         width: 50%;
+        }
+        @include tablet {
+            margin-top: -1rem;
         }
     }
 
@@ -269,6 +286,7 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
+            margin-bottom: 0;
         }
         // @include tablet {
         //     margin-top: -1rem;
@@ -278,24 +296,32 @@
         // }
     }
 
+    &__item-container {
+        display: flex;
+        margin-bottom: 0;
+    }
+
     &__arrow {
         @include mobile {
             width: 18px;
             height: 18px;
-            position: absolute;
-            top: 13.6rem;
-            left: 5.3rem;
-            display: none;
+            margin-top: -0.45rem;
+            margin-left: 0.4rem;
+        
         }
-        @include tablet {
-            // display: none;
-        }
+    }
+
+    &__arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
     }
 
     &__category,
     &__status,
     &__quantity,
-    &__warehouse {
+    &__warehouse,
+    &__status-outstock,
+    &__status-instock {
         @include mobile {
             font-size: 12px;
             font-weight: 400;
@@ -314,7 +340,8 @@
     &__category {
         @include tablet {
             margin-left: 11rem;
-            margin-top: -2rem; 
+            margin-top: -1.2rem; 
+            // margin-bottom: 1rem;
         }
         @include desktop {
             margin-left: 16rem;
@@ -322,20 +349,64 @@
         }
     }
 
-    &__status {
+    &__status,
+    &__status-instock,
+    &__status-outstock {
+        @include mobile {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
         @include tablet {
             margin-left: 6rem;
             margin-top: -0.5rem;
         }
+
         @include desktop {
             margin-left: 16rem;
         }
     }
 
+    &__status-instock {
+        @include mobile {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+            width: 59px;
+            padding-left: 9px;
+            height: 23px;
+            padding-top: 2px;
+            border-radius: 20px;
+        }
+    }
+
+    &__status-outstock {
+        color: $red;
+        width: 85px;
+        background-color: rgba(201, 69, 21, 0.07);
+        height: 23px;
+        border-radius: 20px;
+        padding-top: 2px;
+        padding-left: 9px;
+    }
+
+    // &__status-border {
+    //     @include mobile {
+    //         display: none;
+    //     }
+    //     @include tablet {
+    //         // padding: 4px 0px 0px 8px;
+    //         width: 92px;
+    //         height: 26px;
+    //         background: orange;
+    //         border-radius: 20px;
+
+    //     }
+    // }
+
     &__quantity {
         @include tablet {
-            margin-left: 12.5rem;
-            margin-top: -1.6rem;
+            margin-left: 12.8rem;
+            margin-top: -1.8rem;
         }
         @include desktop {
             margin-left: 27rem;
@@ -343,7 +414,7 @@
     }
     &__warehouse {
         @include tablet {
-            margin-left: 18rem;
+            margin-left: 18.2rem;
             margin-top: -1.8rem;
         }
         @include desktop {
@@ -387,7 +458,7 @@
             height: 25px;
         }
         @include tablet {
-            margin-top: -5rem;
+            margin-top: -4.5rem;
             padding-left: 1rem;
         }
     }
