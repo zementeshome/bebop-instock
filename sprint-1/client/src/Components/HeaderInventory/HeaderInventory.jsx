@@ -7,17 +7,17 @@ function Header() {
                 <div className="header__container">
                     <div className="header__container-logo">
                     <img className="header__logo" src={process.env.PUBLIC_URL + '/assets/Logo/instocklogo.svg'} alt="instock logo"/>
-                    </div>
+                </div>
                     <nav className="header__nav">
                     <ul className="header__nav-list">
                         <li className="header__nav-item">Warehouses</li>
-                        <div className="header__nav-border">
+                     <div className="header__nav-border">
                         <li className="header__nav-item nav-item--active">Inventory</li>
-                        </div>
+                    </div>
                     </ul>
-                    </nav>
-                </div>
-            </header>
+                </nav>
+            </div>
+        </header>
     )
 
 }

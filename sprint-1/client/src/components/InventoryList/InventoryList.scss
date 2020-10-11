@@ -11,7 +11,7 @@
         &__container {
             @include mobile {
               position: absolute;
-              height: 410%;
+              height: 412%;
               width: 91%;
               border: 2px solid $white;
               left: 4.27%;
@@ -24,14 +24,14 @@
             }
             @include tablet {
                 margin-top: 5.5rem;
-                height: 136%;
+                height: 144%;
                 margin-bottom: 14rem;
             }
             @include desktop {
                 width: 80%;
                 left: 10%;
                 right: 10%;
-                height: 119%;
+                height: 102.5%;
             }
     }
 
@@ -179,7 +179,6 @@
             font-size: 12px;
             color: $slate;
             margin-left: 1.2rem;
-            // padding-right: 2.1rem;
         }
         @include desktop {
             margin-left: 1.6rem;
@@ -286,14 +285,8 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
-            margin-bottom: 0;
+            margin-bottom: 0.5rem;
         }
-        // @include tablet {
-        //     margin-top: -1rem;
-        // }
-        // @include desktop {
-        //     margin-left: 1.6rem;
-        // }
     }
 
     &__item-container {
@@ -341,11 +334,9 @@
         @include tablet {
             margin-left: 11rem;
             margin-top: -1.2rem; 
-            // margin-bottom: 1rem;
         }
         @include desktop {
             margin-left: 16rem;
-            // width: 200px;
         }
     }
 
@@ -389,20 +380,6 @@
         padding-left: 9px;
     }
 
-    // &__status-border {
-    //     @include mobile {
-    //         display: none;
-    //     }
-    //     @include tablet {
-    //         // padding: 4px 0px 0px 8px;
-    //         width: 92px;
-    //         height: 26px;
-    //         background: orange;
-    //         border-radius: 20px;
-
-    //     }
-    // }
-
     &__quantity {
         @include tablet {
             margin-left: 12.8rem;
@@ -421,18 +398,6 @@
             margin-left: 33rem;
         }
     }
-
-    // // &__contact-phone {
-    // //     @include tablet {
-    // //         margin-top: -2rem;
-    // //     }
-    // // }
-
-    // // &__contact-email {
-    // //     @include tablet {
-    // //         margin-top: -0.5rem;
-    // //     }
-    // // }
 
     &__icon-container {
         @include mobile {

@@ -7,9 +7,6 @@
 @import '../../styles/partials/fonts';
 
 .warehouse__details {
-    // @include tablet {
-    //     margin-top: -1rem;
-    // }
     &-container {
         @include mobile {
           position: absolute;
@@ -67,7 +64,7 @@
         }
         @include desktop {
             left: 90%;
-            top: 3%;
+            top: 4.2%;
         }
     }
 
@@ -129,9 +126,6 @@
             border-top: 1px solid $cloud;
             width: 100%;
             display: inline-block; 
-            // margin-bottom: -1rem;
-
-            // padding-top: 1rem;
         }
     }
 
@@ -139,9 +133,6 @@
         @include tablet {
             display: flex;
         }
-        // @include tablet {
-        //     margin-top: -1rem;
-        // }
     }
 
     &-subheading {
@@ -179,12 +170,6 @@
         }
     }
 
-    // &-address {
-    //     @include tablet {
-    //         margin-top: 2rem;
-    //     }
-    // }
-
     &-contact-div {
         @include tablet {
             margin-left: 18rem;
@@ -200,23 +185,12 @@
 
     &-subheading-2{
         @include tablet {
-            // margin-left: 20rem;
             margin-top: -4.5rem;
             width: 100px;
-            // position: fixed;
         }
         @include desktop {
             margin-left: 1.2rem;
         }
-    }
-
-    &-contact {
-        @include tablet {
-            // padding-left: 18.8rem;
-        }
-        // @include desktop {
-        //     margin-left: 30rem;
-        // }
     }
 
     &-subheading-3 {
@@ -293,19 +267,6 @@
             margin-left: 1.2rem;
         }
     }
-    // &-tablet-desktop {
-    //     @include mobile {
-    //         display: none;
-    //     }
-    //     @include tablet {
-    //         display: none;
-    //     }
-    //     @include desktop {
-    //         font-size: 12px;
-    //         color: $slate;
-    //         display: flex;
-    //     }
-    // }
 
     &-tablet-inventory{
         @include desktop {
@@ -334,7 +295,6 @@
         }
         @include desktop {
             margin-left: 3rem;
-            // display: none;
         }
     }
 
@@ -387,9 +347,6 @@
         @include desktop {
             margin-left: 2rem;
         }
-        // @include desktop {
-        //     padding-right: 10rem;
-        // }
     }
     &-category-container {
         @include tablet {
@@ -414,12 +371,6 @@
         }
         @include tablet {
             padding-left: -1rem;
-            // color:#C94515;
-            // width: 50px;
-            // height: 26px;
-            // border-radius: 20px;
-            // background-color: #fde0d5;
-            // text-align: center;
         }
         @include desktop {
             padding-left: 19rem;
@@ -435,11 +386,9 @@
     &-quantity {
         @include tablet {
             padding-left: 8.7rem;  
-            // padding-top: -2vw;
         }
         @include desktop {
             padding-left: 25.5rem;
-            // margin-top: -1rem;
         }
     }
 
@@ -523,17 +472,12 @@
         @include mobile {
             width: 45%;
         }
-        // @include tablet {
-        //     border-right: 1px solid $cloud;
-        //     width: 40%;
-        // }
     }
    &-left-container {
        @include mobile {
            width: 45%;
        }
        @include tablet {
-        //    display: flex;
            width: 210px;
        }
    }
@@ -543,7 +487,6 @@
         width: 50%;
     }
        @include tablet {
-        //    display: flex;
            width: 200px;
        }
        @include tablet {
@@ -562,7 +505,6 @@
         @include mobile {
             width: 18px;
             height: 18px;
-            // position: absolute;
             margin-top: -2rem;
         }
         @include tablet {

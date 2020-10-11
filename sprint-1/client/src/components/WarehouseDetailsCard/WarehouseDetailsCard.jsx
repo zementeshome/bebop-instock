@@ -16,30 +16,29 @@ class WarehouseDetailsCard extends Component {
                  <div className="warehouse__details-left-container">
                  <h3 className="warehouse__details-subheading">INVENTORY ITEM</h3>
                  <div className="warehouse__details-inventory-container">
-                <p className="warehouse__details-inventory">{this.props.itemName}</p>
+                 <p className="warehouse__details-inventory">{this.props.itemName}</p>
                 <img className="warehouse__details-arrow" src={process.env.PUBLIC_URL + '/assets/Icons/chevronright24px.svg'} alt="right arrow"/>
-                </div>
+            </div>
                 <h3 className="warehouse__details-subheading">CATEGORY</h3>
                 <div className="warehouse__details-category-container">
                 <p className="warehouse__details-category">{this.props.category}</p>
-                </div>
-                 </div>
+            </div>
+            </div>
                  <div className="warehouse__details-right-container">
                  <h3 className="warehouse__details-subheading">STATUS</h3>
                  {stock}
-                {/* <p className="warehouse__details-status">{this.props.status}</p> */}
                  <h3 className="warehouse__details-subheading">QTY</h3>
                  <div className="warehouse__details-quantity-container">
                 <p className="warehouse__details-quantity">{this.props.quantity}</p>
-                </div>
-             </div>
-                 </div>
-                 <span className="warehouse__details-line-tablet"></span>
-             <div className="warehouse__details-icon-container">
-             <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} alt="delete icon"/>
-                <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/>
-                </div>
-           </section>
+            </div>
+        </div>
+     </div>
+        <span className="warehouse__details-line-tablet"></span>
+        <div className="warehouse__details-icon-container">
+        <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} alt="delete icon"/>
+        <img className="warehouse__details-delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/>
+    </div>
+</section>
         )
     }
 }

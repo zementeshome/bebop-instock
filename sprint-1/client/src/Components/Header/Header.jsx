@@ -16,11 +16,10 @@ function Header() {
                         </div>
                         <li className="header__nav-item">Inventory</li>
                     </ul>
-                    </nav>
-                </div>
-            </header>
+                </nav>
+            </div>
+        </header>
     )
-
 }
 
 export default Header;
