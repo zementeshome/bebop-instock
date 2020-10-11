@@ -1,5 +1,5 @@
 import React from 'react';
-import InventoryListCard from '../InventoryListCard/InventoryListCard';
+import InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
 import './InventoryList.scss';
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
@@ -14,8 +14,7 @@ function getParams(pathname) {
 class InventoryList extends React.Component {
     state = {inventories: [], init:0}
     
-  async componentDidMount() {
-        console.log('you are here 111')
+   componentDidMount() {
         // const id = this.props.match.params.id;
         // console.log(id);
         const url = 'http://localhost:8080';
@@ -25,16 +24,16 @@ class InventoryList extends React.Component {
             headers: { },
             data : ''
           };
-         console.log('this config:' + config);
-        await axios(config)   
-            .then(response => {
-                this.setState({
-                    inventories: response.data, init: 1
-                })
-              })
+         axios(config)   
+            .then(res => {
+              //console.log(res.data) /// working herer data 70 inventories objects OK
+              const inventories = res.data
+              this.setState({ inventories: res.data, init: 1  })
+            })
         .catch(err => {
             console.log(err)
-    })}
+    })
+  }
 
         // componentDidUpdate(PrevState) {
 
@@ -109,9 +108,9 @@ class InventoryList extends React.Component {
         //   }
 
     render () {
-    return (
+      //console.log(this.state.inventories) // 71 objects here is fine OK 
+      return (
         <>
-
         <Header />
         <section className="inventory">
         <div className="inventory__container">
@@ -136,9 +135,14 @@ class InventoryList extends React.Component {
                 <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="inventory__tablet-actions">ACTIONS</p>
             </div>
-            {this.state.inventories.map((manhattanDetails) => <InventoryListCard key={manhattanDetails.id} id={manhattanDetails.id} itemName={manhattanDetails.itemName} warehouseName={manhattanDetails.warehouseName} status={manhattanDetails.status} category={manhattanDetails.category} quantity={manhattanDetails.quantity}/>)}
+            {this.state.inventories.map((inventory) => 
+            <InventoryListCardMap key={inventory.id} 
+                 id={inventory.id} itemName={inventory.itemName} 
+                 warehouseName={inventory.warehouseName} status={inventory.status} 
+                 category={inventory.category} quantity={inventory.quantity}/>)}
             </div>
-        </section></>
+        </section>
+        </>
     )}
 }
 
