@@ -1,6 +1,6 @@
 import React from 'react';
-import InventoryListCard from '../InventoryListCard/InventoryListCard';
-import './InventoryList.scss';
+import  inventoryListListCardMap from '../ inventoryListListCardMap/ inventoryListListCardMap';
+import './ inventoryList.scss';
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
 import Header from '../Header/Header'
@@ -11,11 +11,10 @@ function getParams(pathname) {
   });
   return (matchProfile && matchProfile.params) || {};
 };
-class InventoryList extends React.Component {
+class  inventoryListList extends React.Component {
     state = {inventories: [], init:0}
     
-  async componentDidMount() {
-        console.log('you are here 111')
+   componentDidMount() {
         // const id = this.props.match.params.id;
         // console.log(id);
         const url = 'http://localhost:8080';
@@ -25,16 +24,16 @@ class InventoryList extends React.Component {
             headers: { },
             data : ''
           };
-         console.log('this config:' + config);
-        await axios(config)   
-            .then(response => {
-                this.setState({
-                    inventories: response.data, init: 1
-                })
-              })
+         axios(config)   
+            .then(res => {
+              //console.log(res.data) /// working herer data 70 inventories objects OK
+              const inventories = res.data
+              this.setState({ inventories: res.data, init: 1  })
+            })
         .catch(err => {
             console.log(err)
-    })}
+    })
+  }
 
         // componentDidUpdate(PrevState) {
 
@@ -65,7 +64,7 @@ class InventoryList extends React.Component {
         //         .then((res) => {
         //           this.setState({
         //             inventories: res.data.find(
-        //               (inventory) => inventory["id"] === currentParams.id
+        //               ( inventoryList) =>  inventoryList["id"] === currentParams.id
         //             ),
         //           });
         //         })
@@ -109,37 +108,42 @@ class InventoryList extends React.Component {
         //   }
 
     render () {
-    return (
+      //console.log(this.state.inventories) // 71 objects here is fine OK 
+      return (
         <>
-
         <Header />
-        <section className="inventory">
-        <div className="inventory__container">
-        <div className="inventory__search-container">
-        <h2 className="inventory__header">Inventory</h2>
-        <div className="inventory__button-container">
-        <input className="inventory__search" type='text' placeholder="Search..."/>
-            <img className="inventory__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
-            <Link to="/addinventoryitem"><button className="inventory__button">+ Add New Item</button></Link>
+        <section className=" inventoryList">
+        <div className=" inventoryList__container">
+        <div className=" inventoryList__search-container">
+        <h2 className=" inventoryList__header"> inventoryList</h2>
+        <div className=" inventoryList__button-container">
+        <input className=" inventoryList__search" type='text' placeholder="Search..."/>
+            <img className=" inventoryList__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
+            <Link to="/add inventoryListitem"><button className=" inventoryList__button">+ Add New Item</button></Link>
             </div>
             </div>
-            <div className="inventory__tablet-div">
-                <p className="inventory__tablet-inventory">INVENTORY ITEM</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-category">CATEGORY</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-status">STATUS</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-quantity">QTY</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-warehouse">WAREHOUSE</p>
-                <img className="inventory__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-                <p className="inventory__tablet-actions">ACTIONS</p>
+            <div className=" inventoryList__tablet-div">
+                <p className=" inventoryList__tablet- inventoryList"> inventoryList ITEM</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-category">CATEGORY</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-status">STATUS</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-quantity">QTY</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-warehouse">WAREHOUSE</p>
+                <img className=" inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
+                <p className=" inventoryList__tablet-actions">ACTIONS</p>
             </div>
-            {this.state.inventories.map((manhattanDetails) => <InventoryListCard key={manhattanDetails.id} id={manhattanDetails.id} itemName={manhattanDetails.itemName} warehouseName={manhattanDetails.warehouseName} status={manhattanDetails.status} category={manhattanDetails.category} quantity={manhattanDetails.quantity}/>)}
+            {this.state.inventories.map(( inventoryList) => 
+            < inventoryListListCardMap key={ inventoryList.id} 
+                 id={ inventoryList.id} itemName={ inventoryList.itemName} 
+                 warehouseName={ inventoryList.warehouseName} status={ inventoryList.status} 
+                 category={ inventoryList.category} quantity={ inventoryList.quantity}/>)}
             </div>
-        </section></>
+        </section>
+        </>
     )}
 }
 
-export default InventoryList;
+export default  inventoryListList;
