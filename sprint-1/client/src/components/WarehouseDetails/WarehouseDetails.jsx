@@ -108,7 +108,7 @@ class WarehouseDetails extends React.Component {
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>
-                {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.id} id={warehouseInventory.warehouseId} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
+                {/* {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.warehouseId} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)} */}
             </div>
         </section>
     )

@@ -12,9 +12,9 @@ function Header() {
                     <nav className="header__nav">
                     <ul className="header__nav-list">
                         <div className="header__nav-border">
-                        <li className="header__nav-item header__nav-item--active">Warehouses</li>
+                        <Link to="/"><li className="header__nav-item header__nav-item--active">Warehouses</li></Link>
                         </div>
-                        <li className="header__nav-item">Inventory</li>
+                        <Link to="/inventories"><li className="header__nav-item">Inventory</li></Link>
                     </ul>
                     </nav>
                 </div>
