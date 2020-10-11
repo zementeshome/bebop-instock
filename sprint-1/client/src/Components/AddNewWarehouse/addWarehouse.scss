@@ -175,6 +175,16 @@ body {
     align-self: center;
     // box-sizing: border-box;
 
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border-radius: 20px;
+      border: 1px solid $instock-indigo;
+      outline: none;
+      // background-color: transparent;
+    }
+
     &:focus::placeholder {
       color: transparent;
     }
