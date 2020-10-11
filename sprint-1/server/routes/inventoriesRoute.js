@@ -116,63 +116,7 @@ router.post("/", cors(), (req, res) => {
 );
 // # 8 - Back-End: API to POST/CREATE a New Inventory Item
 
-// # 18 - Back-End: API to PUT/PATCH/EDIT a Inventories starts
-router.put('/:id', cors(), (req, res) => {
-  console.log(req.body)
-  if (req.body !== undefined) {
-    const id = req.params.id; 
-    const { warehouseID, warehouseName, itemName, description, 
-            category, status, quantity } = req.body;
-    
-    // if (!id || !warehouseID || !warehouseName ||  !itemName || !description || 
-    //     !category ||  !status || !quantity ) {
-    //     return res.status(404).send({ error: "All the fields are required. Don't leave any field in blank.", })
-    // }   
-    // // Before asking is a Number we need to parsefloat and treat quantity as a number
-    // if (isNaN(parseFloat(quantity))) {
-    //   return res.status(404).send({  error: "Write a valid quantity in numbers.", });
-    // }
-    
-    console.log("you are here 2")
-
-    // INVENTORIES JSON CONVERTS TO JSON
-    const inventories = fs.readFileSync('./data/inventories.json');
-    // INVENTORIES JSON CONVERTS TO JSON
-    const inventoriesJSON = JSON.parse(inventories);
-
-    console.log (inventoriesJSON[id]['itemName'])
-    // let tempTest;
-    // _.extend(tempTest, inventoriesJSON[id])
-    //   // _.extend(destination, *sources)
-    //  console.log(tempTest)
-
-  
-
-    // PARSE JSON ADDS REQ.BODY 
-    // inventoriesJSON[id]['itemName'] = itemName;  
-    // inventoriesJSON[id]['warehouseName'] = warehouseName;
-    // inventoriesJSON[id]['description'] = description;
-    // inventoriesJSON[id]['category'] = category;
-    // inventoriesJSON[id]['status'] = status;
-    // inventoriesJSON[id]['quantity'] = quantity;
-
-    // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
-    const stringJSON = JSON.stringify(inventoriesJSON);
-
-    // FS.WRITE WRITES THE NEW JSON FILE
-    fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
-      if (err) return console.log(err);
-    });
-
-    res.status(200).json(req.body)
-    // console.log(req.body)
-    // console.log(req.params);
-    // res.send('success');
-  } else {
-     return res.status(404).send({ error: "Fields are required. Don't leave any field in blank.", });
-  }
-});
-
+// # 7 - Back-End: API to PUT/PATCH/EDIT an Inventory Item stars
 router.patch('/:id', cors(), (req, res) => {
   console.log(req.body)
   if (req.body !== undefined) {
@@ -185,50 +129,45 @@ router.patch('/:id', cors(), (req, res) => {
     // INVENTORIES JSON CONVERTS TO JSON
     const inventoriesJSON = JSON.parse(inventories);
 
-    //console.log (inventoriesJSON[id]['itemName'])         
-
    // PARSE JSON ADDS REQ.BODY
     const inventory = inventoriesREQ.find((object) => object.id === id);
     const inventoryIndex = 
        inventoriesJSON.findIndex(inventories => inventories.id == id);
     if (inventoryIndex >= 0) { 
-      if (warehouseID || warehouseName ) {
-        inventory.warehouseName = warehouseName;
-      }
-      if (itemName ){ inventory.itemName = itemName; }
-      if (description){ inventory.description = description; }
-      if (category) { inventory.category = category; } 
-      if (status || quantity){
-        if (quantity > 0 ) {
-          status = "In Stock"
-        } else {
-          quantity = 0;
-          status = "Out of Stock"
+        if (warehouseID || warehouseName ) {
+          inventory.warehouseName = warehouseName;
         }
-        if (quantity === undefined) {
+        if (itemName ){ inventory.itemName = itemName; }
+        if (description){ inventory.description = description; }
+        if (category) { inventory.category = category; } 
+        if (status || quantity){
+          if (quantity > 0 ) {
+            status = "In Stock"
+          } else {
             quantity = 0;
             status = "Out of Stock"
+          }
+          if (quantity === undefined) {
+              quantity = 0;
+              status = "Out of Stock"
+          }
+          inventory.status = status;
+          inventory.quantity = quantity;
         }
-        inventory.status = status;
-        inventory.quantity = quantity;
-      }
-      inventoriesJSON.splice(inventoryIndex, 0, inventory);
- 
-      // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
-      const stringJSON = JSON.stringify(inventoriesJSON);
+        inventoriesJSON.splice(inventoryIndex, 0, inventory);
+  
+        // STRINGJSON  CONVERTS INVENTORIESJSON TO STRING 
+        const stringJSON = JSON.stringify(inventoriesJSON);
 
-      // FS.WRITE WRITES THE NEW JSON FILE
-      fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
-        if (err) return console.log(err);
-      });
+        // FS.WRITE WRITES THE NEW JSON FILE
+        fs.writeFileSync('./data/inventories.json',stringJSON, (err) => {
+          if (err) return console.log(err);
+        });
 
-      inventoriesREQ.splice(inventoryIndex, 0, inventory); //update also inventoriesREQ to see live the data
+        //inventoriesREQ.splice(inventoryIndex, 0, inventory); //update also inventoriesREQ to see live the data
 
-      res.status(200).json(req.body)
+        res.status(200).json(req.body)
 
-      // console.log(req.body)
-      // console.log(req.params);
-      // res.send('success');
      } else {
       return res.status(404).send({ error: "Edit not completed. Please refresh this page and edit again.", });
      }
@@ -236,11 +175,10 @@ router.patch('/:id', cors(), (req, res) => {
      return res.status(404).send({ error: "Fields are required. Don't leave any field in blank.", });
   }
 });
-// # 18 - Back-End: API to PUT/PATCH/EDIT a Inventories ends
+// # 7 - Back-End: API to PUT/PATCH/EDIT a Inventories ends
 
 // # 6 - Back-End: API to DELETE a Inventory - Delete Start here
 //app.delete('/inventories/:id', checkInvetoryExists, (req, res) => {
-//I am going to create checkInventoryExists function later
 router.delete('/:id', cors(), (req, res, next) => {
     const { id } = req.params;
   
@@ -278,28 +216,3 @@ router.delete('/:id', cors(), (req, res, next) => {
   // # 6 - Delete Item Ends here
 
   module.exports = router;
-
-
-// TESTING
-//   var sorted = [];
-// for (var i = 0; i < words.length; i++) {
-//     sorted.push(words[i].toLowerCase());
-// }
-// sorted.sort();
-
-
-
-     // let tempTest;
-      // _.extend(tempTest, inventoriesJSON[id])
-      //   // _.extend(destination, *sources)
-      //  console.log(tempTest)
-
-    
-
-      // PARSE JSON ADDS REQ.BODY 
-      // inventoriesJSON[id]['itemName'] = itemName;  
-      // inventoriesJSON[id]['warehouseName'] = warehouseName;
-      // inventoriesJSON[id]['description'] = description;
-      // inventoriesJSON[id]['category'] = category;
-      // inventoriesJSON[id]['status'] = status;
-      // inventoriesJSON[id]['quantity'] = quantity;
