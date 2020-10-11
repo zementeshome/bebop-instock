@@ -74,7 +74,7 @@ class WarehouseDetails extends React.Component {
             <Header />
             <div className="warehouse__details-container">
                 <div className="warehouse__details-header-container">
-                    <Link to="/warehouses"><img className="warehouse__details-arrowicon" src={process.env.PUBLIC_URL + '/assets/Icons/arrow-back24px.svg'} alt=""/></Link>
+                    <Link to="/"><img className="warehouse__details-arrowicon" src={process.env.PUBLIC_URL + '/assets/Icons/arrow-back24px.svg'} alt=""/></Link>
                 <h1 className="warehouse__details-header">{this.state.warehouses.name}</h1>
                 <div className="warehouse__details-edit-container">
                 <div className="warehouse__details-edit-circle">
@@ -108,7 +108,7 @@ class WarehouseDetails extends React.Component {
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>
-                {/* {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.warehouseId} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)} */}
+                {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.warehouseId} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
             </div>
         </section>
     )

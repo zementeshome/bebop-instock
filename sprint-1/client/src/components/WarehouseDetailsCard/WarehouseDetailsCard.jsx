@@ -5,7 +5,7 @@ class WarehouseDetailsCard extends Component {
     
     render() {
         // const id = this.props.match.params.id;
-        // console.log(this.props)
+        // console.log(this.props.id)
         return (
            <section className="warehouse__details">
                  <span className="warehouse__details-line"></span>
