@@ -46,7 +46,7 @@ import axios from "axios";
                 <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__tablet-actions">ACTIONS</p>
             </div>
-                {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
+                {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} id={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
             </div>
         </section>
     )}

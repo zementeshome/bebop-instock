@@ -5,16 +5,16 @@ import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 class WarehouseListCard extends React.Component {
   clickHandler = (e) => {
     // this.setState({deleteObject: true})
-    console.log(this.state.deleteObject);
+    // console.log(this.state.deleteObject);
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <section className="warehouse">
         <div className="warehouse__content-container">
           <div className="warehouse__left-container">
             <h3 className="warehouse__sub-heading">WAREHOUSE</h3>
-            <Link to={`/2922c286-16cd-4d43-ab98-c79f698aeab0`}><p className="warehouse__name">{this.props.name}</p>
+            <Link to={`/${this.props.id}`}><p className="warehouse__name">{this.props.name}</p>
             <img
               className="warehouse__arrow"
               src={

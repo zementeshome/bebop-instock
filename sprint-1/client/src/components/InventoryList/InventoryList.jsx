@@ -2,8 +2,20 @@ import React from 'react';
 import InventoryListCard from '../InventoryListCard/InventoryListCard';
 import './InventoryList.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function InventoryList(props) {
+class InventoryList extends React.Component {
+    state = {warehouses: [], init:0}
+
+    async componentDidMount() {
+      await axios.get('warehouses')
+      .then((res) => {
+        const warehouses = res.data
+        this.setState({warehouses: warehouses, init:1})
+      })
+    // console.log(this.state.warehouses);
+    };
+    render () {
     return (
         <section className="inventory">
         <div className="inventory__container">
@@ -31,7 +43,7 @@ function InventoryList(props) {
             {props.manhattan.map((manhattanDetails) => <InventoryListCard key={manhattanDetails.id} id={manhattanDetails.id} itemName={manhattanDetails.itemName} warehouseName={manhattanDetails.warehouseName} status={manhattanDetails.status} category={manhattanDetails.category} quantity={manhattanDetails.quantity}/>)}
             </div>
         </section>
-    )
+    )}
 }
 
 export default InventoryList;
