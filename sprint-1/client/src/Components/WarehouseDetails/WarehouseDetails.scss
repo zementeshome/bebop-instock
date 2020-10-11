@@ -13,7 +13,7 @@
     &-container {
         @include mobile {
           position: absolute;
-          height: 340%;
+          height: 345%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -26,14 +26,7 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 159%;
-            margin-bottom: 8rem;
-        }
-        @include desktop {
-            width: 80%;
-            height: 120.5%;
-            left: 9.5%;
-            right: 9.5%;
+            height: 181%;
         }
     }
 
@@ -43,6 +36,11 @@
             margin-left: 1.5rem;
             margin-bottom: -1rem;
             margin-top: 0.5rem;
+        }
+    }
+
+    &-arrowicon {
+        @include mobile {
         }
     }
 
@@ -63,7 +61,7 @@
         }
         @include tablet {
             left: 85%;
-            top: 4%;
+            top: 4.5%;
         }
         @include desktop {
             left: 90%;
@@ -77,7 +75,7 @@
             width: 41px;
             height: 41px;
             border-radius: 20px;
-            background-color: $instock-indigo;
+            background-color: pink;
         }
         @include tablet {
             width: 83px;
@@ -87,13 +85,13 @@
 
     &-editicon {
         @include mobile {
-            width: 22px;
-            padding-top: 9px;
+            width: 34px;
+            fill: white;
         }
         @include tablet {
-            width: 18px;
+            width: 25px;
             margin-left: -2rem;
-            margin-top: -0.1rem;
+            margin-top: 0.2rem;
         }
     }
 
@@ -103,7 +101,7 @@
         }
         @include tablet {
             display: flex;
-            margin-top: -1.6rem;
+            margin-top: -1.8rem;
             margin-left: 2.5rem;
             font-size: 14px;
             color: $white;
@@ -129,9 +127,6 @@
             border-top: 1px solid $cloud;
             width: 100%;
             display: inline-block; 
-            // margin-bottom: -1rem;
-
-            // padding-top: 1rem;
         }
     }
 
@@ -139,9 +134,6 @@
         @include tablet {
             display: flex;
         }
-        // @include tablet {
-        //     margin-top: -1rem;
-        // }
     }
 
     &-subheading {
@@ -166,75 +158,47 @@
             color: $slate;
             text-align: left;
             margin-left: 1.2rem;
-            width: 200px;
-        }
-    }
-
-    &-subheading-1 {
-        @include tablet {
-            margin-top: -0.2rem;
-        }
-        @include desktop {
-            margin-left: 2rem;
-        }
-    }
-
-    // &-address {
-    //     @include tablet {
-    //         margin-top: 2rem;
-    //     }
-    // }
-
-    &-contact-div {
-        @include tablet {
-            margin-left: 18rem;
-            border-left: 1px solid $cloud;
-            height: 80px;
-        }
-        @include desktop {
-            margin-left: 30rem;
-            height: 72px;
-            padding-left: 2rem;
         }
     }
 
     &-subheading-2{
         @include tablet {
-            // margin-left: 20rem;
-            margin-top: -4.5rem;
+            margin-left: 20rem;
+            margin-top: -4.3rem;
             width: 100px;
-            // position: fixed;
         }
         @include desktop {
-            margin-left: 1.2rem;
+            margin-left: 36.5rem;
         }
     }
 
     &-contact {
         @include tablet {
-            // padding-left: 18.8rem;
+            padding-left: 18.8rem;
+            // display: flex;
+            // justify-content: flex-end;
+            // position: relative;
+            // left: 108%;
         }
-        // @include desktop {
-        //     margin-left: 30rem;
-        // }
     }
 
     &-subheading-3 {
         @include tablet {
-            margin-left: 8rem;
-            margin-top: -4.9rem;
+            margin-left: 12rem;
+            margin-top: -3.8rem;
         }
         @include desktop {
-            margin-left: 15rem;
+            margin-left: 21.5rem;
         }
     }
 
     &-contactinfo {
         @include tablet {
-            padding-left: 7rem;
-        }
-        @include desktop {
-            padding-left: 14rem;
+            padding-left: 11rem;
+            // display: flex;
+            // justify-content: flex-end;
+            // position: absolute;
+            // left: 65%;
         }
     }
 
@@ -255,8 +219,8 @@
         }
         @include tablet {
         display: flex;
-        margin-top: 1.5rem;
-        margin-bottom: 2.4rem;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
         background-color: rgba(247, 248, 249, 0.7);
         width: 100%;
         }
@@ -270,10 +234,10 @@
             height: 20px;
             width: 15px;
             margin-top: 0.75rem;
-            margin-right: 2rem;
+            margin-right: 3.8rem;
         }
         @include desktop {
-            margin-right: 11rem;
+            margin-right: 13.5rem;
         }
     }
     &-tablet-inventory,
@@ -293,83 +257,7 @@
             margin-left: 1.2rem;
         }
     }
-    // &-tablet-desktop {
-    //     @include mobile {
-    //         display: none;
-    //     }
-    //     @include tablet {
-    //         display: none;
-    //     }
-    //     @include desktop {
-    //         font-size: 12px;
-    //         color: $slate;
-    //         display: flex;
-    //     }
-    // }
 
-    &-tablet-inventory{
-        @include desktop {
-            margin-left: 2rem;
-        }
-    }
-
-    &-tablet-category {
-        @include desktop {
-            margin-left: -2rem;
-        }
-    }
-
-    &-tablet-status {
-        @include tablet {
-            margin-left: 1.5rem;
-        }
-        @include desktop {
-            margin-left: -2.3rem;
-        }
-    }
-
-    &-tablet-quantity {
-        @include tablet {
-            margin-left: 7rem;
-        }
-        @include desktop {
-            margin-left: 3rem;
-            // display: none;
-        }
-    }
-
-    &-tablet-desktop {
-        @include mobile {
-
-        }
-    }
-
-    &-tablet-actions {
-        @include tablet {
-            margin-left: 3rem;
-        }
-        @include desktop {
-            margin-left: 2.5rem;
-        }
-    }
-
-    &-inventory-container {
-        display: flex;
-    }
-
-    &-arrow {
-        @include mobile {
-            width: 18px;
-            height: 18px;
-            padding-top: 1.57rem;
-            margin-left: 0.4rem;
-        }
-    }
-
-    &-arrow:hover {
-        transition: all 0.5s ease;
-        padding-left: 4px;
-      }
 
     &-inventory {
         @include mobile {
@@ -379,67 +267,43 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
-            margin-bottom: 0;
+            // width: 50px;
+            // margin-right: 0;
         }
         @include tablet {
-            margin-top: -1rem;
-        }
-        @include desktop {
-            margin-left: 2rem;
+            padding-top: 0.5rem;
         }
         // @include desktop {
         //     padding-right: 10rem;
         // }
     }
-    &-category-container {
-        @include tablet {
-        margin-top: -1.2rem;
-        }
-    }
 
     &-category {
         @include tablet {
-           padding-left: 8rem;
-           margin: 0;  
-           width: 280px;
+           padding-left: 10rem;
+            margin-top: -5rem;  
         }
         @include desktop {
-            padding-left: 14.5rem;
+            padding-left: 20rem;
         }
     }
 
     &-status {
-        @include mobile {
-            text-transform: uppercase;
-        }
         @include tablet {
-            padding-left: -1rem;
-            // color:#C94515;
-            // width: 50px;
-            // height: 26px;
-            // border-radius: 20px;
-            // background-color: #fde0d5;
-            // text-align: center;
+            padding-left: -2rem;
         }
         @include desktop {
             padding-left: 19rem;
         }
     }
 
-    &-quantity-container {
-        @include tablet {
-            margin-top: -2rem;
-        }
-    }
-
     &-quantity {
         @include tablet {
-            padding-left: 8.7rem;  
-            // padding-top: -2vw;
+            padding-left: 8rem;  
+                // margin-top: 2rem;
         }
         @include desktop {
-            padding-left: 25.5rem;
-            // margin-top: -1rem;
+            padding-left: 38rem;
         }
     }
 
@@ -448,9 +312,7 @@
     &-contactinfo,
     &-category,
     &-status,
-    &-quantity,
-    &-status-instock,
-    &-status-outstock {
+    &-quantity {
         @include mobile {
             font-size: 12px;
             font-weight: 400;
@@ -464,58 +326,24 @@
             display: flex;
         }
     }
-    &-status-instock,
-    &-status-outstock {
-        @include mobile {
-            margin-left: 1.2rem;
-            margin-top: -0.5rem;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        @include tablet {
-            margin-top: -1.2rem;
-            margin-left: -3rem;
-        }
-        @include desktop {
-            margin-left: 9rem;
-        }
-    }
 
-    &-status-instock {
-        @include mobile {
-            color: $green;
-            background-color: rgba(21, 132, 99, 0.07);
-            width: 59px;
-            padding-left: 9px;
-            height: 23px;
-            padding-top: 2px;
-            border-radius: 20px;
-        }
-    }
-
-    &-status-outstock {
-        color: $red;
-        width: 85px;
-        background-color: rgba(201, 69, 21, 0.07);
-        height: 23px;
-        border-radius: 20px;
-        padding-top: 2px;
-        padding-left: 9px;
-    }
-
-    &-address {
-        @include desktop {
-            margin-left: 2rem;
-        }
-    }
+    // &-address {
+    //     @include mobile {
+    //         width: 120px;
+    //     }
+    //     @include tablet {
+    //         margin-left: 9.5rem;
+    //         margin-top: -2rem; 
+    //     }
+    //     @include desktop {
+    //         margin-left: 14.5rem;
+    //         width: 200px;
+    //     }
+    // }
 
     &-content-container {
         @include mobile {
         display: flex;
-        }
-        @include tablet {
-            margin-top: 1.5rem;
-            margin-bottom: 0.2rem;
         }
     }
 
@@ -523,15 +351,12 @@
         @include mobile {
             width: 45%;
         }
-        // @include tablet {
-        //     border-right: 1px solid $cloud;
-        //     width: 40%;
-        // }
+        @include tablet {
+            border-right: 1px solid $cloud;
+            width: 40%;
+        }
     }
    &-left-container {
-       @include mobile {
-           width: 45%;
-       }
        @include tablet {
         //    display: flex;
            width: 210px;
@@ -539,9 +364,6 @@
    }
 
    &-right-container {
-    @include mobile {
-        width: 50%;
-    }
        @include tablet {
         //    display: flex;
            width: 200px;
@@ -556,6 +378,10 @@
             width: 50%;
             margin-top: 4.6rem;
         }
+        // @include tablet {
+        //     display: flex;
+        //     justify-content: flex-end;
+        // }
     }
 
     &-arrow {
@@ -564,9 +390,6 @@
             height: 18px;
             // position: absolute;
             margin-top: -2rem;
-        }
-        @include tablet {
-            margin-top: -2.5rem;
         }
     }
 
@@ -584,7 +407,7 @@
             margin-left: 37rem;
         }
         @include desktop {
-            margin-left: 63rem;
+            margin-left: 75rem;
         }
     }
 
@@ -594,7 +417,7 @@
         height: 25px;
         }
         @include tablet {
-            margin-top: -4.4rem;
+            margin-top: -5.5rem;
             padding-left: 1rem;
         }
     }

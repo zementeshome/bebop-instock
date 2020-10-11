@@ -39,12 +39,18 @@ class WarehouseListCard extends React.Component {
             </p>
           </div>
         </div>
-        <img
-          className="warehouse__delete-icon" 
-          onClick = {this.clickHandler}
-          src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
-          alt="delete icon"
-        />
+
+
+
+<img
+      className="warehouse__delete-icon" 
+      onClick = {this.clickHandler}
+      src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
+      alt="delete icon"
+    />
+
+
+    
         <Link to="/editwarehouse"><img
           className="warehouse__delete-icon"
           src={process.env.PUBLIC_URL + "/assets/Icons/edit24px.svg"}

@@ -6,7 +6,7 @@
 
 @import "../../styles/partials/fonts";
 
-.inventory {
+.inventoryList {
   &__container {
     @include mobile {
       position: absolute;
@@ -153,7 +153,7 @@
       width: 100%;
     }
   }
-  &__tablet-inventory,
+  &__tablet- inventoryList,
   &__tablet-category,
   &__tablet-status,
   &__tablet-quantity,
