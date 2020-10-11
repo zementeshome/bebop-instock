@@ -13,23 +13,21 @@ import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventor
 import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
 import Header from "./Components/Header/Header"
-import axios from "axios";
 
 class App extends React.Component {
 // state={warehouses: []}
-state = {warehouses: [], init:0}
+// state = {warehouses: [], init:0}
 
-async componentDidMount() {
-  await axios.get('warehouses')
-  .then((res) => {
-    const warehouses = res.data
-    this.setState({warehouses: warehouses, init:1})
-  })
-console.log(this.state.warehouses);
-};
+// async componentDidMount() {
+//   await axios.get('warehouses')
+//   .then((res) => {
+//     const warehouses = res.data
+//     this.setState({warehouses: warehouses, init:1})
+//   })
+// console.log(this.state.warehouses);
+// };
 
   render () {
-    const {warehouses} = this.props
     return (
       <div className="App">
       {/* <DeleteWarehouse /> */}
@@ -37,15 +35,14 @@ console.log(this.state.warehouses);
       {/* <Background /> */}
         <BrowserRouter>
           <Switch>
-            {/* <WarehouseList warehouses={this.state.warehouses}/> */}
-            <Route exact path="/" render={ (props) => <WarehouseList {...props} warehouses={warehouses}/>}/>
-            {/* <Route path="/warehouses/:id" warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory} component={WarehouseDetails}/> */}
-            {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
-            {/* <Route path="/addwarehouse"  component={AddNewWarehouse} /> */}
+            <Route exact path="/" component={WarehouseList}/>
+            <Route path="/:id" component={WarehouseDetails}/>
+            <Route path="/editwarehouse" component={EditWarehouse} />
+            <Route path="/addwarehouse" component={AddNewWarehouse} />
             {/* <Route path="/inventories"  manhattan={this.state.manhattan} component={InventoryList} /> */}
             {/* <Route path="/inventories/:id" component={InventoryItemDetails} /> */}
-            {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
-            {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
+            <Route path="/editinventoryitem"  component={EditInventoryItem} />
+            <Route path="/addinventoryitem" component={AddNewInventoryItem} />
             {/* <Route path='/pagenotfound' component={PageNotFound} */}
           </Switch>
         </BrowserRouter>

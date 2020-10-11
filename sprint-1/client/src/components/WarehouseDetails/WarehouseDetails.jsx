@@ -3,9 +3,45 @@ import WarehouseDetailsCard from '../WarehouseDetailsCard/WarehouseDetailsCard';
 import "./WarehouseDetails.scss"
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
+import axios from "axios";
 
+class WarehouseDetails extends React.Component {
+    state = {warehouses: {}, inventory: [], init:0}
+    
+    async componentDidMount() {
+    // console.log(this.props.match.params.id)
+    const id = this.props.match.params.id;
+    // console.log(id);
+    const url = 'http://localhost:8080';
+    const config = {
+        method: 'get',
+        url: `${url}/warehouses/${id}`,
+        headers: { },
+        data : ''
+      };
+    //   console.log(config);
+    await axios(config)   
+    .then(res => {
+        this.setState({
+            warehouses: res.data, init:1
+        })
+        // console.log(this.state.warehouses.name);
+    })
+    .catch(err => {
+        console.log(err)
+    })}
+    
+    // async componentDidMount() {
+    //   await axios.get(`/:id`)
+    //   .then((res) => {
+    //     const warehouses = res.data
+    //     this.setState({warehouse: warehouses, inventory: [], init:1})
+    //   })
+    // console.log(this.state.warehouses);
+    // };
 
-function WarehouseDetails(props) {
+    render() {
+        console.log(this.state);
     return (
         <section className="warehouse__details">
             <Header />
@@ -26,7 +62,7 @@ function WarehouseDetails(props) {
                 <div className="warehouse__details-content-container">
                 <div className="warehouse__details-address-left-container">
                     <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS</h3>
-                    <p className="warehouse__details-address">469 King Street West, Toronto, CAN</p>
+                    {/* <p className="warehouse__details-address">{this.state.warehouses.name}</p> */}
                     <h3 className="warehouse__details-subheading-2">CONTACT NAME</h3>
                     <p className="warehouse__details-contact">Grame Lyon<br />Warehouse Manager</p>
                     </div>
@@ -46,11 +82,11 @@ function WarehouseDetails(props) {
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>
-                {props.inventory.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.id} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
+                {this.state.inventory.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.id} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
             </div>
         </section>
     )
-}
+}}
 
 export default WarehouseDetails;
 

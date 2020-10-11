@@ -5,8 +5,19 @@ import WarehouseSearch from '../WarehouseSearch/WarehouseSearch';
 import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import Header from '../Header/Header';
 import Background from '../Background/Background';
+import axios from "axios";
 
- function WarehouseList(props) {
+ class WarehouseList extends React.Component {
+    state = {warehouses: [], init:0}
+
+    async componentDidMount() {
+      await axios.get('warehouses')
+      .then((res) => {
+        const warehouses = res.data
+        this.setState({warehouses: warehouses, init:1})
+      })
+    // console.log(this.state.warehouses);
+    };
     // }
     // componentDidMount() {
     //   this.setState({deleteObject: false})
@@ -16,7 +27,7 @@ import Background from '../Background/Background';
     //   console.log(PrevState);
     //   // if (PrevParams.deleteObject != CurrentParams.deleteObject) {}
     // }
-console.log(props);
+    render () {
     return(
             <section className="warehouse">
             <Header />
@@ -35,9 +46,10 @@ console.log(props);
                 <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__tablet-actions">ACTIONS</p>
             </div>
-                {props.warehouses && props.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
+                {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
             </div>
         </section>
-    )
+    )}
     }
+
 export default WarehouseList;
