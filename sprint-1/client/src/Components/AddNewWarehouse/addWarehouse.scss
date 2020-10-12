@@ -20,7 +20,7 @@ body {
   position: absolute;
   left: 4.27%;
   right: 4.27%;
-  top: 11.79%;
+  // top: 11.79%;
   width: 90vw;
   top: 15vh;
   display: flex;
@@ -31,12 +31,12 @@ body {
   margin: 10% auto 30% auto;
   @include tablet {
     margin: -3% auto 30% auto;
-    padding-bottom: 1.9%;
+    // padding-bottom: 1.9%;
   }
   @include desktop {
     margin: -2.2% auto 30% auto;
     width: 1020px;
-    height: 612px;
+    // height: 612px;
   }
 
   &__title-container {
@@ -250,6 +250,7 @@ body {
     }
     @include desktop {
       // width: 1020px;
+
       // height: 70px;
     }
   }
@@ -261,8 +262,8 @@ body {
     border: 1px solid #bdc5d5;
     box-sizing: border-box;
     border-radius: 20px;
-    width: 45%;
-    height: 52%;
+    width: 139px;
+    height: 36px;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -277,6 +278,9 @@ body {
       line-height: 22px;
       margin-right: 3%;
     }
+    @include desktop {
+      margin-right: 2%;
+    }
   }
 
   &__warehouse-btn-save {
@@ -289,6 +293,12 @@ body {
       margin-right: 4%;
     }
   }
+
+  &__warehouse-btn-link {
+    text-decoration: none;
+    margin-right: 2%;
+  }
+
   &__warehouse-btn-cancel-h3 {
     color: #5c667e;
   }

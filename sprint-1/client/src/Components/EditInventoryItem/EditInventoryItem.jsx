@@ -2,6 +2,7 @@ import React from "react";
 import "./editInventoryItem.scss";
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import Header from "../Header/Header"
 
 export default class EditeditInventoryItem extends React.Component {
 
@@ -65,6 +66,9 @@ export default class EditeditInventoryItem extends React.Component {
 
 
   return (
+
+  <>
+  <Header/>
     <div className="editInventory">
       <div className="editInventory__title-container">
         <h2 className="editInventory__title">
@@ -271,6 +275,7 @@ export default class EditeditInventoryItem extends React.Component {
         </div>
       </form>
     </div>
+    </>
   );
 }
 }

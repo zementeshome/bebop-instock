@@ -26,10 +26,14 @@ export default class EditWarehouse extends React.Component {
   };
   render() {
     return (
-      <div className="edit">
+      <>
         <Header />
+      <div className="edit">
         <div className="edit__title-container">
-          <Link to="/"><img src="" alt="" /></Link>
+          <Link to="/"><img
+            src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
+            alt="Arrow"
+          /> </Link>
           <h2 className="edit__title">Edit Warehouse</h2>
         </div>
         <div className="edit__form-container">
@@ -145,6 +149,7 @@ export default class EditWarehouse extends React.Component {
           {/* </div> */}
         </div>
       </div>
+      </>
     );
   }
 }

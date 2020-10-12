@@ -18,8 +18,6 @@ state = {
   emailEmpty: false
 }
  
-
-
    addWarehouse = (e) => {
       e.preventDefault();
 console.log(e.target.warehouse.value);
@@ -56,14 +54,8 @@ console.log(e.target.warehouse.value);
           },
         };
         document.getElementById("form").reset();
-
    }
-      
-
     };
-
-
-
 
   render() {
 let isWarehouse; 
@@ -100,7 +92,6 @@ if (this.state.wareHouseNameEmpty) {
  position= <div></div>; 
  phone= <div></div>; 
  email = <div></div>
-// link = <Link to="/"></Link>
 }
 
     return (
@@ -117,7 +108,6 @@ if (this.state.wareHouseNameEmpty) {
         <div className="add__form-container">
           <form
             id="form"
-            
             onSubmit={this.addWarehouse}
             className="add__form"
             action=""
@@ -132,7 +122,7 @@ if (this.state.wareHouseNameEmpty) {
                 Warehouse Name
               </label>
               <input
-                // id="warehouse-name"
+             
                 name="warehouse"
                 placeholder="Warehouse Name"
                 className="add__warehouse-input"
@@ -221,17 +211,14 @@ if (this.state.wareHouseNameEmpty) {
               <div className="add__warehouse-warning" >{email}</div>
             </div>
             <div className="add__warehouse-btn">
-              <Link to="/"><button className="add__warehouse-btn-cancel">
+              <Link className="add__warehouse-btn-link"  to="/"><button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
               </button></Link>
              <button className="add__warehouse-btn-save">
-              {/* <Link  to="/">  */}
                <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
-               {/* </Link> */}
               </button>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
       </>
