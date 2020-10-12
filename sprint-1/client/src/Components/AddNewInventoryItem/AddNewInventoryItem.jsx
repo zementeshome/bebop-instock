@@ -4,19 +4,107 @@ import axios from "axios"
 import { Link } from 'react-router-dom';
 
 export default class AddNewInventoryItem extends React.Component  {
+  state= {
+          warehouses: [], outStock: false, init:0,
+          itemNameEmpty: false, descriptionEmpty: false, 
+          categoryEmpty: false, quantityEmpty: false,
+          selectedWarehouseID: ''
+        }
 
-state= {
-  outStock: false
-}
+  // CALLING WAREHOUSES TO FILL OPTIONS  
+  async componentDidMount() {
+      await axios.get('warehouses')
+      .then((res) => {
+        // const warehouses = res.data
+        this.setState({warehouses: res.data, init:1, selectedWarehouseID: res.data[0].id})
+      })
+  }
 
-inStock = () => {
-this.setState({ outStock : true})
-}
+  // FUNCTION TO ADD NEW INVENTORY
+    // PREVENT ERRORS FIRST
+    addInventory = (e) => { e.preventDefault();
+      //VALIDATIONS
+      //console.log('you are here 101')
+      
+      console.log('before validation in state')
+      console.log(e.target)
+      if (e.target.itemName.value === '') {
+        this.setState({ itemNameEmpty: true})
+      }  if (e.target.description.value === '')  {
+        this.setState({ descriptionEmpty: true})
+      } if (e.target.category.value === '')  {
+        this.setState({categoryEmpty: true})
+      } else {
+        console.log('you are inside axios 10110101')
+        //AXIOS CALL TO ADD Inventory
 
+        let id = Date.now() + '-abc-' + Date.now();
+        let statusVar = 'Out of Stock';
+        let quantityVar = 0;
+        if (e.target.stock.value) {
+           statusVar = 'In Stock';
+           quantityVar = e.target.quantity.value;
+        } else {
+          statusVar =  'Out of Stock'
+          quantityVar = 0;
+        }
 
-OutOfStock = () => {
-  this.setState({ outStock: false})
-}
+        let addInventoryObj = {
+          //id: uuidv4(),
+          id: id,
+
+          warehouseID: this.state.selectedWarehouseID,
+          warehouseName: e.target.warehouse.value, 
+
+          itemName: e.target.itemName.value,
+          description: e.target.description.value,
+          category: e.target.category.value,
+          status: statusVar, 
+          quantity: quantityVar
+        };
+        console.log('addInventoryObject result=')
+        console.log(addInventoryObj)
+        const url = 'http://localhost:8080';
+        const config = {
+          method: 'post',
+          url: `${url}/inventories`,
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          data : addInventoryObj
+        };
+        axios(config)   
+          .then(result => {
+              // this.setState({
+              //     contact: response.data.contact,
+              //     warehouses: res.data, init:1,
+              //     inventories: result.data.inventories
+              // })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        // AXIOS AND ADDING ENDS HERE
+ 
+     }   
+
+     document.getElementById("form").reset();
+     this.props.history.push("/inventories");
+  };
+
+  
+  inStock = () => {
+  this.setState({ outStock : true})
+  }
+
+  OutOfStock = () => {
+    this.setState({ outStock: false})
+  }
+
+  OnClickOptionWarehouse = (e) => {
+    console.log(e)
+    //  this.setState({ selectedWarehouseID: e.})
+  }
 
 render() {
 let stock;
@@ -43,6 +131,8 @@ if (this.state.outStock) {
 
 
   return (
+    <>
+    <Header />  
     <div className="add">
       <div className="add__inventory-title-container">
         <h2 className="add__inventory-title">
@@ -132,7 +222,7 @@ if (this.state.outStock) {
           </div>
           </div>
           <div className="add__inventory-separation"></div>
-          <div class="add__inventory-form-bottom-container">
+          <div className="add__inventory-form-bottom-container">
             <div className="add__inventory-heading-bottom">
               <h2 className="add__inventory-heading-title">Item Availability</h2>
             </div>
@@ -175,66 +265,25 @@ if (this.state.outStock) {
    {/* // FIXME: must go here  */}
             <div className="add__inventory-form-warehouse-container">
               <div className="add__inventory-form-label-heading" >
-              <label
-                className="add__inventory-form-warehouse-label"
-                htmlFor="add__inventory-form-warehouse-input"
-              >
+              <label className="add__inventory-form-warehouse-label"
+                htmlFor="add__inventory-form-warehouse-input">
                 Warehouse
               </label>
-              <select
-                className="add__inventory-form-warehouse-input"
-                name="warehouse"
-                id="warehouse"
-              >
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Manhattan"
-                >
-                  Manhattan
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="King West"
-                >
-                  King West
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Granville"
-                >
-                  Granville
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="San Fran"
-                >
-                  San Fran
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Santa Monica"
-                >
-                  Santa Monica
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Seattle"
-                >
-                  Seattle
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Montreal"
-                >
-                  Montreal
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Boston"
-                >
-                  Boston
-                </option>
-              </select>
+
+              <select className="add__inventory-form-warehouse-input"
+                name="warehouse" id="warehouse">
+
+                {this.state.warehouses &&
+                  this.state.warehouses.map((warehouseMap) => 
+                    { return  <option key={warehouseMap.id}  id={warehouseMap.id} onClick={this.OnClickOptionWarehouse}
+                                      className="add__inventory-form-warehouse-option">
+                                {warehouseMap.name}
+                              </option>
+                  }
+                  )}
+
+              </select> 
+
               </div>
             </div>
           </div>
@@ -243,12 +292,17 @@ if (this.state.outStock) {
           <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
             Cancel
           </button></Link>
-          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-save">
+          {/* <Link to="/inventories"> */}
+            
+          <button oncClick={this.addInventory} className=" add__inventory-form-btn add__inventory-form-btn-save">
             Save
-          </button></Link>
+          </button>
+          
+          {/* </Link> */}
         </div>
       </form>
     </div>
-  );
-}
+    </>
+   );
+  }
 }
