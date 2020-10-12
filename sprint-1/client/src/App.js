@@ -13,6 +13,7 @@ import InventoryList from "./Components/InventoryList/InventoryList";
 // import Background from "./Components/Background/Background";
 // import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
 import HeaderInventory from './Components/HeaderInventory/HeaderInventory';
+// import AdDNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 
 class App extends React.Component {
   state = {
@@ -350,6 +351,11 @@ class App extends React.Component {
         {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
         <InventoryList manhattan={this.state.manhattan} />
         {/* <Background /> */}
+        <Header />
+        <AddNewWarehouse />
+        {/* <WarehouseList warehouses={this.state.warehouses.warehouseInfo}/> */}
+        {/* <WarehouseDetails warehouses={this.state.warehouses.warehouseInfo} inventory={this.state.inventory}/> */}
+        {/* <InventoryList manhattan={this.state.manhattan} /> */}
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={() => <route />} />
@@ -366,33 +372,4 @@ class App extends React.Component {
     );
   }
 }
-  export default App;
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header />
-//       {/* <WarehouseList /> */}
-//       {/* <EditWarehouse /> */}
-//       {/* <WarehouseList /> */}
-//       {/* <AddNewWarehouse /> */}
-//       {/* <InventoryItemDetails /> */}
-//       <EditInventoryItem />
-//       {/* <Background /> */}
-//       <BrowserRouter>
-//         <Switch>
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//           <Route path="/" exact component={() => <route />} />
-//         </Switch>
-//       </BrowserRouter>
-//     </div>
-//   );
-// }
-
-// export default App;
+export default App;
