@@ -11,7 +11,7 @@ import "../DeleteWarehouse/DeleteWarehouse.scss";
 import { Link } from 'react-router-dom';
 
  class WarehouseList extends React.Component {
-    state = {warehouses: [], deleteObject: false, deleteWarehouse: {}, init:0}
+    state = {warehouses: [], deleteObject: false, deleteWarehouse: {}, warehouseName: {}, init:0}
 
 // TODO: THIS FUNC IS FOR SEARCH NEEDS TO BE CHANGED
     // function WarehouseList(props) {
@@ -59,8 +59,8 @@ import { Link } from 'react-router-dom';
             console.log(error);
         })
     }
-            showing = (id) => {
-            this.setState({ deleteObject : true, deleteWarehouse: id})
+            showing = (id, name) => {
+            this.setState({ deleteObject : true, deleteWarehouse: id, warehouseName: name})
             }
             
             notShowing = () => {
@@ -78,13 +78,13 @@ import { Link } from 'react-router-dom';
       })
     };
     render () {
-        // console.log(this.state.deleteWarehouse, 'this is the id')
+        // console.log(this.state.warehouseName)
         let page;
-        if (this.state.deleteObject && this.state.warehouses !== undefined) {
+        if (this.state.deleteObject) {
          page = <div className="deleteWarehouse">
-            <Link to="/"><img className="deleteWarehouse__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} alt="Close"/></Link>
-            <h1 className="deleteWarehouse__title">Delete {} warehouse?</h1>
-            <p className="deleteWarehouse__text">Please confirm that you'd like to delete the King West{} from the list of warehouses.
+            <img className="deleteWarehouse__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} onClick={this.notShowing} alt="Close"/>
+            <h1 className="deleteWarehouse__title">Delete {this.state.warehouseName} warehouse?</h1>
+            <p className="deleteWarehouse__text">Please confirm that you'd like to delete the {this.state.warehouseName} from the list of warehouses.
             You won't be able to undo this action.</p>
             <div className="deleteWarehouse-buttons">
                 <button className="deleteWarehouse-buttons__cancel" type="submit" onClick={this.notShowing}>Cancel</button>
@@ -120,28 +120,6 @@ import { Link } from 'react-router-dom';
          
     return(
         <div>{page}</div> 
-        //     <>
-        //     <Header />
-        //     <section className="warehouse">
-        //     {/* <Background /> */}
-        //     <div className="warehouse__container">
-        //     <WarehouseSearch />
-        //     {/* <DeleteWarehouse deleteObject={this.state.deleteObject}/>     */}
-        //     <div className="warehouse__tablet-div">
-        //         <p className="warehouse__tablet-warehouse">WAREHOUSE</p>
-        //         <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-        //         <p className="warehouse__tablet-address">ADDRESS</p>
-        //         <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-        //         <p className="warehouse__tablet-contact">CONTACT NAME</p>
-        //         <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-        //         <p className="warehouse__tablet-contactinfo">CONTACT INFORMATION</p>
-        //         <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
-        //         <p className="warehouse__tablet-actions">ACTIONS</p>
-        //     </div>
-        //         {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} id={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
-        //     </div>
-        // </section>
-        // </>
     )}
     }
 

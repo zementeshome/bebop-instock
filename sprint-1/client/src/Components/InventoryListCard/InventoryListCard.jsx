@@ -83,8 +83,7 @@ class InventoryListCard extends Component {
              <span className="inventory__underline-tablet"></span>
              <div className="inventory__icon-container">
              <img 
-              onClick = {this.clickHandler}
-              onClick = {() => this.props.showing(this.props.id)}
+              onClick = {() => this.props.showing(this.props.id, this.props.name)}
               id={this.props.id} 
               className="inventory__delete-icon" 
               src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} 

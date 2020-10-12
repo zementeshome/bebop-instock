@@ -44,7 +44,6 @@ class WarehouseDetails extends React.Component {
         console.log(err)
     })}
 
-<<<<<<< HEAD:sprint-1/client/src/Components/WarehouseDetails/WarehouseDetails.jsx
     componentDidUpdate(PrevState) {
         const { pathname } = this.props.location;
         const prevPathname = PrevState.location.pathname;
@@ -83,37 +82,34 @@ class WarehouseDetails extends React.Component {
             this.props.history.push(`${currentParams.id}`);
 
           }
-        }   
-=======
-    componentDidUpdate(prevProps, _prevState) {
-        const id = this.props.match.params.id;
-        const url = 'http://localhost:8080';
-        const config = {
-        method: 'get',
-        url: `${url}/warehouses/${id}`,
-        headers: { },
-        data : ''
-      };
-      console.log(id)
-        if (this.props.match.params.id !== prevProps.match.params.id) {
-          axios
-            .get(`${url}/warehouses/${id}`)
-            .then((res) => {
-              this.setState({
-                warehouses: res.data.find(
-                  (warehouse) => warehouse["id"] === this.props.match.params.id
-                ),
-              });
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
->>>>>>> kaleb:sprint-1/client/src/components/WarehouseDetails/WarehouseDetails.jsx
-      }
-
+        }}  
+    // componentDidUpdate(prevProps, _prevState) {
+    //     const id = this.props.match.params.id;
+    //     const url = 'http://localhost:8080';
+    //     const config = {
+    //     method: 'get',
+    //     url: `${url}/warehouses/${id}`,
+    //     headers: { },
+    //     data : ''
+    //   };
+    //   console.log(id)
+    //     if (this.props.match.params.id !== prevProps.match.params.id) {
+    //       axios
+    //         .get(`${url}/warehouses/${id}`)
+    //         .then((res) => {
+    //           this.setState({
+    //             warehouses: res.data.find(
+    //               (warehouse) => warehouse["id"] === this.props.match.params.id
+    //             ),
+    //           });
+    //         })
+    //         .catch((err) => {
+    //           console.log(err);
+    //         });
+    //     }
+    // }
+  // }
     render() {
-        // console.log(this.state);
     return (
         <section className="warehouse__details">
             <Header />
@@ -163,8 +159,8 @@ class WarehouseDetails extends React.Component {
                 {this.state.inventories.map((warehouseInventory) => <WarehouseDetailsCard key={warehouseInventory.Id} id={warehouseInventory.id} itemName={warehouseInventory.itemName} status={warehouseInventory.status} category={warehouseInventory.category} quantity={warehouseInventory.quantity}/>)}
             </div>
         </section>
-    )
-}}
+    )}
+}
 
 export default WarehouseDetails;
 
