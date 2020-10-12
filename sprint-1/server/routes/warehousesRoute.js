@@ -20,8 +20,16 @@ router.use(bodyParser.json());
 // # 22 - Back-End: API to GET List of All Warehouses starts
 // # 4 - Back-End: Diving Deeper - Implement Sorting starts
 router.get("/", cors(), async (req, res) => {
+  // Statement for sorting
   if(req.query.sortBy && req.query.OrderBy){
-    warehousesREQ = sortResultsNestedArrays(warehousesREQ, req.query.sortBy, req.query.OrderBy);  
+     warehousesREQ = sortResultsNestedArrays(warehousesREQ, req.query.sortBy, req.query.OrderBy);  
+
+  // Statement for deep search from back-end
+  // if there is any params filter that information
+  } else {
+     
+
+
   } 
   res.status(200).send(warehousesREQ);
 });
@@ -39,6 +47,15 @@ function sortResults(array, fieldProp, AscDesc) {
   });
 }
 function sortResultsNestedArrays(array, fieldProp, AscDesc) {
+
+  // array.sortcolumn = array.fieldProp;
+
+  // var sorted = [];
+  // for (var i = 0; i < words.length; i++) {
+  //   sorted.push(words[i].toLowerCase());
+  // }
+  // sorted.sort();
+
   fieldProp = fieldProp.split('.');
   var len = fieldProp.length;
 
@@ -232,7 +249,7 @@ function deleteInvetoriesFromWarehouse(id) {
 }
 // # 17 - Delete Inventory from Warehouse ends
 
-module.exports = router;
+  module.exports = router;
 
   //   Note:  On server.js..
 //   1) Add this line at the top: const warehousesRoute = require('./routes/warehousesRoute'); 

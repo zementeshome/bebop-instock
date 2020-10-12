@@ -26,13 +26,13 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={WarehouseList}/>
             <Route path="/:id" component={WarehouseDetails}/>
-            {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
-            {/* <Route path="/addwarehouse" component={AddNewWarehouse} /> */}
-            {/* <Route path="/inventories" component={InventoryList} /> */}
-            {/* <Route path="/inventories/:id" component={InventoryItemDetails} /> */}
-            {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
-            {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
-            {/* <Route path='/pagenotfound' component={PageNotFound} */}
+            <Route path="/editwarehouse" component={EditWarehouse} />
+            <Route path="/addwarehouse" component={AddNewWarehouse} />
+            <Route path="/inventories" component={InventoryList} />
+            <Route path="/inventories/:id" component={InventoryItemDetails} />
+            <Route path="/editinventoryitem"  component={EditInventoryItem} />
+            <Route path="/addinventoryitem" component={AddNewInventoryItem} />
+            {/* <Route path='/pagenotfound' component={PageNotFound}/> */}
           </Switch>
         </BrowserRouter>
       </div>

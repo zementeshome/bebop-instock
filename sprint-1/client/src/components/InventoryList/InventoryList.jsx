@@ -23,7 +23,7 @@ import Header from '../Header/Header'
 //         // console.log(searchText);
 //     }
 class InventoryList extends React.Component {
-    state = {warehouses: [], inventories: [], deleteObject: false, deleteInventory: {}, init:0}
+    state = {warehouses: [], inventories: [], deleteObject: false, deleteInventory: {}, inventoryName: {}, init:0}
 
     deleteObject = (event) => {
       event.preventDefault();
@@ -51,8 +51,8 @@ class InventoryList extends React.Component {
          console.log(error);
      })
  }
-         showing = (id) => {
-         this.setState({ deleteObject : true, deleteInventory: id})
+         showing = (id, name) => {
+         this.setState({ deleteObject : true, deleteInventory: id, inventoryName: name})
          }
          
          notShowing = () => {
@@ -124,8 +124,8 @@ class InventoryList extends React.Component {
         if (this.state.deleteObject) {
          page = <div className="deleteItem">
             <Link to="/inventories"><img className="deleteItem__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} alt="Close"/></Link>
-            <h1 className="deleteItem__title">Delete {}Television inventory item?</h1>
-            <p className="deleteItem__text">Please confirm that you'd like to delete Television{} from the inventory list.
+            <h1 className="deleteItem__title">Delete {this.state.inventoryName} inventory item?</h1>
+            <p className="deleteItem__text">Please confirm that you'd like to delete {this.state.inventoryName} from the inventory list.
             You won't be able to undo this action.</p>
             <div className="deleteItem-buttons">
                 <button className="deleteItem-buttons__cancel" type="submit" onClick={this.notShowing}>Cancel</button>
