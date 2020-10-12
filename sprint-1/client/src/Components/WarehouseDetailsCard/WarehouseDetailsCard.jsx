@@ -21,7 +21,9 @@ class WarehouseDetailsCard extends Component {
             </div>
                 <h3 className="warehouse__details-subheading">CATEGORY</h3>
                 <div className="warehouse__details-category-container">
+                <div className="warehouse__details-category-container">
                 <p className="warehouse__details-category">{this.props.category}</p>
+                </div>
             </div>
             </div>
                  <div className="warehouse__details-right-container">

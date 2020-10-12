@@ -6,11 +6,19 @@
 
 @import '../../styles/partials/fonts';
 
+@import '../../styles/partials/variables';
+
+@import '../../styles/partials/mixins';
+
+@import '../../styles/partials/functions';
+
+@import '../../styles/partials/fonts';
+
 .warehouse {
     &__container {
         @include mobile {
           position: absolute;
-          height: 268%;
+          height: 311%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -23,7 +31,7 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 128%;
+            height: 129%;
         }
         @include desktop {
             width: 80%;
@@ -149,6 +157,14 @@
           text-align: center;
         }
   
+    }
+
+    &__address-item-container {
+        @include mobile {
+            display: flex;
+            margin-left: 5rem;
+            margin-top: -0.6rem;
+        }
     }
 
     &__tablet-div {
@@ -410,6 +426,7 @@
             justify-content: flex-start;
             margin-right: 2rem;
             margin-left: 37rem;
+            margin-top: -3rem;
         }
         @include desktop {
             margin-left: 63rem;
@@ -422,8 +439,7 @@
             height: 25px;
         }
         @include tablet {
-            margin-top: -2.5rem;
-            padding-left: 1rem;
+        padding-left: 1rem;
         }
     }
 }

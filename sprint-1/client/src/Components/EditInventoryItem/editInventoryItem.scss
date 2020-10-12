@@ -16,7 +16,7 @@ body {
   font-family: Titillium Web;
 }
 
-.inventory {
+.editInventory {
   left: 4.27%;
   right: 4.27%;
   top: 19%;
@@ -168,7 +168,7 @@ body {
     border-radius: 20px;
     padding-left: 3%;
     appearance: none;
-    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    // background-image: url(../../assets/icons/arrowdropdown24px.svg);
     background-repeat: no-repeat;
     background-position: 96% 50%;
 
@@ -183,13 +183,13 @@ body {
   }
 
   &__form-description-container {
-    @extend .inventory__form-item-container;
+    @extend .editInventory__form-item-container;
   }
   &__form-description-label {
-    @extend .inventory__form-item-label;
+    @extend .editInventory__form-item-label;
   }
   &__form-description-input {
-    @extend .inventory__form-item-input;
+    @extend .editInventory__form-item-input;
     height: 120px;
     resize: none;
     background: #ffffff;
@@ -217,13 +217,16 @@ body {
     }
   }
   &__form-category-container {
-    @extend .inventory__form-item-container;
+    @extend .editInventory__form-item-container;
   }
   &__form-category-label {
-    @extend .inventory__form-item-label;
+    @extend .editInventory__form-item-label;
   }
   &__form-category-input {
-    @extend .inventory__form-item-input;
+    @extend .editInventory__form-item-input;
+    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
   }
   &__form-category-input-option {
   }
@@ -246,15 +249,15 @@ body {
   }
 
   &__heading-bottom {
-    @extend .inventory__heading;
+    @extend .editInventory__heading;
     @include tablet {
     }
   }
   &__heading-title {
-    @extend .inventory__heading-title;
+    @extend .editInventory__heading-title;
   }
   &__form-status-container {
-    @extend .inventory__form-item-container;
+    @extend .editInventory__form-item-container;
   }
   &__form-status-label-status {
     @include tablet {
@@ -263,7 +266,7 @@ body {
   }
 
   &__form-status-label {
-    @extend .inventory__form-item-label;
+    @extend .editInventory__form-item-label;
   }
   &__form-status-input-container {
     display: flex;
@@ -306,14 +309,42 @@ body {
   }
 
   &__form-warehouse-container {
-    @extend .inventory__form-item-container;
+    @extend .editInventory__form-item-container;
   }
   &__form-warehouse-label {
-    @extend .inventory__form-item-label;
+    @extend .editInventory__form-item-label;
   }
   &__form-warehouse-input {
-    @extend .inventory__form-item-input;
+    @extend .editInventory__form-item-input;
+    @extend .editInventory__form-category-input;
   }
+  // &__editInventory-form-item-input-display-non {
+  //   display: none;
+  // }
+
+  // &__editInventory-form-item-input {
+  //   width: 90%;
+  //   height: 36px;
+  //   background: #ffffff;
+  //   border: 1px solid #bdc5d5;
+  //   box-sizing: border-box;
+  //   border-radius: 20px;
+  //   padding-left: 3%;
+  //   appearance: none;
+  //   // background-image: url(../../assets/icons/arrowdropdown24px.svg);
+  //   background-repeat: no-repeat;
+  //   background-position: 96% 50%;
+
+  //   @include tablet {
+  //     width: 85%;
+  //     height: 38px;
+  //     left: 64px;
+  //   }
+  //   @include desktop {
+  //     width: 100%;
+  //   }
+  // }
+
   &__form-warehouse-option {
   }
   &__form-btn-container {
@@ -373,4 +404,7 @@ body {
       line-height: 22px;
     }
   }
+}
+.add__editInventory-form-item-input-display-non {
+  display: none;
 }

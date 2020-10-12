@@ -6,7 +6,7 @@
 
 @import '../../styles/partials/fonts';
 
-.inventory {
+.inventoryList {
 
         &__container {
             @include mobile {
@@ -133,6 +133,7 @@
         margin-left: 0.3rem;
     }
   } 
+
   &__button span {
       @include mobile {
     color: $white;
@@ -178,10 +179,10 @@
             font-weight: 600;
             font-size: 12px;
             color: $slate;
-            margin-left: 1.2rem;
+            margin-left: 3.2rem;
         }
         @include desktop {
-            margin-left: 1.6rem;
+            margin-left: 1.8rem;
         }
     }
 

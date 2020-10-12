@@ -1,6 +1,12 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 
 class WarehouseListCard extends React.Component {
+  clickHandler = (e) => {
+    // this.setState({deleteObject: true})
+    // console.log(this.state.deleteObject);
+  }
   render() {
     // console.log(this.props);
     return (
@@ -9,10 +15,16 @@ class WarehouseListCard extends React.Component {
           <div className="warehouse__left-container">
             <h3 className="warehouse__sub-heading">WAREHOUSE</h3>
             <div className="warehouse__name-container">
-              <p className="warehouse__name">{this.props.name}</p>
-              <img className="warehouse__arrow" src={process.env.PUBLIC_URL + "/assets/Icons/chevronright24px.svg"}
-              alt="right arrow"/>
-          </div>
+            <Link to={`/${this.props.id}`} style={{textDecoration: 'none'}}><p className="warehouse__name">{this.props.name}</p>
+            <div className="warehouse__address-item-container">
+            <img
+              className="warehouse__arrow"
+              src={
+                process.env.PUBLIC_URL + "/assets/Icons/chevronright24px.svg"
+              }
+              alt="right arrow" />
+                </div></Link>
+             </div>
               <h3 className="warehouse__sub-heading">ADDRESS</h3>
               <div className="warehouse__address-container">
               <p className="warehouse__address">{this.props.address},</p>
@@ -32,17 +44,17 @@ class WarehouseListCard extends React.Component {
             </p>
           </div>
         </div>
-          <div className="warehouse__icon-container">
-          <img
-          className="warehouse__delete-icon"
-          src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
-          alt="delete icon"
-        />
-        <img
+          <div className="warehouse__icon-container"> 
+      <img
+      className="warehouse__delete-icon" 
+      onClick = {this.clickHandler}
+      src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
+      alt="delete icon"/>
+      <Link to="/editwarehouse"><img
           className="warehouse__delete-icon"
           src={process.env.PUBLIC_URL + "/assets/Icons/edit24px.svg"}
           alt="edit icon"
-        />
+        /></Link>
         </div>
         <span className="warehouse__underline"></span>
       </section>

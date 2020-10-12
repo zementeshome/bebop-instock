@@ -1,5 +1,7 @@
 import React from "react";
 import "./addNewInventoryItem.scss";
+import axios from "axios"
+import { Link } from 'react-router-dom';
 
 export default class AddNewInventoryItem extends React.Component  {
 
@@ -28,12 +30,15 @@ if (this.state.outStock) {
               >
                 Quantity
               </label>
-              <input placeholder="0" className="add__inventory-form-item-input" type="text" />
+              <input onSubmit={this.addInventory}  name="quantity"  placeholder="0" className="add__inventory-form-item-input" type="text" />
             </div>
         </div> 
       </div>
 } else {
-  stock = <div></div>
+  stock = <div className="add__inventory-form-item-input-display-non">
+
+      <input defaultValue={0} className="add__inventory-form-item-input-display-non" name="quantity"></input>
+    </div> 
 }
 
 
@@ -41,14 +46,14 @@ if (this.state.outStock) {
     <div className="add">
       <div className="add__inventory-title-container">
         <h2 className="add__inventory-title">
-          <img
+          <Link to="/inventories"><img
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt="Arrow"
-          />
+          /></Link>
           Add New Inventory Item
         </h2>
       </div>
-      <form className="add__inventory-form" action="">
+      <form onSubmit={this.addInventory} className="add__inventory-form" action="">
         <div className="add__inventory-form-outer-container" >
         <div className="add__inventory-form-top-container">
         <div className="add__inventory-heading">
@@ -62,7 +67,7 @@ if (this.state.outStock) {
             >
               Item Name
             </label>
-            <input placeholder="Television" className="add__inventory-form-item-input" type="text" />
+            <input name="item" placeholder="Television" className="add__inventory-form-item-input" type="text" />
             </div>
           </div>
           <div className="add__inventory-form-description-container">
@@ -74,6 +79,7 @@ if (this.state.outStock) {
               Description
             </label>
             <textarea
+            name="description"
               placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
               className="add__inventory-form-description-input"
               type="text"
@@ -234,12 +240,12 @@ if (this.state.outStock) {
           </div>
         </div>
         <div className="add__inventory-form-btn-container">
-          <button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
+          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
             Cancel
-          </button>
-          <button className=" add__inventory-form-btn add__inventory-form-btn-save">
+          </button></Link>
+          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-save">
             Save
-          </button>
+          </button></Link>
         </div>
       </form>
     </div>
