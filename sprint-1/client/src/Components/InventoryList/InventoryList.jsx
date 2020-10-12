@@ -125,6 +125,7 @@ class  InventoryList extends React.Component {
             </div>
             </div>
             <div className="inventoryList__tablet-div">
+            <h3 className="inventoryList__tablet-category">INVENTORY ITEM</h3>
                 <img className="inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="inventoryList__tablet-category">CATEGORY</p>
                 <img className="inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
