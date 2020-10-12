@@ -16,17 +16,6 @@ import Header from "./Components/Header/Header"
 import PageNotFound from "./Components/PageNotFound/PageNotFound"
 import HeaderInventory from './Components/HeaderInventory/HeaderInventory';
 class App extends React.Component {
-// state={warehouses: []}
-// state = {warehouses: [], init:0}
-
-// async componentDidMount() {
-//   await axios.get('warehouses')
-//   .then((res) => {
-//     const warehouses = res.data
-//     this.setState({warehouses: warehouses, init:1})
-//   })
-// console.log(this.state.warehouses);
-// };
 
   render () {
     return (

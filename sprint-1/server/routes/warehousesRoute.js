@@ -179,6 +179,7 @@ router.post("/", cors(), (req, res) => {
 });
 // # 20 - Back-End: API to POST/CREATE a New Warehouse
 
+//Also you can try directly in server the same DELETE
 // # 17 - Back-End: API to DELETE a Warehouse - Delete Start here
 //I am going to create checkWarehouseExists function later
 
