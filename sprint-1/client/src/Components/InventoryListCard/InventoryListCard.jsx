@@ -82,7 +82,13 @@ class InventoryListCard extends Component {
              </div>
              <span className="inventory__underline-tablet"></span>
              <div className="inventory__icon-container">
-             <img className="inventory__delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} alt="delete icon"/>
+             <img 
+              onClick = {this.clickHandler}
+              onClick = {() => this.props.showing(this.props.id)}
+              id={this.props.id} 
+              className="inventory__delete-icon" 
+              src={process.env.PUBLIC_URL + '/assets/Icons/deleteoutline24px.svg'} 
+              alt="delete icon"/>
                 <Link to="/editinventoryitem"><img className="inventory__delete-icon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} alt="edit icon"/></Link>
                 </div>
              </section>

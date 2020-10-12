@@ -39,6 +39,7 @@ class WarehouseListCard extends React.Component {
             </p>
           </div>
         </div>
+<<<<<<< HEAD:sprint-1/client/src/Components/WarehouseListCard/WarehouseListCard.jsx
 
 
 
@@ -51,6 +52,16 @@ class WarehouseListCard extends React.Component {
 
 
     
+=======
+        <img
+          className="warehouse__delete-icon" 
+          onClick = {this.clickHandler}
+          onClick = {() => this.props.showing(this.props.id)}
+          id={this.props.id}
+          src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
+          alt="delete icon"
+        />
+>>>>>>> kaleb:sprint-1/client/src/components/WarehouseListCard/WarehouseListCard.jsx
         <Link to="/editwarehouse"><img
           className="warehouse__delete-icon"
           src={process.env.PUBLIC_URL + "/assets/Icons/edit24px.svg"}

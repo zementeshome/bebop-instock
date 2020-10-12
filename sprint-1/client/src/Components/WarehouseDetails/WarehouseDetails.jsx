@@ -16,17 +16,16 @@ class WarehouseDetails extends React.Component {
     state = {warehouses: {}, contact: {}, inventories: [], init:0}
     
     async componentDidMount() {
-    // console.log(this.props.match.params.id)
-    const id = this.props.match.params.id;
-    // console.log(id);
-    const url = 'http://localhost:8080';
-    const config = {
-        method: 'get',
-        url: `${url}/warehouses/${id}`,
-        headers: { },
-        data : ''
-      };
-    //   console.log(config);
+     // console.log(this.props.match.params.id)
+     const id = this.props.match.params.id;
+     // console.log(id);
+     const url = 'http://localhost:8080';
+     const config = {
+         method: 'get',
+         url: `${url}/warehouses/${id}`,
+         headers: { },
+         data : ''
+       };
     await axios(config)   
     .then(res => {
         axios(config)
@@ -39,16 +38,13 @@ class WarehouseDetails extends React.Component {
                     inventories: result.data.inventories
                 })
             })
-            // this.setState({
-            //     contact: response.data.contact,
-            //     warehouses: res.data, init:1
-            // })
         })
     })
     .catch(err => {
         console.log(err)
     })}
 
+<<<<<<< HEAD:sprint-1/client/src/Components/WarehouseDetails/WarehouseDetails.jsx
     componentDidUpdate(PrevState) {
         const { pathname } = this.props.location;
         const prevPathname = PrevState.location.pathname;
@@ -88,6 +84,32 @@ class WarehouseDetails extends React.Component {
 
           }
         }   
+=======
+    componentDidUpdate(prevProps, _prevState) {
+        const id = this.props.match.params.id;
+        const url = 'http://localhost:8080';
+        const config = {
+        method: 'get',
+        url: `${url}/warehouses/${id}`,
+        headers: { },
+        data : ''
+      };
+      console.log(id)
+        if (this.props.match.params.id !== prevProps.match.params.id) {
+          axios
+            .get(`${url}/warehouses/${id}`)
+            .then((res) => {
+              this.setState({
+                warehouses: res.data.find(
+                  (warehouse) => warehouse["id"] === this.props.match.params.id
+                ),
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+>>>>>>> kaleb:sprint-1/client/src/components/WarehouseDetails/WarehouseDetails.jsx
       }
 
     render() {
