@@ -124,7 +124,7 @@ class WarehouseDetails extends React.Component {
                 <div className="warehouse__details-edit-circle">
                     <Link to="/editwarehouse">
                          <img className="warehouse__details-editicon" 
-                         src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'}
+                         src={process.env.PUBLIC_URL + '/assets/Icons/editWhite24px.svg'}
                         fill="#2E66E6" alt=""/>
                     </Link>
                 <p className="warehouse__details-edit-text">Edit</p>
@@ -137,8 +137,10 @@ class WarehouseDetails extends React.Component {
                 <div className="warehouse__details-address-left-container">
                     <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS</h3>
                     <p className="warehouse__details-address">{this.state.warehouses.address}, {this.state.warehouses.city}, {this.state.warehouses.country}</p>
+                    <div className="warehouse__details-contact-div">
                     <h3 className="warehouse__details-subheading-2">CONTACT NAME</h3>
                     <p className="warehouse__details-contact">{this.state.contact.name}, <br />{this.state.contact.position}</p>
+                    </div>
                     </div>
                     <div className="warehouse__details-address-right-container">
                     <h3 className="warehouse__details-subheading-3">CONTACT INFORMATION</h3>

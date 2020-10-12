@@ -7,13 +7,10 @@
 @import '../../styles/partials/fonts';
 
 .warehouse__details {
-    // @include tablet {
-    //     margin-top: -1rem;
-    // }
     &-container {
         @include mobile {
           position: absolute;
-          height: 345%;
+          height: 380%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -26,7 +23,7 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 181%;
+            height: 170%;
         }
     }
 
@@ -41,6 +38,7 @@
 
     &-arrowicon {
         @include mobile {
+            margin-top: 1.8rem;
         }
     }
 
@@ -57,11 +55,11 @@
         @include mobile {
             position: absolute;
             left: 82%;
-            top: 1.8%;
+            top: 1.6%;
         }
         @include tablet {
             left: 85%;
-            top: 4.5%;
+            top: 3.8%;
         }
         @include desktop {
             left: 90%;
@@ -75,7 +73,7 @@
             width: 41px;
             height: 41px;
             border-radius: 20px;
-            background-color: pink;
+            background-color: $instock-indigo;
         }
         @include tablet {
             width: 83px;
@@ -85,13 +83,13 @@
 
     &-editicon {
         @include mobile {
-            width: 34px;
-            fill: white;
+            width: 22px;
+            padding-top: 9px;
         }
         @include tablet {
             width: 25px;
             margin-left: -2rem;
-            margin-top: 0.2rem;
+            margin-top: -0.3rem;
         }
     }
 
@@ -136,6 +134,7 @@
         }
     }
 
+
     &-subheading {
         @include mobile {
             font-weight: 600;
@@ -158,48 +157,67 @@
             color: $slate;
             text-align: left;
             margin-left: 1.2rem;
+            width: 200px;
+        }
+    }
+
+    &-subheading-1 {
+        @include tablet {
+            margin-top: -0.2rem;
+        }
+        @include desktop {
+            margin-left: 1.1rem;
+        }
+    }
+
+    &-contact-div {
+        @include tablet {
+            margin-left: 18rem;
+            border-left: 1px solid $cloud;
+            height: 80px;
+        }
+        @include desktop {
+            margin-left: 30rem;
+            height: 72px;
+            padding-left: 2rem;
         }
     }
 
     &-subheading-2{
         @include tablet {
-            margin-left: 20rem;
+            margin-left: 1.2rem;
             margin-top: -4.3rem;
             width: 100px;
         }
         @include desktop {
-            margin-left: 36.5rem;
-        }
-    }
-
-    &-contact {
-        @include tablet {
-            padding-left: 18.8rem;
-            // display: flex;
-            // justify-content: flex-end;
-            // position: relative;
-            // left: 108%;
+            margin-left: 1.2rem;
         }
     }
 
     &-subheading-3 {
         @include tablet {
-            margin-left: 12rem;
-            margin-top: -3.8rem;
+            margin-left: 8rem;
+            margin-top: -4.65rem;
         }
         @include desktop {
-            margin-left: 21.5rem;
+            margin-left: 15.1rem;
         }
     }
 
     &-contactinfo {
         @include tablet {
-            padding-left: 11rem;
-            // display: flex;
-            // justify-content: flex-end;
-            // position: absolute;
-            // left: 65%;
+            padding-left: 7rem;
         }
+        @include desktop {
+            padding-left: 14rem;
+        }
+    }
+
+    &-contact {
+        @include tablet {
+            padding-left: -10rem;
+        }
+
     }
 
     &-line-tablet {
@@ -258,6 +276,68 @@
         }
     }
 
+    &-tablet-inventory{
+        @include desktop {
+            margin-left: 1.1rem;
+        }
+    }
+
+    &-tablet-category {
+        @include desktop {
+            margin-left: -2rem;
+        }
+    }
+
+    &-tablet-status {
+        @include tablet {
+            margin-left: 1.5rem;
+        }
+        @include desktop {
+            margin-left: -2.3rem;
+        }
+    }
+
+    &-tablet-quantity {
+        @include tablet {
+            margin-left: 2rem;
+        }
+        @include desktop {
+            margin-left: 3rem;
+        }
+    }
+
+    &-tablet-desktop {
+        @include mobile {
+
+        }
+    }
+
+    &-tablet-actions {
+        @include tablet {
+            margin-left: 0.5rem;
+        }
+        @include desktop {
+            margin-left: 2.5rem;
+        }
+    }
+
+    &-inventory-container {
+        display: flex;
+    }
+
+    &-arrow {
+        @include mobile {
+            width: 18px;
+            height: 18px;
+            padding-top: 1.57rem;
+            margin-left: 0.4rem;
+        }
+    }
+
+    &-arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
+      }
 
     &-inventory {
         @include mobile {
@@ -266,25 +346,28 @@
             color: $instock-indigo;
             text-align: left;
             margin-left: 1.2rem;
-            margin-top: -0.5rem;
+            margin-top: -1rem;
             // width: 50px;
             // margin-right: 0;
         }
         @include tablet {
             padding-top: 0.5rem;
         }
-        // @include desktop {
-        //     padding-right: 10rem;
-        // }
+    }
+
+    &-category-container {
+        @include tablet {
+        margin-top: -2rem;
+        }
     }
 
     &-category {
         @include tablet {
            padding-left: 10rem;
-            margin-top: -5rem;  
+            margin-top: -6rem;  
         }
         @include desktop {
-            padding-left: 20rem;
+            padding-left: 16rem;
         }
     }
 
@@ -299,11 +382,17 @@
 
     &-quantity {
         @include tablet {
-            padding-left: 8rem;  
+            padding-left: 9rem;  
                 // margin-top: 2rem;
         }
         @include desktop {
-            padding-left: 38rem;
+            padding-left: 32rem;
+        }
+    }
+
+    &-quantity-container {
+        @include tablet {
+            margin-top: -2rem;
         }
     }
 
@@ -312,7 +401,9 @@
     &-contactinfo,
     &-category,
     &-status,
-    &-quantity {
+    &-quantity,
+    &-status-instock,
+    &-status-outstock {
         @include mobile {
             font-size: 12px;
             font-weight: 400;
@@ -326,24 +417,53 @@
             display: flex;
         }
     }
+    &-status-instock,
+    &-status-outstock {
+        @include mobile {
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        @include tablet {
+            margin-top: -1rem;
+            margin-left: 0.5rem;
+        }
+        @include desktop {
+            margin-left: 12.5rem;
+        }
+    }
 
-    // &-address {
-    //     @include mobile {
-    //         width: 120px;
-    //     }
-    //     @include tablet {
-    //         margin-left: 9.5rem;
-    //         margin-top: -2rem; 
-    //     }
-    //     @include desktop {
-    //         margin-left: 14.5rem;
-    //         width: 200px;
-    //     }
-    // }
+    &-status-instock {
+        @include mobile {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+            width: 59px;
+            padding-left: 9px;
+            height: 23px;
+            padding-top: 2px;
+            border-radius: 20px;
+        }
+    }
+
+    &-status-outstock {
+        color: $red;
+        width: 85px;
+        background-color: rgba(201, 69, 21, 0.07);
+        height: 23px;
+        border-radius: 20px;
+        padding-top: 2px;
+        padding-left: 9px;
+    }
+
 
     &-content-container {
         @include mobile {
         display: flex;
+        }
+        @include tablet {
+            margin-top: 1.5rem;
+            margin-bottom: 0.2rem;
         }
     }
 
@@ -351,21 +471,15 @@
         @include mobile {
             width: 45%;
         }
-        @include tablet {
-            border-right: 1px solid $cloud;
-            width: 40%;
-        }
     }
    &-left-container {
        @include tablet {
-        //    display: flex;
            width: 210px;
        }
    }
 
    &-right-container {
        @include tablet {
-        //    display: flex;
            width: 200px;
        }
        @include tablet {
@@ -388,7 +502,6 @@
         @include mobile {
             width: 18px;
             height: 18px;
-            // position: absolute;
             margin-top: -2rem;
         }
     }
@@ -407,7 +520,7 @@
             margin-left: 37rem;
         }
         @include desktop {
-            margin-left: 75rem;
+            margin-left: 72rem;
         }
     }
 
@@ -417,7 +530,7 @@
         height: 25px;
         }
         @include tablet {
-            margin-top: -5.5rem;
+            margin-top: -4.5rem;
             padding-left: 1rem;
         }
     }

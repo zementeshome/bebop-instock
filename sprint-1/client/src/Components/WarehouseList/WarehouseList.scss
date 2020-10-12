@@ -6,11 +6,19 @@
 
 @import '../../styles/partials/fonts';
 
+@import '../../styles/partials/variables';
+
+@import '../../styles/partials/mixins';
+
+@import '../../styles/partials/functions';
+
+@import '../../styles/partials/fonts';
+
 .warehouse {
     &__container {
         @include mobile {
           position: absolute;
-          height: 268%;
+          height: 311%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -23,7 +31,7 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 128%;
+            height: 129%;
         }
         @include desktop {
             width: 80%;
@@ -35,12 +43,10 @@
 
     &__search-container {
         @include mobile {
-            // display: flex;
             height: 125px;
         }
         @include tablet {
             display: flex;
-            // justify-content: flex-end;
         }
     }
 
@@ -55,9 +61,6 @@
         margin-bottom: 0.8rem;
         margin-top: 2rem;
     }
-    @include tablet {
-        // margin-right: 10rem;
-    }
 }
 
 &__button-container {
@@ -65,7 +68,6 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
-        // align-items: flex-end;
     }
 }
 
@@ -104,11 +106,8 @@
             width: 18px;
             height: 18px;
             position: absolute;
-            // left: 12.5%;
             right: 14%;
             top: 5.2rem;
-            // top: 12.5%;
-            // bottom: 14.63%;
         }
         @include tablet {
             position: relative;
@@ -160,18 +159,24 @@
   
     }
 
+    &__address-item-container {
+        @include mobile {
+            display: flex;
+            margin-left: 5rem;
+            margin-top: -0.6rem;
+        }
+    }
+
     &__tablet-div {
         @include mobile {
             display: none;
         }
         @include tablet {
         display: flex;
-        // margin-left: 1.2rem;
         margin-top: -2.5rem;
         margin-bottom: 2.5rem;
         background-color: rgba(247, 248, 249, 0.7);
         width: 100%;
-        // justify-content: flex-start;
         }
     }
 
@@ -190,7 +195,6 @@
             font-size: 12px;
             color: $slate;
             margin-left: 1.2rem;
-            // padding-right: 2.1rem;
         }
         @include desktop {
             margin-left: 1.6rem;
@@ -200,13 +204,14 @@
 
     &__tablet-contact {
         @include desktop {
-            margin-left: 6rem;
-            // margin-right: -2.2rem;
+            margin-left: 3rem;
         }
     }
 
     &__tablet-contactinfo {
-        margin-left: -2rem;
+        @include tablet {
+        margin-left: 1rem;
+        }
     }
 
     &__tablet-sorticon {
@@ -224,79 +229,13 @@
         @include desktop {
             margin-right: 8.5rem;
         }
-        @include tablet {
-            margin-top: 2rem;
-            width: 175px;
-            height: 35px;
-            padding-left: 31px;
-            padding-top: 6px;
-            margin-right: 1.5rem;
-        }
-    }
-
-    &__tablet-div {
-        @include mobile {
-            display: none;
-        }
-        @include tablet {
-        display: flex;
-        // margin-left: 1.2rem;
-        margin-top: -2.5rem;
-        margin-bottom: 2.5rem;
-        background-color: rgba(247, 248, 249, 0.7);
-        width: 100%;
-        // justify-content: flex-start;
-        }
-    }
-
-    &__tablet-warehouse,
-    &__tablet-address,
-    &__tablet-contact,
-    &__tablet-contactinfo,
-    &__tablet-actions {
-        @include mobile {
-            display: none;
-        }
-        @include tablet {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            font-size: 12px;
-            color: $slate;
-            margin-left: 1.2rem;
-            // padding-right: 2.1rem;
-        }
-        @include desktop {
-            margin-left: 1.6rem;
-        }
-    }
-
-    &__tablet-contact {
-        @include desktop {
-            margin-left: 4rem;
-            margin-right: -2.2rem;
-        }
-    }
-
-    &__tablet-sorticon {
-        @include mobile {
-            display: none;
-        }
-        @include tablet {
-            display: flex;
-            height: 20px;
-            width: 15px;
-            margin-top: 0.75rem;
-            margin-right: 2.1rem;
-
-        }
-        @include desktop {
-            margin-right: 6.2rem;
-        }
     }
 
     &__tablet-actions {
-        margin-left: -1rem;
+        margin-left: 1rem;
+        @include desktop {
+            margin-left: -1rem;
+        }
     }
 
     &__underline {
@@ -326,9 +265,6 @@
             margin-top: 2rem;
             margin-bottom: -1rem;
         }
-        // @include tablet {
-        //    flex-wrap: wrap;
-        // }
     }
 
     &__left-container {
@@ -386,10 +322,6 @@
             margin-top: -0.45rem;
             margin-left: 0.4rem;
         }
-        @include tablet {
-            display: flex;
-        }
-
     }
 
     &__arrow:hover {
@@ -419,14 +351,6 @@
 
     }
 
-    // &__address {
-    //     @include tablet {
-    //         margin-left: 9.5rem;
-    //         // margin-right: 4rem;
-    //         margin-top: -1rem;
-    //     }
-    // }
-
     &__address {
         @include mobile {
             width: 120px;
@@ -441,17 +365,10 @@
         }
     }
 
-    // &__address-container {
-    //     @include tablet {
-    //         width: 300px;
-    //     }
-    // }
-
     &__city,
     &__country {
         @include tablet {
             margin-left: 9.5rem;
-            // width: 300px;
         }
         @include desktop {
             margin-left: 16.7rem;
@@ -464,7 +381,7 @@
             margin-top: -0.5rem;
         }
         @include desktop {
-            margin-left: 23rem;
+            margin-left: 20rem;
         }
     }
 
@@ -473,7 +390,6 @@
         @include tablet {
             margin-top: -2rem;
             margin-left: 14rem;
-            // margin-top: 2rem;
         }
         @include desktop {
             margin-left: 35.5rem;
@@ -510,8 +426,7 @@
             justify-content: flex-start;
             margin-right: 2rem;
             margin-left: 37rem;
-            // flex-direction: column;
-            // margin-top: -3rem;
+            margin-top: -3rem;
         }
         @include desktop {
             margin-left: 63rem;
@@ -524,33 +439,7 @@
             height: 25px;
         }
         @include tablet {
-            margin-top: -2.5rem;
-            padding-left: 1rem;
+        padding-left: 1rem;
         }
     }
-
-    // &__address-container {
-    //     @include mobile {
-    //         display: flex;
-    //         width: 50%;
-    //     }
-    // }
-
-    // &__address,
-    // &__city,
-    // &__country {
-    //     @include mobile {
-            
-    //     }
-    // }
 }
-
-// hr {
-//     @include mobile {
-//         height: 0.1px;
-//         color: $cloud;
-//         background-color: $cloud;
-//         width: 99.5%;
-//         display: inline-block;
-//     }
-// }

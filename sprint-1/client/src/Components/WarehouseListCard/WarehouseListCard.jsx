@@ -10,20 +10,25 @@ class WarehouseListCard extends React.Component {
         <div className="warehouse__content-container">
           <div className="warehouse__left-container">
             <h3 className="warehouse__sub-heading">WAREHOUSE</h3>
-            <Link to={`/${this.props.id}`}><p className="warehouse__name">{this.props.name}</p>
+            <div className="warehouse__name-container">
+            <Link to={`/${this.props.id}`} style={{textDecoration: 'none'}}><p className="warehouse__name">{this.props.name}</p>
+            <div className="warehouse__address-item-container">
             <img
               className="warehouse__arrow"
               src={
                 process.env.PUBLIC_URL + "/assets/Icons/chevronright24px.svg"
               }
-              alt="right arrow"
-            /></Link>
-            <h3 className="warehouse__sub-heading">ADDRESS</h3>
-            <p className="warehouse__address">{this.props.address}</p>
-            <p className="warehouse__city">{this.props.addressCity}</p>
-            <p className="warehouse__country">{this.props.addressCountry}</p>
+              alt="right arrow" />
+                </div></Link>
+             </div>
+              <h3 className="warehouse__sub-heading">ADDRESS</h3>
+              <div className="warehouse__address-container">
+              <p className="warehouse__address">{this.props.address},</p>
+              <p className="warehouse__city">{this.props.addressCity},</p>
+              <p className="warehouse__country">{this.props.addressCountry}</p>
           </div>
-          <div className="warehouse__right-container">
+          </div>
+            <div className="warehouse__right-container">
             <h3 className="warehouse__sub-heading">CONTACT NAME</h3>
             <p className="warehouse__contact">{this.props.contact}</p>
             <h3 className="warehouse__sub-heading">CONTACT INFORMATION</h3>
@@ -35,6 +40,8 @@ class WarehouseListCard extends React.Component {
             </p>
           </div>
         </div>
+        <div className="warehouse__icon-container"> 
+
         <img
           className="warehouse__delete-icon" 
           onClick = {() => this.props.showing(this.props.id, this.props.name)}
@@ -47,6 +54,7 @@ class WarehouseListCard extends React.Component {
           src={process.env.PUBLIC_URL + "/assets/Icons/edit24px.svg"}
           alt="edit icon"
         /></Link>
+        </div>
         <span className="warehouse__underline"></span>
       </section>
     );
