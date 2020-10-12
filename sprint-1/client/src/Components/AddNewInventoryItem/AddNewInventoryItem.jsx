@@ -15,16 +15,17 @@ export default class AddNewInventoryItem extends React.Component  {
   state= {
           warehouses: [], outStock: false, init:0,
           itemNameEmpty: false, descriptionEmpty: false, 
-          categoryEmpty: false, quantityEmpty: false
+          categoryEmpty: false, quantityEmpty: false,
+          selectedWarehouseID: ''
         }
+
   // CALLING WAREHOUSES TO FILL OPTIONS  
   async componentDidMount() {
-     await axios.get('warehouses')
+      await axios.get('warehouses')
       .then((res) => {
         // const warehouses = res.data
-        this.setState({warehouses: res.data, init:1})
+        this.setState({warehouses: res.data, init:1, selectedWarehouseID: res.data[0].id})
       })
-      // console.log(this.state.warehouses) // this is working
   }
 
   // FUNCTION TO ADD NEW INVENTORY
@@ -33,23 +34,16 @@ export default class AddNewInventoryItem extends React.Component  {
       //VALIDATIONS
       //console.log('you are here 101')
       
-      if (e.target.inventory.value === '') {
-        this.setState({ inventoryNameEmpty: true})
-      }  if (e.target.street.value === '')  {
-        this.setState({streetEmpty: true})
-      } if (e.target.city.value === '')  {
-        this.setState({cityEmpty: true})
-      } if (e.target.country.value === '')  {
-        this.setState({countryEmpty: true})
-      } if (e.target.contact.value === '')  {
-        this.setState({contactEmpty: true})
-      } if (e.target.position.value === '')  {
-        this.setState({ positionEmpty: true})
-      } if (e.target.phone.value === '')  {
-        this.setState({phoneEmpty: true})
-      } if (e.target.email.value === '')  {
-        this.setState({emailEmpty: true})
+      console.log('before validation in state')
+      console.log(e.target)
+      if (e.target.itemName.value === '') {
+        this.setState({ itemNameEmpty: true})
+      }  if (e.target.description.value === '')  {
+        this.setState({ descriptionEmpty: true})
+      } if (e.target.category.value === '')  {
+        this.setState({categoryEmpty: true})
       } else {
+        console.log('you are inside axios 10110101')
         //AXIOS CALL TO ADD Inventory
 
         let id = Date.now() + '-abc-' + Date.now();
@@ -57,18 +51,18 @@ export default class AddNewInventoryItem extends React.Component  {
         let quantityVar = 0;
         if (e.target.stock.value) {
            statusVar = 'In Stock';
-           let quantityVar = e.target.quantity.value;
+           quantityVar = e.target.quantity.value;
         } else {
           statusVar =  'Out of Stock'
-          let quantityVar = 0;
+          quantityVar = 0;
         }
 
-        let addInventory = {
+        let addInventoryObj = {
           //id: uuidv4(),
           id: id,
 
-          warehouseID: e.target.warehouseID.value, // SEARCH ID FILTER or FIND
-          warehouseName: e.target.warehouse.value, // SEARCH WAR NAME
+          warehouseID: this.state.selectedWarehouseID,
+          warehouseName: e.target.warehouse.value, 
 
           itemName: e.target.itemName.value,
           description: e.target.description.value,
@@ -76,6 +70,8 @@ export default class AddNewInventoryItem extends React.Component  {
           status: statusVar, 
           quantity: quantityVar
         };
+        console.log('addInventoryObject result=')
+        console.log(addInventoryObj)
         const url = 'http://localhost:8080';
         const config = {
           method: 'post',
@@ -83,7 +79,7 @@ export default class AddNewInventoryItem extends React.Component  {
           headers: { 
             'Content-Type': 'application/json'
           },
-          data : addInventory
+          data : addInventoryObj
         };
         axios(config)   
           .then(result => {
@@ -100,8 +96,8 @@ export default class AddNewInventoryItem extends React.Component  {
  
      }   
 
-      document.getElementById("form").reset();
-      this.props.history.push("/");
+     document.getElementById("form").reset();
+     this.props.history.push("/inventories");
   };
 
   
@@ -113,8 +109,12 @@ export default class AddNewInventoryItem extends React.Component  {
     this.setState({ outStock: false})
   }
 
+  OnClickOptionWarehouse = (e) => {
+    console.log(e)
+    //  this.setState({ selectedWarehouseID: e.})
+  }
+
 render() {
-  //console.log(this.state.warehouses) //WORKING! receiving data!
 let stock;
 if (this.state.outStock) {
   stock = <div>
@@ -288,7 +288,7 @@ if (this.state.outStock) {
 
                 {this.state.warehouses &&
                   this.state.warehouses.map((warehouseMap) => 
-                    { return  <option key={warehouseMap.id}  id={warehouseMap.id} 
+                    { return  <option key={warehouseMap.id}  id={warehouseMap.id} onClick={this.OnClickOptionWarehouse}
                                       className="add__inventory-form-warehouse-option">
                                 {warehouseMap.name}
                               </option>
@@ -305,9 +305,13 @@ if (this.state.outStock) {
           <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-cancel">
             Cancel
           </button></Link>
-          <Link to="/inventories"><button className=" add__inventory-form-btn add__inventory-form-btn-save">
+          {/* <Link to="/inventories"> */}
+            
+          <button oncClick={this.addInventory} className=" add__inventory-form-btn add__inventory-form-btn-save">
             Save
-          </button></Link>
+          </button>
+          
+          {/* </Link> */}
         </div>
       </form>
     </div>
