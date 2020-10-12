@@ -8,7 +8,7 @@ class WarehouseListCard extends React.Component {
     // console.log(this.state.deleteObject);
   }
   render() {
-    // console.log(this.props);
+    // console.log(this.props.id);
     return (
       <section className="warehouse">
         <div className="warehouse__content-container">
@@ -42,6 +42,8 @@ class WarehouseListCard extends React.Component {
         <img
           className="warehouse__delete-icon" 
           onClick = {this.clickHandler}
+          onClick = {() => this.props.showing(this.props.id)}
+          id={this.props.id}
           src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
           alt="delete icon"
         />

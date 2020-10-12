@@ -10,7 +10,7 @@
     &__container {
         @include mobile {
           position: absolute;
-          height: 256%;
+          height: 268%;
           width: 91%;
           border: 2px solid $white;
           left: 4.27%;
@@ -23,13 +23,13 @@
         }
         @include tablet {
             margin-top: 5.5rem;
-            height: 144%;
+            height: 128%;
         }
         @include desktop {
             width: 80%;
             left: 10%;
             right: 10%;
-            height: 112%;
+            height: 97%;
         }
     }
 
@@ -76,7 +76,7 @@
         border: 1px solid $cloud;
         box-sizing: border-box;
         border-radius: 20px;
-        width: 240px;
+        width: 82%;
         height: 30px;
         margin-left: 1.5rem;
         margin-right: 2rem;
@@ -111,11 +111,12 @@
             // bottom: 14.63%;
         }
         @include tablet {
-            right: 34%;
+            position: relative;
+            right: 5%;
             top: 2.5rem;
         }
         @include desktop {
-            right: 23%;
+            right: 2.5%;
         }
     }
 
@@ -123,28 +124,40 @@
         @include mobile {
             display: flex;
             justify-content: flex-start;
-            padding: 4px 0px 0px 65px;
-            width: 240px;
+            width: 82%;
             height: 30px;
             background-color: $instock-indigo;
             border-radius: 20px;
             margin-left: 1.5rem;
             margin-top: 0.8rem;
-            color: $white;
-            font-weight: 600;
             border: 1px solid $instock-indigo;
-            font-family: 'Titillium Web';
-            font-size: 12px;
 
         }
         @include tablet {
             margin-top: 2rem;
             width: 175px;
             height: 35px;
-            padding-left: 31px;
             padding-top: 6px;
             margin-right: 1.5rem;
+            margin-left: -0.2rem;
         }
+    }
+
+    &__button span {
+        @include mobile {
+      color: $white;
+      font-weight: 600;
+      font-family: 'Titillium Web';
+      font-size: 12px;
+      margin: 0 auto;
+      padding-top: 3px;
+        }
+        @include tablet {
+          padding-top: 1px;
+          padding-left: 2px;
+          text-align: center;
+        }
+  
     }
 
     &__tablet-div {
@@ -184,11 +197,16 @@
         }
     }
 
+
     &__tablet-contact {
         @include desktop {
-            margin-left: 4rem;
-            margin-right: -2.2rem;
+            margin-left: 6rem;
+            // margin-right: -2.2rem;
         }
+    }
+
+    &__tablet-contactinfo {
+        margin-left: -2rem;
     }
 
     &__tablet-sorticon {
@@ -204,8 +222,12 @@
 
         }
         @include desktop {
-            margin-right: 6.2rem;
+            margin-right: 8.5rem;
         }
+    }
+
+    &__tablet-actions {
+        margin-left: -1rem;
     }
 
     &__underline {
@@ -213,9 +235,6 @@
             border-top: 1px solid $cloud;
             width: 100%;
             display: inline-block;
-        }
-        @include tablet {
-            display: none;
         }
     }
 
@@ -236,6 +255,7 @@
         }
         @include tablet {
             margin-top: 2rem;
+            margin-bottom: -1rem;
         }
         // @include tablet {
         //    flex-wrap: wrap;
@@ -278,26 +298,32 @@
             text-align: left;
             margin-left: 1.2rem;
             margin-top: -0.5rem;
+            margin-bottom: 0;
         }
         @include desktop {
             margin-left: 1.6rem;
         }
     }
 
+    &__name-container {
+        display: flex;
+        margin-bottom: 0;
+    }
+
     &__arrow {
         @include mobile {
             width: 18px;
             height: 18px;
-            position: absolute;
-            top: 13.6rem;
-            left: 5.3rem;
-            // margin-top: -6rem;
-            // margin-left: 6rem;
-        }
-        @include tablet {
-            display: none;
+            margin-top: -0.45rem;
+            margin-left: 0.4rem;
         }
     }
+
+    &__arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
+      }
+
 
     &__address,
     &__city,
@@ -337,8 +363,25 @@
             margin-top: -2rem; 
         }
         @include desktop {
-            margin-left: 14.5rem;
+            margin-left: 16.7rem;
             width: 200px;
+        }
+    }
+
+    // &__address-container {
+    //     @include tablet {
+    //         width: 300px;
+    //     }
+    // }
+
+    &__city,
+    &__country {
+        @include tablet {
+            margin-left: 9.5rem;
+            // width: 300px;
+        }
+        @include desktop {
+            margin-left: 16.7rem;
         }
     }
 
@@ -348,18 +391,19 @@
             margin-top: -0.5rem;
         }
         @include desktop {
-            margin-left: 16.4rem;
+            margin-left: 23rem;
         }
     }
 
     &__contact-phone,
     &__contact-email {
         @include tablet {
+            margin-top: -2rem;
             margin-left: 14rem;
             // margin-top: 2rem;
         }
         @include desktop {
-            margin-left: 28rem;
+            margin-left: 35.5rem;
         }
     }
 
@@ -367,11 +411,17 @@
         @include tablet {
             margin-top: -2rem;
         }
+        @include desktop {
+            margin-left: 35.5rem;
+        }
     }
 
     &__contact-email {
         @include tablet {
             margin-top: -0.5rem;
+        }
+        @include desktop {
+            margin-left: 35.5rem;
         }
     }
 
@@ -391,7 +441,7 @@
             // margin-top: -3rem;
         }
         @include desktop {
-            margin-left: 56rem;
+            margin-left: 63rem;
         }
     }
 
@@ -401,7 +451,7 @@
             height: 25px;
         }
         @include tablet {
-            margin-top: -5rem;
+            margin-top: -2.5rem;
             padding-left: 1rem;
         }
     }

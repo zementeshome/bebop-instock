@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import WarehouseList from './Components/WarehouseList/WarehouseList';
-import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import InventoryList from "./Components/InventoryList/InventoryList";
 import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
@@ -19,25 +19,25 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-      {/* <DeleteWarehouse /> */}
-      {/* <DeleteInventory /> */}
-      {/* <Background /> */}
+        {/* <DeleteWarehouse /> */}
+        {/* <DeleteInventory /> */}
+        {/* <Background /> */}
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={WarehouseList}/>
-            <Route path="/:id" component={WarehouseDetails}/>
+            {/* <Route path="/:id" component={WarehouseDetails}/> */}
             {/* <Route path="/editwarehouse" component={EditWarehouse} /> */}
             {/* <Route path="/addwarehouse" component={AddNewWarehouse} /> */}
             {/* <Route path="/inventories" component={InventoryList} /> */}
-            <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} />
-            <Route path="/inventories/:id" component={InventoryItemDetails} />
+            {/* <Route path="/inventories/:id" component={InventoryItemDetails} /> */}
             {/* <Route path="/editinventoryitem"  component={EditInventoryItem} /> */}
             {/* <Route path="/addinventoryitem" component={AddNewInventoryItem} /> */}
             {/* <Route path='/pagenotfound' component={PageNotFound} */}
           </Switch>
         </BrowserRouter>
-       </div>
+      </div>
     );
-  }}
+  }
+}
 
 export default App;

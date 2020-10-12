@@ -1,6 +1,6 @@
 import React from "react";
 import "./addWarehouse.scss";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
@@ -42,7 +42,7 @@ state = {
         axios.post("/", AddWarehouse).then((res) => {
         });
         let addWarehouse = {
-          // id: uuidv4(),
+          id: uuidv4(),
           name: e.target.warehouse.value,
           address: e.target.street.value,
           city: e.target.city.value,
@@ -105,11 +105,13 @@ if (this.state.wareHouseNameEmpty) {
       <div className="add">
         <Header />
         <div className="add__title-container">
-          <Link to="/"><img src="" alt="" /></Link>
-          <h2 className="add__title">Add New Warehouse</h2>
+       <Link to="/warehouses"><img src="" alt="" /></Link>
+          <h2 className="add__title"> <img
+            src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
+            alt="Arrow"
+          />  Add New Warehouse</h2>
         </div>
         <div className="add__form-container">
-          {/* <div className="add"> */}
           <form
             id="form"
             

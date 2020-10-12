@@ -9,17 +9,16 @@ class WarehouseDetails extends React.Component {
     state = {warehouses: {}, contact: {}, inventories: [], init:0}
     
     async componentDidMount() {
-    // console.log(this.props.match.params.id)
-    const id = this.props.match.params.id;
-    // console.log(id);
-    const url = 'http://localhost:8080';
-    const config = {
-        method: 'get',
-        url: `${url}/warehouses/${id}`,
-        headers: { },
-        data : ''
-      };
-    //   console.log(config);
+     // console.log(this.props.match.params.id)
+     const id = this.props.match.params.id;
+     // console.log(id);
+     const url = 'http://localhost:8080';
+     const config = {
+         method: 'get',
+         url: `${url}/warehouses/${id}`,
+         headers: { },
+         data : ''
+       };
     await axios(config)   
     .then(res => {
         axios(config)
@@ -32,40 +31,37 @@ class WarehouseDetails extends React.Component {
                     inventories: result.data.inventories
                 })
             })
-            // this.setState({
-            //     contact: response.data.contact,
-            //     warehouses: res.data, init:1
-            // })
         })
     })
     .catch(err => {
         console.log(err)
     })}
 
-    // componentDidUpdate(prevProps, _prevState) {
-    //     const id = this.props.match.params.id;
-    //     const url = 'http://localhost:8080';
-    //     const config = {
-    //     method: 'get',
-    //     url: `${url}/warehouses/${id}`,
-    //     headers: { },
-    //     data : ''
-    //   };
-    //     if (this.props.match.params.id !== prevProps.match.params.id) {
-    //       axios
-    //         .get(`${url}/warehouses/${id}`)
-    //         .then((res) => {
-    //           this.setState({
-    //             warehouses: res.data.find(
-    //               (warehouse) => warehouse["id"] === this.props.match.params.id
-    //             ),
-    //           });
-    //         })
-    //         .catch((err) => {
-    //           console.log(err);
-    //         });
-    //     }
-    //   }
+    componentDidUpdate(prevProps, _prevState) {
+        const id = this.props.match.params.id;
+        const url = 'http://localhost:8080';
+        const config = {
+        method: 'get',
+        url: `${url}/warehouses/${id}`,
+        headers: { },
+        data : ''
+      };
+      console.log(id)
+        if (this.props.match.params.id !== prevProps.match.params.id) {
+          axios
+            .get(`${url}/warehouses/${id}`)
+            .then((res) => {
+              this.setState({
+                warehouses: res.data.find(
+                  (warehouse) => warehouse["id"] === this.props.match.params.id
+                ),
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      }
 
     render() {
         // console.log(this.state);
@@ -78,7 +74,7 @@ class WarehouseDetails extends React.Component {
                 <h1 className="warehouse__details-header">{this.state.warehouses.name}</h1>
                 <div className="warehouse__details-edit-container">
                 <div className="warehouse__details-edit-circle">
-                <Link to="/editwarehouse"><img className="warehouse__details-editicon" src={process.env.PUBLIC_URL + '/assets/Icons/edit24px.svg'} fill="#2E66E6" alt=""/></Link>
+            <Link to="/editwarehouse"> <img className="warehouse__details-editicon" src={process.env.PUBLIC_URL + '/assets/Icons/editWhite24px.svg'} fill="#2E66E6" alt=""/></Link>
                 <p className="warehouse__details-edit-text">Edit</p>
                 </div>
                 </div>
@@ -86,11 +82,13 @@ class WarehouseDetails extends React.Component {
                 <span className="warehouse__details-tablet-line"></span>
                 <span className="warehouse__details-line"></span>
                 <div className="warehouse__details-content-container">
-                <div className="warehouse__details-address-left-container">
+                <div className="warehouse__details-address-left-container">   
                     <h3 className="warehouse__details-subheading-1">WAREHOUSE ADDRESS</h3>
                     <p className="warehouse__details-address">{this.state.warehouses.address}, {this.state.warehouses.city}, {this.state.warehouses.country}</p>
+                    <div className="warehouse__details-contact-div">
                     <h3 className="warehouse__details-subheading-2">CONTACT NAME</h3>
                     <p className="warehouse__details-contact">{this.state.contact.name}, <br />{this.state.contact.position}</p>
+                    </div>
                     </div>
                     <div className="warehouse__details-address-right-container">
                     <h3 className="warehouse__details-subheading-3">CONTACT INFORMATION</h3>
@@ -105,6 +103,7 @@ class WarehouseDetails extends React.Component {
                 <p className="warehouse__details-tablet-status">STATUS</p>
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-quantity">QUANTITY</p>
+                {/* <p className="warehouse-details-tablet-desktop">QTY</p> */}
                 <img className="warehouse__details-tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__details-tablet-actions">ACTIONS</p>
             </div>
