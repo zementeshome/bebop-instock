@@ -43,13 +43,9 @@ class WarehouseListCard extends React.Component {
         <div className="warehouse__icon-container"> 
 
         <img
-<<<<<<< HEAD
-          className="warehouse__delete-icon"
-=======
           className="warehouse__delete-icon" 
           onClick = {() => this.props.showing(this.props.id, this.props.name)}
           id={this.props.id}
->>>>>>> development
           src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
           alt="delete icon"
         />

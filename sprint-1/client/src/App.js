@@ -17,35 +17,6 @@ import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
 import InventoryItemDetails from "./Components/InventoryItemDetails/InventoryItemDetails";
 import Background from "./Components/Background/Background";
 import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem";
-<<<<<<< HEAD
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      {/* <WarehouseList /> */}
-      {/* <EditWarehouse /> */}
-      {/* <WarehouseList /> */}
-      {/* <AddNewWarehouse /> */}
-      {/* <InventoryItemDetails /> */}
-      <EditInventoryItem />
-      {/* <Background /> */}
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-          <Route path="/" exact component={() => <route />} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
-=======
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 // import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
@@ -80,7 +51,6 @@ class App extends React.Component {
       </div>
     );
   }
->>>>>>> development
 }
 
 export default App;
