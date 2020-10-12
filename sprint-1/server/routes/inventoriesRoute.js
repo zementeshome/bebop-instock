@@ -49,6 +49,55 @@ function sortResults(array, fieldProp, AscDesc) {
       }
   });
 }
+// a = a.toLowerCase();
+// b = b.toLowerCase();
+// # 4 - Back-End: Diving Deeper - Impement Sorting ends
+// # 11 - Back-End: API to GET List of all Inventory Items ends
+
+
+
+// router.get('/posts',authenticate, async (req,res) => {
+//   //const _ispublished = req.query.published;
+//   const match = {}
+//   const sort  = {}
+
+//   if(req.query.published){
+//       match.published = req.query.published === 'true'
+//   }
+
+//   if(req.query.sortBy && req.query.OrderBy){
+//       sort[req.query.sortBy]   = req.query.OrderBy === 'desc' ? -1 : 1
+//   }
+  
+//   try {
+//       await req.user.populate({
+//           path:'posts',
+//           match,
+//           options:{
+//               limit: parseInt(req.query.limit),
+//               skip: parseInt(req.query.skip),
+//               sort
+//           }
+//       }).execPopulate()
+//       res.send(req.user.posts)
+//   } catch (error) {
+//       res.status(500).send()
+//   }
+// })
+
+// const json = JSON.parse(getJsonFile());
+
+// const jsonAsArray = Object.keys(json).map(function (key) {
+//   return json[key];
+// })
+// .sort(function (itemA, itemB) {
+//   return itemA.score < itemB.score;
+// });
+
+// let dataSort = res.data.sort((a, b) => { return b.consec - a.consec; })
+
+
+ // # 10 - Back-End: API to GET a Single Inventory Item starts
 // # 11 - Back-End: API to GET List of all Inventory Items ends
 // # 4 - Back-End: Diving Deeper - Implement Sorting ends
 

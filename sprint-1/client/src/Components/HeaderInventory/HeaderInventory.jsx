@@ -1,21 +1,19 @@
-// import React from './node_modules/react';
 import React from 'react';
-import './Header.scss';
-import { Link } from 'react-router-dom';
+import './HeaderInventory.scss';
 
 function Header() {
     return(
             <header className="header">
                 <div className="header__container">
                     <div className="header__container-logo">
-                    <Link to="/"><img className="header__logo" src={process.env.PUBLIC_URL + '/assets/Logo/instocklogo.svg'} alt="instock logo"/></Link>
+                    <img className="header__logo" src={process.env.PUBLIC_URL + '/assets/Logo/instocklogo.svg'} alt="instock logo"/>
                     </div>
                     <nav className="header__nav">
                     <ul className="header__nav-list">
+                        <li className="header__nav-item">Warehouses</li>
                         <div className="header__nav-border">
-                        <Link to="/"><li className="header__nav-item header__nav-item--active">Warehouses</li></Link>
+                        <li className="header__nav-item nav-item--active">Inventory</li>
                         </div>
-                        <Link to="/inventories"><li className="header__nav-item">Inventory</li></Link>
                     </ul>
                     </nav>
                 </div>
@@ -23,4 +21,5 @@ function Header() {
     )
 
 }
+
 export default Header;

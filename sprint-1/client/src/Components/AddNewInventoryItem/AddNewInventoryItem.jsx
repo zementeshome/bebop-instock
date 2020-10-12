@@ -1,15 +1,7 @@
 import React from "react";
 import "./addNewInventoryItem.scss";
-import axios from "axios";
-import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
-import Header from '../Header/Header';
-
-function getParams(pathname) {
-  const matchProfile = matchPath(pathname, {
-    path: `/:id`,
-  });
-  return (matchProfile && matchProfile.params) || {};
-};
+import axios from "axios"
+import { Link } from 'react-router-dom';
 
 export default class AddNewInventoryItem extends React.Component  {
   state= {
@@ -126,13 +118,15 @@ if (this.state.outStock) {
               >
                 Quantity
               </label>
-              <input name="quantity"
-                    placeholder="0" className="add__inventory-form-item-input" type="text" />
+              <input onSubmit={this.addInventory}  name="quantity"  placeholder="0" className="add__inventory-form-item-input" type="text" />
             </div>
         </div> 
       </div>
 } else {
-  stock = <div></div>
+  stock = <div className="add__inventory-form-item-input-display-non">
+
+      <input defaultValue={0} className="add__inventory-form-item-input-display-non" name="quantity"></input>
+    </div> 
 }
 
 
@@ -149,11 +143,7 @@ if (this.state.outStock) {
           Add New Inventory Item
         </h2>
       </div>
-      <form id="form"
-            onSubmit={this.addInventory}
-            className="add__inventory-form" 
-            action=""
-      >
+      <form onSubmit={this.addInventory} className="add__inventory-form" action="">
         <div className="add__inventory-form-outer-container" >
         <div className="add__inventory-form-top-container">
         <div className="add__inventory-heading">
@@ -167,9 +157,7 @@ if (this.state.outStock) {
             >
               Item Name
             </label>
-            <input name="itemName"
-                   placeholder="Television" 
-                   className="add__inventory-form-item-input" type="text" />
+            <input name="item" placeholder="Television" className="add__inventory-form-item-input" type="text" />
             </div>
           </div>
           <div className="add__inventory-form-description-container">
@@ -180,7 +168,8 @@ if (this.state.outStock) {
             >
               Description
             </label>
-            <textarea name="description"
+            <textarea
+            name="description"
               placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
               className="add__inventory-form-description-input"
               type="text"
@@ -226,9 +215,7 @@ if (this.state.outStock) {
                 className="add__inventory-form-category-input-option"
                 value="Health"
               >
-
                 Health
-
               </option>
             </select>
             </div>

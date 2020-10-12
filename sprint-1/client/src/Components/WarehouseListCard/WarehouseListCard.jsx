@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 
 class WarehouseListCard extends React.Component {
-  clickHandler = (e) => {
-    // this.setState({deleteObject: true})
-    // console.log(this.state.deleteObject);
-  }
   render() {
     // console.log(this.props);
     return (
@@ -39,18 +35,13 @@ class WarehouseListCard extends React.Component {
             </p>
           </div>
         </div>
-
-
-
-<img
-      className="warehouse__delete-icon" 
-      onClick = {this.clickHandler}
-      src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
-      alt="delete icon"
-    />
-
-
-    
+        <img
+          className="warehouse__delete-icon" 
+          onClick = {() => this.props.showing(this.props.id, this.props.name)}
+          id={this.props.id}
+          src={process.env.PUBLIC_URL + "/assets/Icons/deleteoutline24px.svg"}
+          alt="delete icon"
+        />
         <Link to="/editwarehouse"><img
           className="warehouse__delete-icon"
           src={process.env.PUBLIC_URL + "/assets/Icons/edit24px.svg"}

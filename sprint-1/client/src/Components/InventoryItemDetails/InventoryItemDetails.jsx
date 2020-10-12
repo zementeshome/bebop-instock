@@ -131,6 +131,7 @@ export default class InventoryItemDetails extends React.Component{
         </div>
       </div>
     </div>
+    
   );
  }
 }

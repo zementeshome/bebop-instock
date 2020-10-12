@@ -147,6 +147,11 @@ body {
     color: #13182c;
     margin-left: 6%;
     margin-bottom: 1%;
+    // &:hover {
+    //   border-radius: 20px;
+    //   border: 1px solid $instock-indigo;
+    //   outline: none;
+    // }
     @include tablet {
       font-weight: 600;
       font-size: 14px;
@@ -167,10 +172,19 @@ body {
     border-radius: 20px;
     padding-left: 3%;
     appearance: none;
-    background-image: url(../../assets/icons/arrowdropdown24px.svg);
+    // background-image: url(../../assets/icons/arrowdropdown24px.svg);
     background-repeat: no-repeat;
     background-position: 96% 50%;
 
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border-radius: 20px;
+      border: 1px solid $instock-indigo;
+      outline: none;
+      // background-color: transparent;
+    }
     @include tablet {
       width: 85%;
       height: 38px;
@@ -372,4 +386,8 @@ body {
       line-height: 22px;
     }
   }
+}
+
+.add__inventory-form-item-input-display-non {
+  display: none;
 }
