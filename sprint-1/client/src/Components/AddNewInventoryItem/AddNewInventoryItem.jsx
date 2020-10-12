@@ -1,23 +1,120 @@
 import React from "react";
 import "./addNewInventoryItem.scss";
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
+import Header from '../Header/Header';
+
+function getParams(pathname) {
+  const matchProfile = matchPath(pathname, {
+    path: `/:id`,
+  });
+  return (matchProfile && matchProfile.params) || {};
+};
 
 export default class AddNewInventoryItem extends React.Component  {
+  state= {
+          warehouses: [], outStock: false, init:0,
+          itemNameEmpty: false, descriptionEmpty: false, 
+          categoryEmpty: false, quantityEmpty: false
+        }
+  // CALLING WAREHOUSES TO FILL OPTIONS  
+  async componentDidMount() {
+     await axios.get('warehouses')
+      .then((res) => {
+        // const warehouses = res.data
+        this.setState({warehouses: res.data, init:1})
+      })
+      // console.log(this.state.warehouses) // this is working
+  }
 
-state= {
-  outStock: false
-}
+  // FUNCTION TO ADD NEW INVENTORY
+    // PREVENT ERRORS FIRST
+    addInventory = (e) => { e.preventDefault();
+      //VALIDATIONS
+      //console.log('you are here 101')
+      
+      if (e.target.inventory.value === '') {
+        this.setState({ inventoryNameEmpty: true})
+      }  if (e.target.street.value === '')  {
+        this.setState({streetEmpty: true})
+      } if (e.target.city.value === '')  {
+        this.setState({cityEmpty: true})
+      } if (e.target.country.value === '')  {
+        this.setState({countryEmpty: true})
+      } if (e.target.contact.value === '')  {
+        this.setState({contactEmpty: true})
+      } if (e.target.position.value === '')  {
+        this.setState({ positionEmpty: true})
+      } if (e.target.phone.value === '')  {
+        this.setState({phoneEmpty: true})
+      } if (e.target.email.value === '')  {
+        this.setState({emailEmpty: true})
+      } else {
+        //AXIOS CALL TO ADD Inventory
 
-inStock = () => {
-this.setState({ outStock : true})
-}
+        let id = Date.now() + '-abc-' + Date.now();
+        let statusVar = 'Out of Stock';
+        let quantityVar = 0;
+        if (e.target.stock.value) {
+           statusVar = 'In Stock';
+           let quantityVar = e.target.quantity.value;
+        } else {
+          statusVar =  'Out of Stock'
+          let quantityVar = 0;
+        }
 
+        let addInventory = {
+          //id: uuidv4(),
+          id: id,
 
-OutOfStock = () => {
-  this.setState({ outStock: false})
-}
+          warehouseID: e.target.warehouseID.value, // SEARCH ID FILTER or FIND
+          warehouseName: e.target.warehouse.value, // SEARCH WAR NAME
+
+          itemName: e.target.itemName.value,
+          description: e.target.description.value,
+          category: e.target.category.value,
+          status: statusVar, 
+          quantity: quantityVar
+        };
+        const url = 'http://localhost:8080';
+        const config = {
+          method: 'post',
+          url: `${url}/inventories`,
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          data : addInventory
+        };
+        axios(config)   
+          .then(result => {
+              // this.setState({
+              //     contact: response.data.contact,
+              //     warehouses: res.data, init:1,
+              //     inventories: result.data.inventories
+              // })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        // AXIOS AND ADDING ENDS HERE
+ 
+     }   
+
+      document.getElementById("form").reset();
+      this.props.history.push("/");
+  };
+
+  
+  inStock = () => {
+  this.setState({ outStock : true})
+  }
+
+  OutOfStock = () => {
+    this.setState({ outStock: false})
+  }
 
 render() {
+  //console.log(this.state.warehouses) //WORKING! receiving data!
 let stock;
 if (this.state.outStock) {
   stock = <div>
@@ -29,7 +126,8 @@ if (this.state.outStock) {
               >
                 Quantity
               </label>
-              <input placeholder="0" className="add__inventory-form-item-input" type="text" />
+              <input name="quantity"
+                    placeholder="0" className="add__inventory-form-item-input" type="text" />
             </div>
         </div> 
       </div>
@@ -39,6 +137,8 @@ if (this.state.outStock) {
 
 
   return (
+    <>
+    <Header />  
     <div className="add">
       <div className="add__inventory-title-container">
         <h2 className="add__inventory-title">
@@ -49,7 +149,11 @@ if (this.state.outStock) {
           Add New Inventory Item
         </h2>
       </div>
-      <form className="add__inventory-form" action="">
+      <form id="form"
+            onSubmit={this.addInventory}
+            className="add__inventory-form" 
+            action=""
+      >
         <div className="add__inventory-form-outer-container" >
         <div className="add__inventory-form-top-container">
         <div className="add__inventory-heading">
@@ -63,7 +167,9 @@ if (this.state.outStock) {
             >
               Item Name
             </label>
-            <input placeholder="Television" className="add__inventory-form-item-input" type="text" />
+            <input name="itemName"
+                   placeholder="Television" 
+                   className="add__inventory-form-item-input" type="text" />
             </div>
           </div>
           <div className="add__inventory-form-description-container">
@@ -74,7 +180,7 @@ if (this.state.outStock) {
             >
               Description
             </label>
-            <textarea
+            <textarea name="description"
               placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
               className="add__inventory-form-description-input"
               type="text"
@@ -129,7 +235,7 @@ if (this.state.outStock) {
           </div>
           </div>
           <div className="add__inventory-separation"></div>
-          <div class="add__inventory-form-bottom-container">
+          <div className="add__inventory-form-bottom-container">
             <div className="add__inventory-heading-bottom">
               <h2 className="add__inventory-heading-title">Item Availability</h2>
             </div>
@@ -172,66 +278,25 @@ if (this.state.outStock) {
    {/* // FIXME: must go here  */}
             <div className="add__inventory-form-warehouse-container">
               <div className="add__inventory-form-label-heading" >
-              <label
-                className="add__inventory-form-warehouse-label"
-                htmlFor="add__inventory-form-warehouse-input"
-              >
+              <label className="add__inventory-form-warehouse-label"
+                htmlFor="add__inventory-form-warehouse-input">
                 Warehouse
               </label>
-              <select
-                className="add__inventory-form-warehouse-input"
-                name="warehouse"
-                id="warehouse"
-              >
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Manhattan"
-                >
-                  Manhattan
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="King West"
-                >
-                  King West
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Granville"
-                >
-                  Granville
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="San Fran"
-                >
-                  San Fran
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Santa Monica"
-                >
-                  Santa Monica
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Seattle"
-                >
-                  Seattle
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Montreal"
-                >
-                  Montreal
-                </option>
-                <option
-                  className="add__inventory-form-warehouse-option"
-                  value="Boston"
-                >
-                  Boston
-                </option>
-              </select>
+
+              <select className="add__inventory-form-warehouse-input"
+                name="warehouse" id="warehouse">
+
+                {this.state.warehouses &&
+                  this.state.warehouses.map((warehouseMap) => 
+                    { return  <option key={warehouseMap.id}  id={warehouseMap.id} 
+                                      className="add__inventory-form-warehouse-option">
+                                {warehouseMap.name}
+                              </option>
+                  }
+                  )}
+
+              </select> 
+
               </div>
             </div>
           </div>
@@ -246,6 +311,7 @@ if (this.state.outStock) {
         </div>
       </form>
     </div>
-  );
-}
+    </>
+   );
+  }
 }
