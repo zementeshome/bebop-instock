@@ -82,51 +82,51 @@ export default class InventoryItemDetails extends React.Component{
 
  render() {
   return (
-    <div className="inventory">
-      <div className="inventory__header">
-        <h2 className="inventory__title">
+    <div className="warehouseInventory">
+      <div className="warehouseInventory__header">
+        <h2 className="warehouseInventory__title">
           {" "}
           <Link to="/inventories"><img
-            className="inventory__arrow"
+            className="warehouseInventory__arrow"
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt=""
           /></Link>{" "}
           Television
         </h2>
         {/* TODO: Add LINK */}
-        <button className="inventory__btn">
+        <button className="warehouseInventory__btn">
           <Link to="/editinventoryitem"><img
-            className="inventory__edit-icon"
+            className="warehouseInventory__edit-icon"
             src={process.env.PUBLIC_URL + "./assets/icons/editWhite24px.svg"}
             alt=""
           /></Link>
-          <span className="inventory__btn-edit-title">Edit</span>
+          <span className="warehouseInventory__btn-edit-title">Edit</span>
         </button>
       </div>
-      <div className="inventory__details">
-        <div className="inventory__item">
-  <h4 className="inventory__description-title">TITLE: </h4>
-          <p className="inventory__description">
+      <div className="warehouseInventory__details">
+        <div className="warehouseInventory__item">
+  <h4 className="warehouseInventory__description-title">TITLE: </h4>
+          <p className="warehouseInventory__description">
           {this.state.inventories.description}
           </p>
-          <h4 className="inventory__category">CATEGORY: </h4>
-          <p className="inventory__category-item">{this.state.inventories.itemName}</p>
+          <h4 className="warehouseInventory__category">CATEGORY: </h4>
+          <p className="warehouseInventory__category-item">{this.state.inventories.itemName}</p>
         </div>
-        <div className="inventory__line"></div>
-        <div className="inventory__stock">
-          <div className="inventory__status">
-            <h4 className="inventory__status-title">STATUS:</h4>
-            <div className="inventory__status-title-focus">
-              <p className="inventory__status-title-details">{this.state.inventories.status}</p>
+        <div className="warehouseInventory__line"></div>
+        <div className="warehouseInventory__stock">
+          <div className="warehouseInventory__status">
+            <h4 className="warehouseInventory__status-title">STATUS:</h4>
+            <div className="warehouseInventory__status-title-focus">
+              <p className="warehouseInventory__status-title-details">{this.state.inventories.status}</p>
             </div>
           </div>
-          <div className="inventory__quantity">
-            <h4 className="inventory__quantity-title">QUANTITY:</h4>
-            <p className="inventory__quantity-amount">{this.state.inventories.quantity}</p>
+          <div className="warehouseInventory__quantity">
+            <h4 className="warehouseInventory__quantity-title">QUANTITY:</h4>
+            <p className="warehouseInventory__quantity-amount">{this.state.inventories.quantity}</p>
           </div>
-          <div className="inventory__warehouse">
-            <h4 className="inventory__warehouse-title">WAREHOUSE:</h4>
-            <p className="inventory__warehouse-location">{this.state.inventories.warehouseName}</p>
+          <div className="warehouseInventory__warehouse">
+            <h4 className="warehouseInventory__warehouse-title">WAREHOUSE:</h4>
+            <p className="warehouseInventory__warehouse-location">{this.state.inventories.warehouseName}</p>
           </div>
         </div>
       </div>

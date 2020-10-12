@@ -60,5 +60,4 @@ class WarehouseListCard extends React.Component {
     );
   }
 }
-
 export default WarehouseListCard;

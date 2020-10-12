@@ -273,6 +273,9 @@ body {
     @include tablet {
       margin-left: 10%;
     }
+    @include desktop {
+      margin-left: 10%;
+    }
   }
 
   &__inventory-form-status-label {

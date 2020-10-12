@@ -2,6 +2,7 @@ import React from "react";
 import "./addNewInventoryItem.scss";
 import axios from "axios"
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header'
 
 export default class AddNewInventoryItem extends React.Component  {
   state= {
@@ -132,7 +133,11 @@ if (this.state.outStock) {
 
   return (
     <>
+<<<<<<< HEAD
+    < Header/>
+=======
     <Header />  
+>>>>>>> development
     <div className="add">
       <div className="add__inventory-title-container">
         <h2 className="add__inventory-title">
@@ -228,7 +233,7 @@ if (this.state.outStock) {
             </div>
             <div className="add__inventory-form-status-container">
               <label
-                className="add__inventory-form-status-label inventory__form-status-label-status "
+                className="add__inventory-form-status-label add__inventory-form-status-label-status"
                 htmlFor="add__inventory-form-status-input-container"
               >
                 Status
@@ -302,7 +307,14 @@ if (this.state.outStock) {
         </div>
       </form>
     </div>
+<<<<<<< HEAD
+  </>
+  );
+}
+}
+=======
     </>
    );
   }
 }
+>>>>>>> development

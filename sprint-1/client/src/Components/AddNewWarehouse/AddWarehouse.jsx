@@ -12,15 +12,21 @@ function getParams(pathname) {
   return (matchProfile && matchProfile.params) || {};
 };
 export default class AddWarehouse extends React.Component {
-    state = {  wareHouseNameEmpty: false,  streetEmpty: false, cityEmpty: false,
-               countryEmpty: false, contactEmpty:false,  positionEmpty: false,
-               phoneEmpty: false, emailEmpty: false }
-    // FUNCTION TO ADD NEW WAREHOUSE
-    // PREVENT ERRORS FIRST
-    addWarehouse = (e) => { e.preventDefault();
-      //VALIDATIONS
-      console.log('you are here 101')
 
+state = {
+  wareHouseNameEmpty: false,
+  streetEmpty: false,
+  cityEmpty: false,
+  countryEmpty: false,
+  contactEmpty:false,
+  positionEmpty: false,
+  phoneEmpty: false,
+  emailEmpty: false
+}
+ 
+   addWarehouse = (e) => {
+      e.preventDefault();
+console.log(e.target.warehouse.value);
       if (e.target.warehouse.value === '') {
         this.setState({ wareHouseNameEmpty: true})
       }  if (e.target.street.value === '')  {
@@ -62,24 +68,9 @@ export default class AddWarehouse extends React.Component {
           },
           data : addWarehouse
         };
-        axios(config)   
-          .then(result => {
-              // this.setState({
-              //     contact: response.data.contact,
-              //     warehouses: res.data, init:1,
-              //     inventories: result.data.inventories
-              // })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-        // AXIOS AND ADDING ENDS HERE
-   }   
-      document.getElementById("form").reset();
-      this.props.history.push("/");
-  };
-
+        document.getElementById("form").reset();
+   }
+    };
 
   render() {
 let isWarehouse; 
@@ -90,7 +81,7 @@ let name;
 let position;
 let phone;
 let email;
-
+let link;
 if (this.state.wareHouseNameEmpty) {
   isWarehouse = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
 }  if (this.state.streetEmpty) { 
@@ -116,12 +107,12 @@ if (this.state.wareHouseNameEmpty) {
  position= <div></div>; 
  phone= <div></div>; 
  email = <div></div>
-  
 }
 
     return (
-      <div className="add">
+      <>
         <Header />
+      <div className="add">
         <div className="add__title-container">
        <Link to="/warehouses"><img src="" alt="" /></Link>
           <h2 className="add__title"> <img
@@ -132,7 +123,6 @@ if (this.state.wareHouseNameEmpty) {
         <div className="add__form-container">
           <form
             id="form"
-            
             onSubmit={this.addWarehouse}
             className="add__form"
             action=""
@@ -147,7 +137,7 @@ if (this.state.wareHouseNameEmpty) {
                 Warehouse Name
               </label>
               <input
-                // id="warehouse-name"
+             
                 name="warehouse"
                 placeholder="Warehouse Name"
                 className="add__warehouse-input"
@@ -236,19 +226,17 @@ if (this.state.wareHouseNameEmpty) {
               <div className="add__warehouse-warning" >{email}</div>
             </div>
             <div className="add__warehouse-btn">
-              <button className="add__warehouse-btn-cancel">
+              <Link className="add__warehouse-btn-link"  to="/"><button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
+              </button></Link>
+             <button className="add__warehouse-btn-save">
+               <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
               </button>
-              
-              <button onClick={this.isEmpty}  className="add__warehouse-btn-save">
-              <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
-              </button>
-              
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
+      </>
     );
   }
 }

@@ -1,7 +1,6 @@
 // import React from './node_modules/react';
 import React from 'react';
-// import  InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
-import InventoryListCard from '../InventoryListCard/InventoryListCard';
+import  InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
 import './InventoryList.scss';
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
@@ -12,26 +11,10 @@ function getParams(pathname) {
   });
   return (matchProfile && matchProfile.params) || {};
 };
-class  InventoryList extends React.Component {
-    state = {inventories: [], init:0, search:[]}
-
-    //  onSearchChange = (searchText) => {
-    //     if (searchText !== '') {
-    //         searchText = searchText.toLowerCase();
-    //         const filteredWarehouses = this.state.inventories.filter(inventory => inventory.itemName.toLowerCase().includes(searchText) || inventory.warehouseName.toLowerCase().includes(searchText) || inventory.status.toLowerCase().includes(searchText) || inventory.category.toLowerCase().includes(searchText))
-    //         this.setState({
-    //             search: filteredWarehouses
-    //         })
-    //     } else {
-    //         this.setState({
-    //             search: ''
-    //         })
-    //     }
-    // }
-
+class InventoryList extends React.Component {
+    state = {inventories: [], init:0}
+    
    componentDidMount() {
-        // const id = this.props.match.params.id;
-        // console.log(id);
         const url = 'http://localhost:8080';
         const config = {
             method: 'get',
@@ -41,7 +24,6 @@ class  InventoryList extends React.Component {
           };
          axios(config)   
             .then(res => {
-              //console.log(res.data) /// working herer data 70 inventories objects OK
               const inventories = res.data
               this.setState({ inventories: res.data, init: 1  })
             })
@@ -137,11 +119,11 @@ class  InventoryList extends React.Component {
                 <img className="inventoryList__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="inventoryList__tablet-actions">ACTIONS</p>
             </div>
-            {this.state.inventories.map(( inventoryList) => 
-            < InventoryListCard key={ inventoryList.id} 
-                 id={ inventoryList.id} itemName={ inventoryList.itemName} 
-                 warehouseName={ inventoryList.warehouseName} status={ inventoryList.status} 
-                 category={ inventoryList.category} quantity={ inventoryList.quantity}/>)}
+            {this.state.inventories.map((inventoryList) => 
+            < InventoryListCard key={inventoryList.id} 
+                 id={ inventoryList.id} itemName={inventoryList.itemName} 
+                 warehouseName={inventoryList.warehouseName} status={inventoryList.status} 
+                 category={inventoryList.category} quantity={inventoryList.quantity}/>)}
             </div>
         </section>
         </>

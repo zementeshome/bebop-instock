@@ -1,8 +1,16 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Link, matchPath, Redirect, useHistory} from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Link,
+  matchPath,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
 import "./App.css";
-import WarehouseList from './Components/WarehouseList/WarehouseList';
-import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
+import WarehouseList from "./Components/WarehouseList/WarehouseList";
+import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
 import InventoryList from "./Components/InventoryList/InventoryList";
 import EditWarehouse from "./Components/EditWarehouse/EditWarehouse";
 import AddNewWarehouse from "./Components/AddNewWarehouse/AddWarehouse";
@@ -20,28 +28,30 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-      {/* <DeleteWarehouse /> */}
-      {/* <DeleteInventory /> */}
-      {/* <Background /> */}
         <BrowserRouter>
           <Switch>
-          {/* <Route component={PageNotFound} /> */}
-
-            <Route path="/editinventoryitem"  component={EditInventoryItem} />
+            <Route
+              exact
+              path="/editinventoryitem"
+              component={EditInventoryItem}
+            />
             <Route path="/addinventoryitem" component={AddNewInventoryItem} />
             <Route exact path="/editwarehouse" component={EditWarehouse} />
             <Route path="/addwarehouse" component={AddNewWarehouse} />
-            <Route exact path="/" component={WarehouseList}/>
+            <Route exact path="/" component={WarehouseList} />
             <Route exact path="/inventories" component={InventoryList} />
-            <Route exact path="/:id" component={WarehouseDetails}/>
-            
+            <Route exact path="/:id" component={WarehouseDetails} />
             {/* <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} /> */}
-           
-            <Route exact path="/inventories/:id" component={InventoryItemDetails} />
+            <Route
+              exact
+              path="/inventories/:id"
+              component={InventoryItemDetails}
+            />
           </Switch>
         </BrowserRouter>
-       </div>
+      </div>
     );
-  }}
+  }
+}
 
 export default App;
