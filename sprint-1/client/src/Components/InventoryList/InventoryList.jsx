@@ -1,6 +1,6 @@
 import React from 'react';
-import  inventoryListListCardMap from '../ inventoryListListCardMap/ inventoryListListCardMap';
-import './ inventoryList.scss';
+import  InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
+import './InventoryList.scss';
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
 import Header from '../Header/Header'
@@ -136,7 +136,7 @@ class  inventoryListList extends React.Component {
                 <p className=" inventoryList__tablet-actions">ACTIONS</p>
             </div>
             {this.state.inventories.map(( inventoryList) => 
-            < inventoryListListCardMap key={ inventoryList.id} 
+            < InventoryListCardMap key={ inventoryList.id} 
                  id={ inventoryList.id} itemName={ inventoryList.itemName} 
                  warehouseName={ inventoryList.warehouseName} status={ inventoryList.status} 
                  category={ inventoryList.category} quantity={ inventoryList.quantity}/>)}

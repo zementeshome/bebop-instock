@@ -1,5 +1,5 @@
 import React from "react";
-import "./inventoryItemDetails.scss";
+import "./warehouseInventoryItemDetails.scss";
 import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import axios from 'axios';
 

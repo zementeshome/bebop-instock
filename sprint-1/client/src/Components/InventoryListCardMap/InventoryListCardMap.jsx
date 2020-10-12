@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-//import './InventoryList.scss';
+import '../InventoryList/InventoryList.scss';
 
 function InventoryListCardMap (props) {
     //console.log('you are here 010101', props) // data passing correctly

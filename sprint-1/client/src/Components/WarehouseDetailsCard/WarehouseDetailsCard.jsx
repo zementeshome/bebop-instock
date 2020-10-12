@@ -7,7 +7,7 @@ class WarehouseDetailsCard extends Component {
         // const id = this.props.match.params.id;
         // console.log(this.props.id)
 
-        console.log('you are here 5: ' + this.props.id)
+        // console.log('you are here 5: ' + this.props.id)
 
         return (
             <section className="warehouse__details">

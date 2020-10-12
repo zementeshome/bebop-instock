@@ -17,11 +17,12 @@ state = {
   phoneEmpty: false,
   emailEmpty: false
 }
+ 
 
 
    addWarehouse = (e) => {
       e.preventDefault();
-
+console.log(e.target.warehouse.value);
       if (e.target.warehouse.value === '') {
         this.setState({ wareHouseNameEmpty: true})
       }  if (e.target.street.value === '')  {
@@ -54,12 +55,13 @@ state = {
             email: e.target.email.value,
           },
         };
+        document.getElementById("form").reset();
 
    }
       
-      document.getElementById("form").reset();
 
     };
+
 
 
 
@@ -72,7 +74,7 @@ let name;
 let position;
 let phone;
 let email;
-
+let link;
 if (this.state.wareHouseNameEmpty) {
   isWarehouse = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
 }  if (this.state.streetEmpty) { 
@@ -98,12 +100,13 @@ if (this.state.wareHouseNameEmpty) {
  position= <div></div>; 
  phone= <div></div>; 
  email = <div></div>
-  
+// link = <Link to="/"></Link>
 }
 
     return (
-      <div className="add">
+      <>
         <Header />
+      <div className="add">
         <div className="add__title-container">
        <Link to="/warehouses"><img src="" alt="" /></Link>
           <h2 className="add__title"> <img
@@ -221,14 +224,17 @@ if (this.state.wareHouseNameEmpty) {
               <Link to="/"><button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
               </button></Link>
-              <Link to="/"><button onClick={this.isEmpty}  className="add__warehouse-btn-save">
-                <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
-              </button></Link>
+             <button className="add__warehouse-btn-save">
+              {/* <Link  to="/">  */}
+               <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
+               {/* </Link> */}
+              </button>
             </div>
           </form>
           {/* </div> */}
         </div>
       </div>
+      </>
     );
   }
 }
