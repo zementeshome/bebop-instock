@@ -179,6 +179,61 @@ router.post("/", cors(), (req, res) => {
 });
 // # 20 - Back-End: API to POST/CREATE a New Warehouse
 
+// # 7 - Back-End: API to PUT/PATCH/EDIT a Warehouses ends
+router.patch('/:id', cors(), (req, res) => {
+  console.log(req.body)
+  if (req.body !== undefined) {
+    const id = req.params.id; 
+    let { name, address, city, country, contact } = req.body;
+
+    // WAREHOUSES JSON CONVERTS TO JSON
+    const warehouses = fs.readFileSync('./data/warehouses.json');
+    // WAREHOUSES JSON CONVERTS TO JSON
+    const warehousesJSON = JSON.parse(warehouses);
+
+    //console.log (warehousesJSON[id]['itemName'])         
+
+   // PARSE JSON ADDS REQ.BODY
+    const warehouse = warehousesREQ.find((object) => object.id === id);
+    const warehouseIndex = 
+       warehousesJSON.findIndex(warehouses => warehouses.id == id);
+    if (warehouseIndex >= 0) { 
+        if (id || name ) {
+           warehouse.name = name;
+        }
+        if (address){ warehouse.address = address; }
+        if (city){ warehouse.city = city; }
+        if (country) { warehouse.country = country; } 
+        if (contact) { warehouse.contact = contact; } 
+
+        console.log("you are here 2") // working
+        console.log(req.body) // working
+        // problem is contact
+
+        warehousesJSON.splice(warehouseIndex, 0, warehouse);
+  
+        // STRINGJSON  CONVERTS WAREHOUSESJSON TO STRING 
+        const stringJSON = JSON.stringify(warehousesJSON);
+
+        // FS.WRITE WRITES THE NEW JSON FILE
+        fs.writeFileSync('./data/warehouses.json',stringJSON, (err) => {
+          if (err) return console.log(err);
+        });
+
+        //you can try this one but is not required for PATCH because of duplication
+        //warehousesREQ.splice(warehouseIndex, 0, warehouse); //update also inventoriesREQ to see live the data
+
+        res.status(200).json(req.body)
+
+     } else {
+      return res.status(404).send({ error: "Edit not completed. Please refresh this page and edit again.", });
+     }
+  } else {
+     return res.status(404).send({ error: "Fields are required. Don't leave any field in blank.", });
+  }
+});
+// # 7 - Back-End: API to PUT/PATCH/EDIT a Warehouses ends
+
 // # 17 - Back-End: API to DELETE a Warehouse - Delete Start here
 //I am going to create checkWarehouseExists function later
 

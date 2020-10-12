@@ -7,10 +7,11 @@ import DeleteWarehouse from '../DeleteWarehouse/DeleteWarehouse';
 import Header from '../Header/Header';
 import Background from '../Background/Background';
 import axios from "axios";
+import "../DeleteWarehouse/DeleteWarehouse.scss";
+import { Link } from 'react-router-dom';
 
  class WarehouseList extends React.Component {
-    state = {warehouses: [], init:0}
-
+    state = {warehouses: [], deleteObject: false, deleteWarehouse: {}, warehouseName: {}, init:0}
 
 // TODO: THIS FUNC IS FOR SEARCH NEEDS TO BE CHANGED
     // function WarehouseList(props) {
@@ -28,8 +29,46 @@ import axios from "axios";
     //     }
 
 
+    // state = {deleteObject: false}
 
+    // function that delete  warehouse with particular id
 
+     deleteObject = (event) => {
+         event.preventDefault();
+         const url = 'http://localhost:8080';
+         const id = this.state.deleteWarehouse;
+         this.setState({deleteWarehouse: event.target.id})
+        let config = {
+            method: 'delete',
+            url: `${url}/warehouses/${id}`,
+            header: {},
+            payload: this.state.deleteWarehouse
+            };
+        axios(config)
+        .then( response => {
+            const notShowing = () => {
+                this.setState({ deleteObject: false})
+              }
+            notShowing();
+            const reloadPage = () => {
+                window.location.reload(false)
+            }
+            reloadPage();
+        })
+        .catch( error => {
+            console.log(error);
+        })
+    }
+            showing = (id, name) => {
+            this.setState({ deleteObject : true, deleteWarehouse: id, warehouseName: name})
+            }
+            
+            notShowing = () => {
+              this.setState({ deleteObject: false})
+            }
+            reloadPage = () => {
+                window.location.reload(false)
+            }
 
     async componentDidMount() {
       await axios.get('warehouses')
@@ -37,21 +76,27 @@ import axios from "axios";
         const warehouses = res.data
         this.setState({warehouses: warehouses, init:1})
       })
-    // console.log(this.state.warehouses);
     };
-    // }
-    // componentDidMount() {
-    //   this.setState({deleteObject: false})
-    // }
-
-    // componentDidUpdate(PrevState) {
-    //   console.log(PrevState);
-    //   // if (PrevParams.deleteObject != CurrentParams.deleteObject) {}
-    // }
     render () {
-    return(
-            <section className="warehouse">
+        // console.log(this.state.warehouseName)
+        let page;
+        if (this.state.deleteObject) {
+         page = <div className="deleteWarehouse">
+            <img className="deleteWarehouse__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} onClick={this.notShowing} alt="Close"/>
+            <h1 className="deleteWarehouse__title">Delete {this.state.warehouseName} warehouse?</h1>
+            <p className="deleteWarehouse__text">Please confirm that you'd like to delete the {this.state.warehouseName} from the list of warehouses.
+            You won't be able to undo this action.</p>
+            <div className="deleteWarehouse-buttons">
+                <button className="deleteWarehouse-buttons__cancel" type="submit" onClick={this.notShowing}>Cancel</button>
+                <button className="deleteWarehouse-buttons__delete" type="submit" onClick={this.deleteObject}>Delete</button>
+            </div>
+        </div>
+        }
+        else { 
+            page = <>
             <Header />
+            {/* <div>{page}</div> */}
+            <section className="warehouse">
             {/* <Background /> */}
             <div className="warehouse__container">
             <WarehouseSearch />
@@ -67,9 +112,14 @@ import axios from "axios";
                 <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>
                 <p className="warehouse__tablet-actions">ACTIONS</p>
             </div>
-                {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard key={warehouseDetails.id} id={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
+                {this.state.warehouses && this.state.warehouses.map((warehouseDetails) => <WarehouseListCard deleteObject={this.deleteObject} showing={this.showing} key={warehouseDetails.id} id={warehouseDetails.id} name={warehouseDetails.name} contact={warehouseDetails.contact.name} address={warehouseDetails.address} addressCity={warehouseDetails.city} addressCountry={warehouseDetails.country} contactPhone={warehouseDetails.contact.phone} contactEmail={warehouseDetails.contact.email}/>)}
             </div>
         </section>
+        </>
+       }
+         
+    return(
+        <div>{page}</div> 
     )}
     }
 

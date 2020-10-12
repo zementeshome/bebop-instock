@@ -4,6 +4,8 @@
 @import "../../styles/partials/fonts";
 
 .deleteWarehouse {
+    position: absolute;
+    z-index: 99;
     background-color: $white;
     @include tablet {
         margin-top: 9rem;

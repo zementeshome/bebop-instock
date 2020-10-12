@@ -2,9 +2,15 @@ import React from "react";
 import "./addWarehouse.scss";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
 import Header from '../Header/Header';
 
+function getParams(pathname) {
+  const matchProfile = matchPath(pathname, {
+    path: `/:id`,
+  });
+  return (matchProfile && matchProfile.params) || {};
+};
 export default class AddWarehouse extends React.Component {
 
 state = {
@@ -38,8 +44,8 @@ console.log(e.target.warehouse.value);
       } if (e.target.email.value === '')  {
         this.setState({emailEmpty: true})
       } else {
-        axios.post("/", AddWarehouse).then((res) => {
-        });
+        // AXIOS CALL TO ADD WAREHOUSE
+        let id = Date.now() + '-' + Date.now();
         let addWarehouse = {
           id: uuidv4(),
           name: e.target.warehouse.value,
@@ -50,8 +56,17 @@ console.log(e.target.warehouse.value);
             name: e.target.contact.value,
             position: e.target.position.value,
             phone: e.target.phone.value,
-            email: e.target.email.value,
+            email: e.target.email.value
+          }
+        };
+        const url = 'http://localhost:8080';
+        const config = {
+          method: 'post',
+          url: `${url}/warehouses`,
+          headers: { 
+            'Content-Type': 'application/json'
           },
+          data : addWarehouse
         };
         document.getElementById("form").reset();
    }
@@ -225,3 +240,12 @@ if (this.state.wareHouseNameEmpty) {
     );
   }
 }
+
+{/* <Link to="/"><button className="add__warehouse-btn-cancel">
+<h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
+</button></Link>
+<Link to="/">
+ <button onClick={this.isEmpty}  className="add__warehouse-btn-save">
+ <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
+ </button>
+</Link> */}

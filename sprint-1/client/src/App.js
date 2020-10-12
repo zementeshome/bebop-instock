@@ -20,10 +20,12 @@ import EditInventoryItem from "./Components/EditInventoryItem/EditInventoryItem"
 import AddNewInventoryItem from "./Components/AddNewInventoryItem/AddNewInventoryItem";
 // import DeleteInventory from "./Components/DeleteInventory/DeleteInventory";
 import DeleteWarehouse from "./Components/DeleteWarehouse/DeleteWarehouse";
-import Header from "./Components/Header/Header";
-import PageNotFound from "./Components/PageNotFound/PageNotFound";
+import Header from "./Components/Header/Header"
+import PageNotFound from "./Components/PageNotFound/PageNotFound"
+import HeaderInventory from './Components/HeaderInventory/HeaderInventory';
 class App extends React.Component {
-  render() {
+
+  render () {
     return (
       <div className="App">
         <BrowserRouter>
