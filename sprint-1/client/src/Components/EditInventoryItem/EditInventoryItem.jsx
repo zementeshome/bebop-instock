@@ -76,7 +76,7 @@ export default class EditeditInventoryItem extends React.Component {
             src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
             alt="Arrow"
           /></Link>
-          Edit editInventory Item
+          Edit Inventory Item
         </h2>
       </div>
       <form onSubmit={this.editeditInventory} className="editInventory__form" action="">

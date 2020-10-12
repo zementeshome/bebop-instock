@@ -8,30 +8,10 @@ import Header from '../Header/Header';
 import Background from '../Background/Background';
 import axios from "axios";
 import "../DeleteWarehouse/DeleteWarehouse.scss";
-import { Link } from 'react-router-dom';
+
 
  class WarehouseList extends React.Component {
     state = {warehouses: [], deleteObject: false, deleteWarehouse: {}, warehouseName: {}, init:0}
-
-// TODO: THIS FUNC IS FOR SEARCH NEEDS TO BE CHANGED
-    // function WarehouseList(props) {
-    //     let [warehouseData, setWarehouseData] = useState(props.warehouses)
-    //     const onSearchChange = (searchText) => {
-    //         if (searchText === '') { setWarehouseData(props.warehouses) }
-    //         else {
-    //             console.log(props.warehouses);
-    //             searchText = searchText.toLowerCase();
-    //             const filteredWarehouses = props.warehouses.filter(warehouse => warehouse.contact.name.toLowerCase().includes(searchText) || warehouse.name.toLowerCase().includes(searchText) || warehouse.address.toLowerCase().includes(searchText) || warehouse.city.toLowerCase().includes(searchText) || warehouse.country.toLowerCase().includes(searchText) || warehouse.contact.phone.toLowerCase().includes(searchText) || warehouse.contact.email.toLowerCase().includes(searchText));
-    //             // console.log('filtered', filteredWareHouses);
-    //             setWarehouseData(filteredWarehouses);
-    //         }
-    //         // console.log(searchText);
-    //     }
-
-
-    // state = {deleteObject: false}
-
-    // function that delete  warehouse with particular id
 
      deleteObject = (event) => {
          event.preventDefault();
@@ -78,7 +58,7 @@ import { Link } from 'react-router-dom';
       })
     };
     render () {
-        // console.log(this.state.warehouseName)
+     
         let page;
         if (this.state.deleteObject) {
          page = <div className="deleteWarehouse">
@@ -95,12 +75,9 @@ import { Link } from 'react-router-dom';
         else { 
             page = <>
             <Header />
-            {/* <div>{page}</div> */}
             <section className="warehouse">
-            {/* <Background /> */}
             <div className="warehouse__container">
             <WarehouseSearch />
-            {/* <DeleteWarehouse deleteObject={this.state.deleteObject}/>     */}
             <div className="warehouse__tablet-div">
                 <p className="warehouse__tablet-warehouse">WAREHOUSE</p>
                 <img className="warehouse__tablet-sorticon" src={process.env.PUBLIC_URL + '/assets/Icons/sort24px.svg'} alt="sort icon"/>

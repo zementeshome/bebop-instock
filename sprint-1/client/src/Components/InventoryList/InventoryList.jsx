@@ -1,4 +1,4 @@
-// import React from './node_modules/react';
+
 import React from 'react';
 import  InventoryListCardMap from '../InventoryListCardMap/InventoryListCardMap';
 import './InventoryList.scss';
@@ -31,66 +31,8 @@ class InventoryList extends React.Component {
             console.log(err)
     })
   }
-        // componentDidUpdate(PrevState) {
-        //   console.log('you are here 222')
-        //   const { pathname } = this.props.location;
-        // const prevPathname = PrevState.location.pathname;
-        // console.log(pathname)
-        // console.log(prevPathname)
-        // const currentParams = getParams(pathname);
-        // const prevParams = getParams(prevPathname);
-        // if (currentParams.id !== prevParams.id) {
-        //   if (currentParams.id !== undefined) {
-        //     const id = currentParams.id;
-        //     const url = 'http://localhost:8080';
-        //     const config = {
-        //     method: 'get',
-        //     url: `${url}/${id}`,
-        //     headers: { },
-        //     data : ''
-        //   };
-        //    // if (this.props.match.params.id !== prevProps.match.params.id) {
-        //       axios
-        //         .get(`${url}/${id}`)
-        //         .then((res) => {
-        //           this.setState({
-        //             inventories: res.data.find(
-        //               ( inventoryList) =>  inventoryList["id"] === currentParams.id
-        //             ),
-        //           });
-        //         })
-        //         .catch((err) => {
-        //           console.log(err);
-        //         });
-        //     //}
-        //     console.log('you are here 2K: ' + currentParams.id)
-        //     this.props.history.push(`${currentParams.id}`);
-        //   }
-        // }   
-        //   //   const id = this.props.match.params.id;
-        //   //   const url = 'http://localhost:8080';
-        //   //   const config = {
-        //   //   method: 'get',
-        //   //   url: `${url}/inventories/${id}`,
-        //   //   headers: { },
-        //   //   data : ''
-        //   // };
-        //   //   if (this.props.match.params.id !== prevProps.match.params.id) {
-        //   //     axios
-        //   //       .get(`${url}/inventories/${id}`)
-        //   //       .then((res) => {
-        //   //         this.setState({
-        //   //           inventories: res.data.find(
-        //   //             (inventories) => inventories["id"] === this.props.match.params.id
-        //   //           ),
-        //   //         });
-        //   //       })
-        //   //       .catch((err) => {
-        //   //         console.log(err);
-        //   //       });
-        //   //   }
-        //   }
-    render (/*onSearchChange*/) {
+  
+    render () {
 
 
       return (
@@ -103,7 +45,7 @@ class InventoryList extends React.Component {
         <div className="inventoryList__button-container">
         <input className="inventoryList__search" type='text' placeholder="Search..." style={{ fontFamily: 'Titillium Web', fontSize: '13px'}} /*onChange={(e) => onSearchChange(e.target.value)}*//>
             <img className="inventoryList__search-icon"src={process.env.PUBLIC_URL + '/assets/Icons/search24px.svg'} alt="maginifying glass" />
-            <Link to="/add inventoryListitem" style={{textDecoration: 'none'}}><button className="inventoryList__button"><span>+ Add New Item</span></button></Link>
+            <Link to="/addinventoryitem" style={{textDecoration: 'none'}}><button className="inventoryList__button"><span>+ Add New Item</span></button></Link>
             </div>
             </div>
             <div className="inventoryList__tablet-div">
@@ -120,7 +62,7 @@ class InventoryList extends React.Component {
                 <p className="inventoryList__tablet-actions">ACTIONS</p>
             </div>
             {this.state.inventories.map((inventoryList) => 
-            < InventoryListCard key={inventoryList.id} 
+            < InventoryListCardMap key={inventoryList.id} 
                  id={ inventoryList.id} itemName={inventoryList.itemName} 
                  warehouseName={inventoryList.warehouseName} status={inventoryList.status} 
                  category={inventoryList.category} quantity={inventoryList.quantity}/>)}

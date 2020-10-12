@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import '../InventoryList/InventoryList.scss';
 
 function InventoryListCardMap (props) {
-    //console.log('you are here 010101', props) // data passing correctly
-    // styling broken
+    const status = props.status
+    let stock;
+    if (status === 'In Stock') {
+    stock = <p className="inventoryList__status-instock">{props.status}</p>
+    } else {
+        stock = <p className="inventoryList__status-outstock">{props.status}</p>
+    }
+
+    
     return (
         <section className="inventoryList">
               <span className="inventoryList__line"></span>
@@ -14,11 +21,15 @@ function InventoryListCardMap (props) {
             <Link to={`/inventories/${props.id}`}><p className="inventoryList__item">{props.itemName}</p></Link>
             <img className="inventoryList__arrow" src={process.env.PUBLIC_URL + '/assets/Icons/chevronright24px.svg'} alt="right arrow"/>
             <h3 className="inventoryList__sub-heading">CATEGORY</h3>
+            <div className="inventoryList__category-container"  >
+
             <p className="inventoryList__category">{props.category}</p>
+
+            </div>
             </div>
             <div className="inventoryList__right-container">
               <h3 className="inventoryList__sub-heading">STATUS</h3>
-              <p className="inventoryList__status">{props.status}</p>
+              {stock}
               <h3 className="inventoryList__sub-heading">QTY</h3>
             <p className="inventoryList__quantity">{props.quantity}</p>
             <h3 className="inventoryList__sub-heading">WAREHOUSE</h3>

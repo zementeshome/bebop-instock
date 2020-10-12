@@ -1,5 +1,7 @@
 import React from 'react';
 import './HeaderInventory.scss';
+import { Link } from 'react-router-dom';
+
 
 function Header() {
     return(
@@ -10,9 +12,9 @@ function Header() {
                 </div>
                     <nav className="headerInventory__nav">
                     <ul className="headerInventory__nav-list">
-                        <li className="headerInventory__nav-item">Warehouses</li>
-                     <div className="headerInventory__nav-border">
-                        <li className="headerInventory__nav-item nav-item--active">Inventory</li>
+                    <Link to="/" style={{textDecoration: 'none'}}><li className="headerInventory__nav-item">Warehouses</li></Link>     
+                <div className="headerInventory__nav-border">
+                <Link to="/inventories" style={{textDecoration: 'none'}}><li className="headerInventory__nav-item nav-item--active">Inventory</li></Link>
                     </div>
                     </ul>
                 </nav>

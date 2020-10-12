@@ -20,7 +20,6 @@ export default class EditWarehouse extends React.Component {
         email: e.target.email.value,
       },
     };
-    // TODO: Delete clg
     console.log(editWarehouse);
     document.getElementById("form").reset();
   };
@@ -37,7 +36,6 @@ export default class EditWarehouse extends React.Component {
           <h2 className="edit__title">Edit Warehouse</h2>
         </div>
         <div className="edit__form-container">
-          {/* <div className="edit"> */}
           <form
             id="form"
             onSubmit={this.editWarehouse}
@@ -146,7 +144,6 @@ export default class EditWarehouse extends React.Component {
               </button></Link>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
       </>

@@ -41,7 +41,6 @@ class App extends React.Component {
             <Route exact path="/" component={WarehouseList} />
             <Route exact path="/inventories" component={InventoryList} />
             <Route exact path="/:id" component={WarehouseDetails} />
-            {/* <Route path="/warehouses/inventories/:id" component={InventoryItemDetails} /> */}
             <Route
               exact
               path="/inventories/:id"
