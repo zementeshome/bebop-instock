@@ -8,7 +8,7 @@ class WarehouseListCard extends React.Component {
     // console.log(this.state.deleteObject);
   }
   render() {
-    // console.log(this.props.id);
+    // console.log(this.props);
     return (
       <section className="warehouse">
         <div className="warehouse__content-container">

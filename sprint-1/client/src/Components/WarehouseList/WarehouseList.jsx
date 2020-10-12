@@ -76,10 +76,9 @@ import { Link } from 'react-router-dom';
       })
     };
     render () {
-        console.log(this.state.warehouses.name);
         // console.log(this.state.deleteWarehouse, 'this is the id')
         let page;
-        if (this.state.deleteObject) {
+        if (this.state.deleteObject && this.state.warehouses !== undefined) {
          page = <div className="deleteWarehouse">
             <Link to="/"><img className="deleteWarehouse__close" src={process.env.PUBLIC_URL + "./assets/icons/close24px.svg"} alt="Close"/></Link>
             <h1 className="deleteWarehouse__title">Delete {} warehouse?</h1>
