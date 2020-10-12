@@ -1,79 +1,116 @@
 import React from "react";
 import "./addWarehouse.scss";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-
+import { Link, matchPath, Redirect, useHistory } from "react-router-dom";
+import Header from '../Header/Header';
+function getParams(pathname) {
+  const matchProfile = matchPath(pathname, {
+    path: `/:id`,
+  });
+  return (matchProfile && matchProfile.params) || {};
+};
 export default class AddWarehouse extends React.Component {
-  addWarehouse = (e) => {
-    e.preventDefault();
-    if (e.target.warehouse.value === "") {
-      console.log(e.target.warehouse.value);
-      return (
-        <label className="add__warehouse-input-label" htmlFor="warehouse">
-          Warehouse Name
-        </label>
-      );
-    } else {
-      axios.post("/", AddWarehouse).then((res) => {
-        console.log(res.data);
-      });
-      let addWarehouse = {
-        // id: uuidv4(),
-        name: e.target.warehouse.value,
-        address: e.target.street.value,
-        city: e.target.city.value,
-        country: e.target.country.value,
-        contact: {
-          name: e.target.contact.value,
-          position: e.target.position.value,
-          phone: e.target.phone.value,
-          email: e.target.email.value,
-        },
-      };
-    }
-    // TODO: Delete clg
-    // console.log(addWarehouse);
-    document.getElementById("form").reset();
+    state = {  wareHouseNameEmpty: false,  streetEmpty: false, cityEmpty: false,
+               countryEmpty: false, contactEmpty:false,  positionEmpty: false,
+               phoneEmpty: false, emailEmpty: false }
+    // FUNCTION TO ADD NEW WAREHOUSE
+    // PREVENT ERRORS FIRST
+    addWarehouse = (e) => { e.preventDefault();
+      //VALIDATIONS
+      if (e.target.warehouse.value === '') {
+        this.setState({ wareHouseNameEmpty: true})
+      }  if (e.target.street.value === '')  {
+        this.setState({streetEmpty: true})
+      } if (e.target.city.value === '')  {
+        this.setState({cityEmpty: true})
+      } if (e.target.country.value === '')  {
+        this.setState({countryEmpty: true})
+      } if (e.target.contact.value === '')  {
+        this.setState({contactEmpty: true})
+      } if (e.target.position.value === '')  {
+        this.setState({ positionEmpty: true})
+      } if (e.target.phone.value === '')  {
+        this.setState({phoneEmpty: true})
+      } if (e.target.email.value === '')  {
+        this.setState({emailEmpty: true})
+      } else {
+        let addWarehouse = {
+          id: uuidv4(),
+          name: e.target.warehouse.value,
+          address: e.target.street.value,
+          city: e.target.city.value,
+          country: e.target.country.value,
+          contact: {
+            name: e.target.contact.value,
+            position: e.target.position.value,
+            phone: e.target.phone.value,
+            email: e.target.email.value
+          }
+        };
+        const url = 'http://localhost:8080';
+        const config = {
+          method: 'post',
+          url: `${url}/warehouses`,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : addWarehouse
+        };
+        axios(config)
+          .then(result => {
+             
+        })
+        .catch(err => {
+            console.log(err)
+        })
+   }
+      document.getElementById("form").reset();
+      this.props.history.push("/");
   };
-
-  // isEmpty = (e) => {
-  //   e.preventDefault();
-  //   if (e.target.warehouse.value === "") {
-  //     console.log(e.target.warehouse.value);
-  //     return (
-  //       <label className="add__warehouse-input-label" htmlFor="warehouse">
-  //         Warehouse Name
-  //       </label>
-  //     );
-  //   } else {
-  //     return null;
-  //   }
-  // };
-
   render() {
-    let isWarehouse = document.getElementsByClassName(".add__warehouse-input");
-    let isEmpty;
-
-    if (isWarehouse.value === "" || undefined || null) {
-      console.log("is empty");
-
-      return (isEmpty = (
-        <label className="add__warehouse-input-label" htmlFor="warehouse">
-          Warehouse Name
-        </label>
-      ));
-    } else {
-      // return (isEmpty = null);
-    }
-
+let isWarehouse;
+let street;
+let city;
+let country;
+let name;
+let position;
+let phone;
+let email;
+if (this.state.wareHouseNameEmpty) {
+  isWarehouse = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+}  if (this.state.streetEmpty) {
+  street = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+} if (this.state.cityEmpty) {
+  city = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+} if (this.state.countryEmpty) {
+  country = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+}  if (this.state.contactEmpty) {
+  name = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+}  if (this.state.positionEmpty) {
+  position = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+}  if (this.state.phoneEmpty) {
+  phone = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+}  if (this.state.emailEmpty) {
+  email = <div className="add__warehouse-warning-container" > <img className="add__warehouse-warning-img" src="../../assets/icons/error24px.svg" alt="Warning"/> This field is required </div>
+} else {
+  isWarehouse = <div></div>;
+ street= <div></div>;
+ city= <div></div>;
+ country= <div></div>;
+ name= <div></div>;
+ position= <div></div>;
+ phone= <div></div>;
+ email = <div></div>
+}
     return (
       <div className="add">
+        <Header />
         <div className="add__title-container">
-          <img src="" alt="" />
+          <Link to="/"><img src="" alt="" /></Link>
           <h2 className="add__title">Add New Warehouse</h2>
         </div>
         <div className="add__form-container">
-          {/* <div className="add"> */}
           <form
             id="form"
             onSubmit={this.addWarehouse}
@@ -96,8 +133,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
-              {isEmpty}
-
+              <div className="add__warehouse-warning">{isWarehouse}</div>
               <label className="add__warehouse-input-label" htmlFor="street">
                 Street Address
               </label>
@@ -107,10 +143,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
-              {/* {isEmpty} */}
-              {/* <label htmlFor="street" className="add__warning">
-                warning
-              </label> */}
+            <div className="add__warehouse-warning"  >{street}</div>
               <label className="add__warehouse-input-label" htmlFor="city">
                 City
               </label>
@@ -120,6 +153,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{city}</div>
               <label className="add__warehouse-input-label" htmlFor="country">
                 Country
               </label>
@@ -129,6 +163,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{country}</div>
             </div>
             <div className="add__form-divider"></div>
             <div className="add__form-container-top">
@@ -146,6 +181,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{name}</div>
               <label className="add__warehouse-input-label" htmlFor="cposition">
                 Position
               </label>
@@ -155,6 +191,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{position}</div>
               <label className="add__warehouse-input-label" htmlFor="number">
                 Phone Number
               </label>
@@ -164,6 +201,7 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{phone}</div>
               <label className="add__warehouse-input-label" htmlFor="email">
                 Email
               </label>
@@ -173,17 +211,17 @@ export default class AddWarehouse extends React.Component {
                 className="add__warehouse-input"
                 type="text"
               />
+              <div className="add__warehouse-warning" >{email}</div>
             </div>
             <div className="add__warehouse-btn">
               <button className="add__warehouse-btn-cancel">
                 <h3 className="add__warehouse-btn-cancel-h3"> Cancel</h3>
               </button>
-              <button className="add__warehouse-btn-save">
-                <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
+              <button onClick={this.isEmpty}  className="add__warehouse-btn-save">
+              <h3 className="add__warehouse-btn-save-h3">+ Add Warehouse</h3>
               </button>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
     );

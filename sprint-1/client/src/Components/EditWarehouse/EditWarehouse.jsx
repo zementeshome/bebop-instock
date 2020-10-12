@@ -1,6 +1,8 @@
 import React from "react";
 import "./editWarehouse.scss";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 
 export default class EditWarehouse extends React.Component {
   editWarehouse = (e) => {
@@ -18,19 +20,22 @@ export default class EditWarehouse extends React.Component {
         email: e.target.email.value,
       },
     };
-    // TODO: Delete clg
     console.log(editWarehouse);
     document.getElementById("form").reset();
   };
   render() {
     return (
+      <>
+        <Header />
       <div className="edit">
         <div className="edit__title-container">
-          <img src="" alt="" />
+          <Link to="/"><img
+            src={process.env.PUBLIC_URL + "./assets/icons/arrow-back24px.svg"}
+            alt="Arrow"
+          /> </Link>
           <h2 className="edit__title">Edit Warehouse</h2>
         </div>
         <div className="edit__form-container">
-          {/* <div className="edit"> */}
           <form
             id="form"
             onSubmit={this.editWarehouse}
@@ -131,17 +136,17 @@ export default class EditWarehouse extends React.Component {
               />
             </div>
             <div className="edit__warehouse-btn">
-              <button className="edit__warehouse-btn-cancel">
+              <Link to='/'><button className="edit__warehouse-btn-cancel">
                 <h3 className="edit__warehouse-btn-cancel-h3"> Cancel</h3>
-              </button>
-              <button className="edit__warehouse-btn-save">
+              </button></Link>
+              <Link to="/"><button className="edit__warehouse-btn-save">
                 <h3 className="edit__warehouse-btn-save-h3">Save</h3>
-              </button>
+              </button></Link>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </div>
+      </>
     );
   }
 }

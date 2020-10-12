@@ -20,7 +20,7 @@ body {
   position: absolute;
   left: 4.27%;
   right: 4.27%;
-  top: 11.79%;
+  // top: 11.79%;
   width: 90vw;
   top: 15vh;
   display: flex;
@@ -31,12 +31,12 @@ body {
   margin: 10% auto 30% auto;
   @include tablet {
     margin: -3% auto 30% auto;
-    padding-bottom: 1.9%;
+    // padding-bottom: 1.9%;
   }
   @include desktop {
     margin: -2.2% auto 30% auto;
     width: 1020px;
-    height: 612px;
+    // height: 612px;
   }
 
   &__title-container {
@@ -157,7 +157,7 @@ body {
       margin-bottom: 1.5%;
     }
     @include desktop {
-      margin-top: 4.5%;
+      margin-top: 3.5%;
       font-weight: 600;
       font-size: 14px;
       line-height: 22px;
@@ -174,6 +174,16 @@ body {
     border-radius: 20px;
     align-self: center;
     // box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border-radius: 20px;
+      border: 1px solid $instock-indigo;
+      outline: none;
+      // background-color: transparent;
+    }
 
     &:focus::placeholder {
       color: transparent;
@@ -197,6 +207,33 @@ body {
       }
     }
   }
+
+  &__warehouse-warning {
+    font-family: Titillium Web;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    height: 18px;
+    color: #c94515;
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-top: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__warehouse-warning-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__warehouse-warning-img {
+    width: 13.33px;
+    height: 13.33px;
+    margin-right: 4px;
+  }
+
   &__warehouse-btn {
     display: flex;
     justify-content: space-evenly;
@@ -213,6 +250,7 @@ body {
     }
     @include desktop {
       // width: 1020px;
+
       // height: 70px;
     }
   }
@@ -224,8 +262,8 @@ body {
     border: 1px solid #bdc5d5;
     box-sizing: border-box;
     border-radius: 20px;
-    width: 45%;
-    height: 52%;
+    width: 139px;
+    height: 36px;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -240,6 +278,9 @@ body {
       line-height: 22px;
       margin-right: 3%;
     }
+    @include desktop {
+      margin-right: 2%;
+    }
   }
 
   &__warehouse-btn-save {
@@ -252,6 +293,12 @@ body {
       margin-right: 4%;
     }
   }
+
+  &__warehouse-btn-link {
+    text-decoration: none;
+    margin-right: 2%;
+  }
+
   &__warehouse-btn-cancel-h3 {
     color: #5c667e;
   }

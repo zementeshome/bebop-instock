@@ -1,0 +1,537 @@
+@import '../../styles/partials/variables';
+
+@import '../../styles/partials/mixins';
+
+@import '../../styles/partials/functions';
+
+@import '../../styles/partials/fonts';
+
+.warehouse__details {
+    &-container {
+        @include mobile {
+          position: absolute;
+          height: 380%;
+          width: 91%;
+          border: 2px solid $white;
+          left: 4.27%;
+          right: 4.27%;
+          margin-top: 8rem;
+          box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+          border-radius: 3px;
+          margin-bottom: 6rem;
+          background-color: $white;   
+        }
+        @include tablet {
+            margin-top: 5.5rem;
+            height: 170%;
+        }
+    }
+
+    &-header-container {
+        @include mobile {
+            display: flex;
+            margin-left: 1.5rem;
+            margin-bottom: -1rem;
+            margin-top: 0.5rem;
+        }
+    }
+
+    &-arrowicon {
+        @include mobile {
+            margin-top: 1.8rem;
+        }
+    }
+
+    &-header{
+        @include mobile {
+        font-weight: 600;
+        font-size: 25px;
+        color: $instock-black;
+        margin-left: 0.5rem;
+        }
+    }
+
+    &-edit-container {
+        @include mobile {
+            position: absolute;
+            left: 82%;
+            top: 1.6%;
+        }
+        @include tablet {
+            left: 85%;
+            top: 3.8%;
+        }
+        @include desktop {
+            left: 90%;
+            top: 3%;
+        }
+    }
+
+    &-edit-circle {
+        @include mobile {
+            margin-top: -0.7rem;
+            width: 41px;
+            height: 41px;
+            border-radius: 20px;
+            background-color: $instock-indigo;
+        }
+        @include tablet {
+            width: 83px;
+            height: 35px;
+        }
+    }
+
+    &-editicon {
+        @include mobile {
+            width: 22px;
+            padding-top: 9px;
+        }
+        @include tablet {
+            width: 25px;
+            margin-left: -2rem;
+            margin-top: -0.3rem;
+        }
+    }
+
+    &-edit-text {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            margin-top: -1.8rem;
+            margin-left: 2.5rem;
+            font-size: 14px;
+            color: $white;
+        }
+    }
+
+    &-line {
+        @include mobile {
+            border-top: 1px solid $cloud;
+            width: 100%;
+            display: inline-block;
+        }
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &-tablet-line {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            border-top: 1px solid $cloud;
+            width: 100%;
+            display: inline-block; 
+        }
+    }
+
+    &-address-container {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+
+    &-subheading {
+        @include mobile {
+            font-weight: 600;
+            font-size: 11px;
+            color: $slate;
+            text-align: left;
+            margin-left: 1.2rem;
+        }
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &-subheading-1,
+    &-subheading-2,
+    &-subheading-3 {
+        @include mobile {
+            font-weight: 600;
+            font-size: 11px;
+            color: $slate;
+            text-align: left;
+            margin-left: 1.2rem;
+            width: 200px;
+        }
+    }
+
+    &-subheading-1 {
+        @include tablet {
+            margin-top: -0.2rem;
+        }
+        @include desktop {
+            margin-left: 1.1rem;
+        }
+    }
+
+    &-contact-div {
+        @include tablet {
+            margin-left: 18rem;
+            border-left: 1px solid $cloud;
+            height: 80px;
+        }
+        @include desktop {
+            margin-left: 30rem;
+            height: 72px;
+            padding-left: 2rem;
+        }
+    }
+
+    &-subheading-2{
+        @include tablet {
+            margin-left: 1.2rem;
+            margin-top: -4.3rem;
+            width: 100px;
+        }
+        @include desktop {
+            margin-left: 1.2rem;
+        }
+    }
+
+    &-subheading-3 {
+        @include tablet {
+            margin-left: 8rem;
+            margin-top: -4.65rem;
+        }
+        @include desktop {
+            margin-left: 15.1rem;
+        }
+    }
+
+    &-contactinfo {
+        @include tablet {
+            padding-left: 7rem;
+        }
+        @include desktop {
+            padding-left: 14rem;
+        }
+    }
+
+    &-contact {
+        @include tablet {
+            padding-left: -10rem;
+        }
+
+    }
+
+    &-line-tablet {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            border-bottom: 1px solid $cloud;
+            width: 100%;
+            display: inline-block;
+        }
+    }
+
+    &-tablet-div {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+        background-color: rgba(247, 248, 249, 0.7);
+        width: 100%;
+        }
+    }
+    &-tablet-sorticon {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            height: 20px;
+            width: 15px;
+            margin-top: 0.75rem;
+            margin-right: 3.8rem;
+        }
+        @include desktop {
+            margin-right: 13.5rem;
+        }
+    }
+    &-tablet-inventory,
+    &-tablet-category,
+    &-tablet-status,
+    &-tablet-quantity,
+    &-tablet-actions {
+        @include mobile {
+            display: none;
+        }
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 12px;
+            color: $slate;
+            margin-left: 1.2rem;
+        }
+    }
+
+    &-tablet-inventory{
+        @include desktop {
+            margin-left: 1.1rem;
+        }
+    }
+
+    &-tablet-category {
+        @include desktop {
+            margin-left: -2rem;
+        }
+    }
+
+    &-tablet-status {
+        @include tablet {
+            margin-left: 1.5rem;
+        }
+        @include desktop {
+            margin-left: -2.3rem;
+        }
+    }
+
+    &-tablet-quantity {
+        @include tablet {
+            margin-left: 2rem;
+        }
+        @include desktop {
+            margin-left: 3rem;
+        }
+    }
+
+    &-tablet-desktop {
+        @include mobile {
+
+        }
+    }
+
+    &-tablet-actions {
+        @include tablet {
+            margin-left: 0.5rem;
+        }
+        @include desktop {
+            margin-left: 2.5rem;
+        }
+    }
+
+    &-inventory-container {
+        display: flex;
+    }
+
+    &-arrow {
+        @include mobile {
+            width: 18px;
+            height: 18px;
+            padding-top: 1.57rem;
+            margin-left: 0.4rem;
+        }
+    }
+
+    &-arrow:hover {
+        transition: all 0.5s ease;
+        padding-left: 4px;
+      }
+
+    &-inventory {
+        @include mobile {
+            font-size: 12px;
+            font-weight: 600;
+            color: $instock-indigo;
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -1rem;
+            // width: 50px;
+            // margin-right: 0;
+        }
+        @include tablet {
+            padding-top: 0.5rem;
+        }
+    }
+
+    &-category-container {
+        @include tablet {
+        margin-top: -2rem;
+        }
+    }
+
+    &-category {
+        @include tablet {
+           padding-left: 10rem;
+            margin-top: -6rem;  
+        }
+        @include desktop {
+            padding-left: 16rem;
+        }
+    }
+
+    &-status {
+        @include tablet {
+            padding-left: -2rem;
+        }
+        @include desktop {
+            padding-left: 19rem;
+        }
+    }
+
+    &-quantity {
+        @include tablet {
+            padding-left: 9rem;  
+                // margin-top: 2rem;
+        }
+        @include desktop {
+            padding-left: 32rem;
+        }
+    }
+
+    &-quantity-container {
+        @include tablet {
+            margin-top: -2rem;
+        }
+    }
+
+    &-address,
+    &-contact,
+    &-contactinfo,
+    &-category,
+    &-status,
+    &-quantity,
+    &-status-instock,
+    &-status-outstock {
+        @include mobile {
+            font-size: 12px;
+            font-weight: 400;
+            text-align: left;
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+            margin-bottom: 8px;
+            width: 150px;
+        }
+        @include tablet {
+            display: flex;
+        }
+    }
+    &-status-instock,
+    &-status-outstock {
+        @include mobile {
+            margin-left: 1.2rem;
+            margin-top: -0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        @include tablet {
+            margin-top: -1rem;
+            margin-left: 0.5rem;
+        }
+        @include desktop {
+            margin-left: 12.5rem;
+        }
+    }
+
+    &-status-instock {
+        @include mobile {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+            width: 59px;
+            padding-left: 9px;
+            height: 23px;
+            padding-top: 2px;
+            border-radius: 20px;
+        }
+    }
+
+    &-status-outstock {
+        color: $red;
+        width: 85px;
+        background-color: rgba(201, 69, 21, 0.07);
+        height: 23px;
+        border-radius: 20px;
+        padding-top: 2px;
+        padding-left: 9px;
+    }
+
+
+    &-content-container {
+        @include mobile {
+        display: flex;
+        }
+        @include tablet {
+            margin-top: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+    }
+
+    &-address-left-container {
+        @include mobile {
+            width: 45%;
+        }
+    }
+   &-left-container {
+       @include tablet {
+           width: 210px;
+       }
+   }
+
+   &-right-container {
+       @include tablet {
+           width: 200px;
+       }
+       @include tablet {
+           margin-left: 6.5rem;
+       }
+   }
+
+    &-address-right-container {
+        @include mobile {
+            width: 50%;
+            margin-top: 4.6rem;
+        }
+        // @include tablet {
+        //     display: flex;
+        //     justify-content: flex-end;
+        // }
+    }
+
+    &-arrow {
+        @include mobile {
+            width: 18px;
+            height: 18px;
+            margin-top: -2rem;
+        }
+    }
+
+    &-icon-container {
+        @include mobile {
+        display: flex;
+        margin-left: 1rem;
+        margin-top: 0.7rem;
+        justify-content: space-between;
+        margin-right: 1rem;
+        }
+        @include tablet {
+            justify-content: flex-start;
+            margin-right: 2rem;
+            margin-left: 37rem;
+        }
+        @include desktop {
+            margin-left: 72rem;
+        }
+    }
+
+    &-delete-icon {
+        @include mobile {
+        width: 20px;
+        height: 25px;
+        }
+        @include tablet {
+            margin-top: -4.5rem;
+            padding-left: 1rem;
+        }
+    }
+}

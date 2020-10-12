@@ -1,0 +1,97 @@
+<<<<<<< HEAD:sprint-1/client/src/components/DeleteWarehouse/DeleteWarehouse.scss
+=======
+@import "../../styles/partials/variables";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/functions";
+@import "../../styles/partials/fonts";
+
+.deleteWarehouse {
+    position: absolute;
+    z-index: 99;
+    background-color: $white;
+    @include tablet {
+        margin-top: 9rem;
+        margin-left: 5vw;
+        width: 90vw;
+    }
+    @include desktop {
+        margin-left: 22.5vw;
+        margin-top: 10rem;
+        width: 55vw;  
+    }
+    &__close {
+        margin-left: 17rem;
+        padding-top: 10px;
+        @include tablet {
+            margin-left: 40rem;
+        }
+    }
+
+    &__title {
+        color: $instock-black;
+        padding-top: 10px;
+        margin-top: 0;
+        text-align: left;
+        margin-left: 5vw;
+        @include tablet {
+            width: 75vw;
+            text-align: left;
+            margin-left: 5vw;
+        }
+    }
+
+    &__text {
+        font-weight: 100;
+        padding-bottom: 21rem;
+        text-align: left;
+        margin-left: 5vw;
+        @include tablet {
+            text-align: left;
+            padding-bottom: 1rem;
+            width: 65vw;
+            margin-left: 5vw;
+        }
+        @include desktop {
+            width: 40vw;
+        }
+    }
+
+    &-buttons {
+        width: 90vw;
+        margin-left: 5vw;
+        padding-bottom: 18px;
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            width: 22vw;
+            margin-left: auto;
+            margin-right: 5vw;
+            padding-bottom: 2rem;
+        }
+        @include desktop {
+            width: 13vw;
+        }
+        &__cancel {
+            padding: 8px 47px;
+            border-radius: 17px;
+            border: 1px solid $cloud;
+            background-color: $white;
+            color: $slate;
+            @include tablet {
+                padding: 8px 18px;
+            }
+        }
+
+        &__delete {
+            background-color: $red;
+            padding: 8px 47px;
+            border-radius: 17px;
+            border: none;
+            color: $white;
+            @include tablet {
+                padding: 8px 18px;
+            }
+        }
+    }
+}
+>>>>>>> development:sprint-1/client/src/Components/DeleteWarehouse/DeleteWarehouse.scss
